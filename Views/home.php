@@ -57,8 +57,8 @@
     <!--FIM FORMULARIO-->
 
     <!--INICIO TABELA-->
-    <table class="table table-bordered table-light">
-            <tr">
+    <table class="table table-bordered table-light mt-2">
+            <tr class="bg-info text-center">
                 <th>Data</th>
                 <th>Tipo</th>
                 <th>Nome</th>

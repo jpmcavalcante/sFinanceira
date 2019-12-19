@@ -22,25 +22,27 @@
 </head>
 <body class="hold-transition login-page">
 
-    <?php if (!empty($error)): ;?>
-    <div class="callout callout-danger">
-        <p><?php echo $error;?></p>
-    </div>
-    <?php endif;?>
+    
 
 
-        <div class="card card-login mx-auto text-center bg-info animated bounceInLeft" style="max-width: 30%;">
+        <div class="card card-login mx-auto text-center bg-info animated bounceInLeft" style="max-width: 25%;">
             <div class="card-header mx-auto bg-info">
                 <span> 
                     <img src="<?php echo BASE_URL; ?>assets/img/logo_ms.png" alt="Logo MS Crédito" class="brand-image"
                     style="max-width: 40%;">
                 </span>
-                <br/>
     
     <!--            <h1>--><?php //echo $message?><!--</h1>-->
             </div>
 
             <div class="card-body">
+
+            <?php if (!empty($error)): ;?>
+                <div class="callout callout-danger">
+                    <p><?php echo $error;?></p>
+                </div>
+            <?php endif;?>
+
                 <form action="<?php echo BASE_URL;?>login/index_action/" method="post">
                     <div class="input-group form-group justify-content-center">
                         <div class="input-group-prepend">

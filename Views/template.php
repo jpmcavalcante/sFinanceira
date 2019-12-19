@@ -20,12 +20,12 @@
     <!--Bootastrap 4.4.1-->
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 </head>
-<body class="hold-transition sidebar-mini">
-<div class="wrapper">
+<body class="hold-transition sidebar-mini" style="background: #ebebeb; box-sizing: border-box;">
+<div class="wrapper" style="width: 100vw;">
 
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light bar-header" style="">
-    <div class="container">
+    <nav class="navbar navbar-light container-fluid" style="">
+    <div class="container-fluid">
     <!-- Left navbar links -->
         <ul class="navbar-nav botao-menu">
             <li class="nav-item">
@@ -158,7 +158,7 @@
     <!-- /.control-sidebar -->
 
     <!-- Main Footer -->
-    <footer class="main-footer" style="text-align: center">
+    <footer class="main-footer container-fluid" style="text-align: center;">
         <!-- To the right -->
         
         <!-- Default to the left -->

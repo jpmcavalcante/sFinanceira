@@ -21,11 +21,11 @@
     <div class="box-body">
 
 <form class="form-horizontal" action="<?php echo BASE_URL;?>colaborador/save"  method="POST">
-    <input type="text" name="nome"   placeholder="nome">
-    <input type="text" name="email"   placeholder="email">
-    <input type="password" name="senha"  placeholder="Senha">
+    <input class="pl-1" type="text" name="nome"   placeholder="Nome">
+    <input class="pl-1" type="text" name="email"   placeholder="Email">
+    <input class="pl-1" type="password" name="senha"  placeholder="Senha">
 
-    <button type="submit" id="addColaborador">Salvar</button>
+    <button class="btn-info" type="submit" id="addColaborador">Salvar</button>
     </div>
 </form>
 </div>
@@ -33,20 +33,20 @@
 <hr>
 
 
-<table class="table">
-    <tr>
+<table class="table table-bordered">
+    <tr class="bg-info text-center">
         <th>Nome do colaborador</th>
         <th>Email</th>
         <th>Ações</th>
     </tr>
 
     <?php foreach ($list as $item): ?>
-        <tr>
+        <tr class="bg-light">
             <td><?php echo $item['nome'];?></td>
             <td><?php echo $item['email'];?></td>
             <td>
                 <a href="<?php echo BASE_URL.'colaborador/edit/'.$item['id'];?>" class="btn btn-xs btn-primary">Editar</a>
-                <a href="<?php echo BASE_URL.'colaborador/del/'.$item['id'];?>" class="btn btn-xs btn-primary">Deletar</a>
+                <a href="<?php echo BASE_URL.'colaborador/del/'.$item['id'];?>" class="btn btn-xs btn-secondary">Deletar</a>
             </td>
 
 
