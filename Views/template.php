@@ -15,8 +15,10 @@
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/novaProposta/NovaPasta.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
+    <!--CSS Interno-->
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/style.css">
+    <!--Bootastrap 4.4.1-->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -50,12 +52,15 @@
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-style elevation-4">
+    <aside class="main-sidebar sidebar-style elevation-4 bg-info">
         <!-- Brand Logo -->
         <div class="brand-logo">
-            <img src="<?php echo BASE_URL; ?>assets/img/logo_ms.png" alt="Logo Leite Neves Advocacia" class="brand-image"
+            <img src="<?php echo BASE_URL; ?>assets/img/logo_ms.png" alt="Logo Sistema MS" class="brand-image"
                  style="max-width: 80%;">
         </div>
+
+
+
         <!-- Sidebar -->
         <div class="sidebar list-sidebar" >
             <!-- Sidebar user panel (optional) -->
@@ -167,9 +172,11 @@
 <!-- jQuery -->
 <script src="<?php echo BASE_URL; ?>assets/adminlte/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="<?php echo BASE_URL; ?>assets/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?php echo BASE_URL; ?>assets/bootstrap/js/bootstrap.min.js"></script>
+<!--<script src="<?php echo BASE_URL; ?>assets/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>-->
+
 <!-- AdminLTE App -->
-<script src="<?php echo BASE_URL; ?>assets/adminlte/dist/js/adminlte.min.js"></script>
+<!-- <script src="<?php echo BASE_URL; ?>assets/adminlte/dist/js/adminlte.min.js"></script> -->
 <!-- jQuery mask min-->
 <script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/jquery.mask.min.js"></script>
 <!--  scripts-->
