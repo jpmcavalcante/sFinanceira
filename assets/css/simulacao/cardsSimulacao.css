@@ -1,0 +1,39 @@
+ 
+  .card {
+    border-radius: 4px;
+    position: relative;
+    transition: all .5s ease;
+    background:  rgb(192, 192, 192);
+  }
+  
+  .card > :last-child {
+    margin-bottom: inherit;
+  } 
+  
+  .status-card {
+    border-left: 5px solid #39b54a;
+  }
+  
+  .status-card.alert {
+    border-left-color: #e6001f;
+  }
+  
+  .user-info {
+    position: relative;
+    margin:5px;
+  }
+
+  .card h4 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0;
+    margin-left: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 3px;
+  }
+
+  .card #limite{
+    padding: 5px;
+  }

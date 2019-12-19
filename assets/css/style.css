@@ -1,0 +1,101 @@
+.botao-menu{
+    display: none;
+}
+
+.nav-item1 a:hover{
+    color: rgba(255, 255, 255, 0.904) !important;
+}
+.brand-logo{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar-style{
+    background-color: #0c5480;
+    width: 10vw;
+    font-size: 100%;  
+}
+
+.main-conteudo{
+    margin-left: 10vw;
+}
+
+.item-style{
+    display: flex;
+    flex-direction: column;
+    font-size: 80%;
+    color: rgba(255, 255, 255, 0.904);
+    
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px 10px rgba(24, 24, 24, 0.26);
+}
+    .item-style p{
+        margin: 0;
+    }
+
+.nav-item:hover {
+    background-color: #0c496e;
+    transition: background 1s ease;
+}
+
+
+
+.content-template{
+    width: 90vw;
+    background-color: #ebebeb;
+    margin-right: 0;
+
+}
+
+.form-control{
+    min-width: 80px;
+}
+
+
+
+
+
+/* AJUSTE DE TELA MENOR QUE 768PX DE LARGURA */
+@media screen and (max-width: 768px){
+
+
+    .sidebar-style{
+        background-color: #0c5480;
+        width: 15vw;
+        font-size: 100%;
+    }
+
+    .main-conteudo{
+        width: 85vw;
+    }
+
+    .bar-header{
+       padding-left: 20%;
+        box-sizing: border-box;
+    }
+
+    .item-style{
+        border: none;
+        margin-bottom: 40%;
+        box-shadow: 0px 0px 0px transparent;
+        font-size: 70%;
+        text-align: center;
+    }
+       .item-style p{
+           display: none;
+       }
+       .item-style i{
+           margin: 
+       }
+
+       .user-panel{
+           opacity: 0;
+       }
+
+    .botao-menu{
+        display: inline;
+    }
+}

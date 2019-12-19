@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e711bf9b-c6f7-40dc-b84f-ecb138515f9a" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution>
+      <executable path="/usr/local/bin/composer" />
+    </execution>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1Rx3fnZaV3XddQ312jRoov6SNiK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/js" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/js" />
+      <recent name="$PROJECT_DIR$/assets/css" />
+      <recent name="$PROJECT_DIR$/Views" />
+      <recent name="$PROJECT_DIR$/Models" />
+      <recent name="$PROJECT_DIR$/Controllers" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e711bf9b-c6f7-40dc-b84f-ecb138515f9a" name="Default Changelist" comment="" />
+      <created>1570595025679</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1570595025679</updated>
+      <workItem from="1570595026965" duration="6332000" />
+      <workItem from="1570719516312" duration="8928000" />
+      <workItem from="1570750403950" duration="25989000" />
+      <workItem from="1570921734534" duration="20188000" />
+      <workItem from="1571102325362" duration="46000" />
+      <workItem from="1571102387550" duration="12154000" />
+      <workItem from="1571277215719" duration="10564000" />
+      <workItem from="1571970161868" duration="9589000" />
+      <workItem from="1572267144947" duration="603000" />
+      <workItem from="1572292287593" duration="10959000" />
+      <workItem from="1572348586926" duration="5602000" />
+      <workItem from="1572544513003" duration="144000" />
+      <workItem from="1572544679977" duration="937000" />
+      <workItem from="1572640211115" duration="18345000" />
+      <workItem from="1572703450122" duration="4381000" />
+      <workItem from="1572716905079" duration="2318000" />
+      <workItem from="1572870840391" duration="4977000" />
+      <workItem from="1572908459241" duration="13082000" />
+      <workItem from="1573065497793" duration="11359000" />
+      <workItem from="1573077999792" duration="304000" />
+      <workItem from="1576534991277" duration="3803000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="416" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1576535874330">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="416" y="155" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.1366.741@0.27.1366.741" timestamp="1576535874330" />
+    <state x="347" y="174" key="run.anything.popup" timestamp="1576535442065">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="347" y="174" key="run.anything.popup/0.27.1366.741@0.27.1366.741" timestamp="1576535442065" />
+  </component>
+</project>
