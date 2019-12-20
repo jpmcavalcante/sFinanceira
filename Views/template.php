@@ -10,7 +10,7 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/adminlte/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/adminlte/dist/css/adminlte.min.css">
+    <!--<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/adminlte/dist/css/adminlte.min.css">-->
     <!-- Theme style nova proposta-->
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/novaProposta/NovaPasta.css">
     <!-- Google Font: Source Sans Pro -->
@@ -172,11 +172,11 @@
 <!-- jQuery -->
 <script src="<?php echo BASE_URL; ?>assets/adminlte/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="<?php echo BASE_URL; ?>assets/bootstrap/js/bootstrap.min.js"></script>
-<!--<script src="<?php echo BASE_URL; ?>assets/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>-->
+<script src="<?php echo BASE_URL; ?>assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?php echo BASE_URL; ?>assets/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- AdminLTE App -->
-<!-- <script src="<?php echo BASE_URL; ?>assets/adminlte/dist/js/adminlte.min.js"></script> -->
+<script src="<?php echo BASE_URL; ?>assets/adminlte/dist/js/adminlte.min.js"></script>
 <!-- jQuery mask min-->
 <script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/jquery.mask.min.js"></script>
 <!--  scripts-->
