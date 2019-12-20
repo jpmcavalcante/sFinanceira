@@ -25,7 +25,7 @@
     
 
 
-        <div class="card card-login mx-auto text-center bg-info animated bounceInLeft" style="max-width: 25%;">
+        <div class="card card-login mx-auto text-center bg-info animated bounceInDown" style="max-width: 25%;">
             <div class="card-header mx-auto bg-info">
                 <span> 
                     <img src="<?php echo BASE_URL; ?>assets/img/logo_ms.png" alt="Logo MS Crédito" class="brand-image"

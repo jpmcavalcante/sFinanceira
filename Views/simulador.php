@@ -1,5 +1,4 @@
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/simulacao/cardsSimulacao.css">
+<link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/bootstrap/css/bootstrap.min.css">
 <div class="container">
     <div class="form-row">
         <div class=" fxd  col-md-12">
@@ -32,6 +31,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/jquery-3.4.1.min.js"></script>
+
+<!--Bootstrap-->
+<script type="text/javascript" src="<?php echo BASE_URL;?>/assets/bootstrap/js/bootstrap.min.js"></script>
 
 <!-- IMPORTS DAS ETAPAS -->
 <script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/jquery.mask.js"></script>
