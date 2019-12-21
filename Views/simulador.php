@@ -21,8 +21,6 @@
 
         <div id="simulacao" class="col-md-12" style="margin: 20px;">
 
-
-
         </div>
 
     </div>
