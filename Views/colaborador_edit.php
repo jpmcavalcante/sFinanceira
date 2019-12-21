@@ -1,34 +1,28 @@
 
-<?php if (!empty($erros['suc'])): ?>
-    <div class="alert alert-success" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        <p><?php echo $erros['suc']; ?></p>
-    </div>
-<?php elseif (!empty($erros['er'])): ?>
-    <div class="alert alert-danger" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        <p><?php echo $erros['er']; ?></p>
-    </div>
-<?php endif; ?>
-
 <div class="box">
     <div class="box-header">
         <h3 class="box-title">Editar - Colaborador</h3>
     </div>
-    <div class="box-body">
 
-        <form class="form-horizontal" action="<?php echo BASE_URL;?>colaborador/edit_action/<?php echo $listColab['id'];?>"  method="POST">
 
-            <input type="text" name="nome"       value="<?php echo $listColab['nome'];?>">
-            <input type="text" name="email"      value="<?php echo $listColab['email'];?>">
-            <input type="text" name="senha"      value="<?php echo $listColab['senha'];?>">
+        <form class="form-horizontal" id="formEdit" >
 
-            <button type="submit">Alterar</button>
-    </div>
+            <input type="text" name="nome"       value="<?php echo $info['nome'];?>">
+            <input type="text" name="email"      value="<?php echo $info['email'];?>">
+            <input type="text" name="atendente"      value="<?php echo $info['atendente'];?>">
+            <input type="text" name="unidade"      value="<?php echo $info['unidade'];?>">
+
+
+            <select  name="nivel">
+                <option></option>
+                <?php foreach ($permissaoList as $item):?>
+                    <option <?php echo ($item['id']==$info['id_permission']) ? 'selected' : '' ;?>
+                            value="<?php echo $item['id']; ?>"><?php echo $item['name'];?></option>
+                <?php endforeach;?>
+            </select>
+
+            <input type="button" id="btnformEdit" value="editar">
+
     </form>
 </div>
 

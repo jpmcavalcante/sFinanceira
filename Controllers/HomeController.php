@@ -19,9 +19,9 @@ class HomeController extends Controller {
             exit;
         }
 
-       $this->arrayInfo = array(
-          
-       );
+        $this->arrayInfo = array(
+            'colaborador' => $this->col
+        );
     }
 
     public function index() {

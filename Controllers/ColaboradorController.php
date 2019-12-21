@@ -19,66 +19,56 @@ class ColaboradorController extends Controller {
             header("Location:".BASE_URL."login");
             exit;
         }
+        //impede o acesso pela url se o cara não tem permissão
+        if (!$this->col->temPermissao('cad_colaborador')) {
+            header("Location:".BASE_URL);
+            exit;
+        }
 
-        $this->arrayInfo = array(
-            'frase' => ''
-        );
+
     }
 
     public function index() {
 
-        $this->arrayInfo['erros'] = array('er' => '', 'suc' =>'');
-
-        if (!empty($_SESSION['errorMsg'])){
-            $this->arrayInfo['erros']['er'] = $_SESSION['errorMsg'];
-
-            $_SESSION['errorMsg'] = '';
-        }elseif (!empty($_SESSION['sucMsg'])){
-            $this->arrayInfo['erros']['suc'] = $_SESSION['sucMsg'];
-
-            $_SESSION['sucMsg'] = '';
-        }
-
-        $col = new Colaborador();
-
-        $this->arrayInfo['list'] = $col->getAllItems();
-
-        $this->loadTemplate('colaborador_add', $this->arrayInfo);
-    }
-
-    public function save(){
-
-        if (!empty($_POST['nome']) && !empty($_POST['senha']) && !empty($_POST['nome'])){
-            $nome = addslashes($_POST['nome']);
-            $email = addslashes($_POST['email']);
-            $senha = addslashes($_POST['senha']);
+            $this->arrayInfo = array(
+                'colaborador' => $this->col
+            );
 
             $col = new Colaborador();
 
-            if($col->salvar($nome, $email, $senha)){
-                $_SESSION['sucMsg'] = 'Colaborador adicionado com sucesso';
-                header("Location:".BASE_URL."colaborador");
-                exit;
-            }else{
-                $_SESSION['errorMsg'] = 'Ocorreu algum erro!! Entre em contato com o administrador do sistema';
-            }
-            header("Location:".BASE_URL."colaborador");
-            exit;
+            $this->arrayInfo['list'] = $col->getAllItems();
+
+            $this->arrayInfo['listGroups'] = $col->getGroups();
+
+            $this->loadTemplate('colaborador_add', $this->arrayInfo);
+
+        }
+
+    public function save() {
+
+        try {
+            $col = new Colaborador();
+            $post = $_POST ?? null;
+            $data = $this->obj($post);
+
+            if ($col->salvar($data))
+                echo json_encode(["success" => true, "message" => "Salvo com sucesso", "data" => $data]);
+
+
+        }catch (\Exception $e){
+            echo json_encode(["success" => false, "message" => $e->getMessage()]);
         }
     }
 
     public function edit($id){
         $col = new Colaborador();
 
+        $this->arrayInfo['permissaoList'] = $col->listaPermissao();
+
+        $this->arrayInfo['info'] = $col->get($id);
+
         if(!empty($id)){
 
-            $this->arrayInfo['listColab'] = $col->get($id);
-
-
-
-            if(count($this->arrayInfo['listColab']) > 0){
-
-            }
             $this->loadTemplate('colaborador_edit', $this->arrayInfo);
         }else{
             header("Location:".BASE_URL."colaborador");
@@ -87,28 +77,23 @@ class ColaboradorController extends Controller {
     }
 
     public function edit_action($id){
-        $col = new Colaborador();
 
-        if (!empty($id)){
 
-            if (!empty($_POST['nome']) && !empty($_POST['senha']) && !empty($_POST['nome'])) {
-                $nome = addslashes($_POST['nome']);
-                $email = addslashes($_POST['email']);
-                $senha = addslashes($_POST['senha']);
+        try {
+            $col = new Colaborador();
+            $post = $_POST ?? null;
+            $data = $this->obj($post);
 
-                $col->update($nome, $email, $senha, $id);
+            var_dump($data); exit;
 
-                $_SESSION['sucMsg'] = 'Colaborador editado com sucesso';
-                header("Location:".BASE_URL."colaborador");
-                exit;
-            }else{
-                header("Location:".BASE_URL."colaborador/edit/".$id);
-                exit;
-            }
-        }else{
-            header("Location: ".BASE_URL."colaborador");
-            exit;
+            if ($col->update($data))
+                echo json_encode(["success" => true, "message" => "Salvo com sucesso", "data" => $data]);
+
+
+        }catch (\Exception $e){
+            echo json_encode(["success" => false, "message" => $e->getMessage()]);
         }
+
 
 
     }
@@ -127,6 +112,16 @@ class ColaboradorController extends Controller {
             header("Location: ".BASE_URL."colaborador");
             exit;
         }
+    }
+
+    public function obj($post){
+        $request = new \stdClass();
+
+        foreach ($post as $k => $v){
+            $request->$k = $v;
+        }
+
+        return $request;
     }
 
 

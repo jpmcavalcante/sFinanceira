@@ -11,16 +11,16 @@ class SimuladorController extends Controller {
 
     public function __construct(){
 
-        $this->arrayInfo = array(
-
-        );
-
         $this->col = new Colaborador();
 
         if (!$this->col->isLogged()){
             header("Location:".BASE_URL."login");
             exit;
         }
+
+        $this->arrayInfo = array(
+            'colaborador' => $this->col
+        );
     }
 
     public function index() {

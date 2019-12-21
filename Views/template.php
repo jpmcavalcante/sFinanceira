@@ -2,7 +2,7 @@
 
 <html lang="pt-br">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
@@ -18,8 +18,8 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <!--CSS Interno-->
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/style.css">
-    <!--Bootastrap 4.4.1-->
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <!--Bootastrap 4.4.1
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">-->
 </head>
 <body class="hold-transition sidebar-mini" style="background: #ebebeb; box-sizing: border-box;">
 <div class="wrapper" style="width: 100vw;">
@@ -115,7 +115,7 @@
                         </a>
                     </li>
 
-
+                    <?php if ( $viewData['colaborador']->temPermissao('cad_colaborador')): ?>
                         <li class="nav-item mb-1" >
                             <a href="<?php echo BASE_URL;?>colaborador" class="item-style p-3">
                             <i class="nav-icon fas fa-users-cog"></i>
@@ -124,6 +124,19 @@
                                 </p>
                             </a>
                         </li>
+                    <?php endif;?>
+                </ul>
+
+                <?php if ( $viewData['colaborador']->temPermissao('cad_permissoes')): ?>
+                    <li class="nav-item mb-1" >
+                        <a href="<?php echo BASE_URL;?>permissao" class="item-style p-3">
+                            <i class="nav-icon fas fa-users-cog"></i>
+                            <p style="margin: 0;">
+                               Permissões
+                            </p>
+                        </a>
+                    </li>
+                <?php endif;?>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
@@ -176,12 +189,14 @@
 <script src="<?php echo BASE_URL; ?>assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="<?php echo BASE_URL; ?>assets/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo BASE_URL; ?>assets/adminlte/dist/js/adminlte.min.js"></script>
 <!-- jQuery mask min-->
 <script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/jquery.mask.min.js"></script>
 <!--  scripts-->
-<script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/novaProposta/etapas.js"></script>
-<script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/novaProposta/progressClick.js"></script>
+
+<script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/colaborador.js"></script>
 </body>
 </html>
