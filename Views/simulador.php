@@ -35,5 +35,5 @@
 
 <!-- IMPORTS DAS ETAPAS -->
 <script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/jquery.mask.js"></script>
-<script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/jquery.mask.min.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/jquery.mask.min.js"></script>
 <script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/simulacao/simulacao.js"></script>

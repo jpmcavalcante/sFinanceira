@@ -195,8 +195,10 @@
 <script src="<?php echo BASE_URL; ?>assets/adminlte/dist/js/adminlte.min.js"></script>
 <!-- jQuery mask min-->
 <script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/jquery.mask.min.js"></script>
+
 <!--  scripts-->
 
 <script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/colaborador.js"></script>
+
 </body>
 </html>

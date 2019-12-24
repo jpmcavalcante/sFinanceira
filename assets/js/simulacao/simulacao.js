@@ -7,7 +7,7 @@ $(document).ready(function(){
        if(ValorOperacao == 1){
 
            //SELECT OPERAÇÃO 
-          $(".fxd").append('<div class="form-group col-md-4"><select id="tabela" class="form-control"><option value="" disabled selected>selecione o tipo de tabela</option><option value="8">Tabela A</option> <option value="7">Tabela B</option> <option value="6">Tabela C</option> <option value="5">Tabela D</option> <option value="4">Tabela E</option> <option value="8">Tabela F</option> <option value="8">Tabela G</option> <option value="8">Tabela H</option> <option value="8">Tabela I</option> <option value="8">Tabela J</option> <option value="8">Tabela K</option> <option value="8">Tabela L</option> <option value="8">Tabela M</option></select></div>'); 
+          $(".fxd").append('<div class="form-group col-md-4"><select id="tabela" class="form-control"><option value="" disabled selected>selecione o tipo de tabela</option><option value="3.7747">Tabela A</option> <option value="3.3667">Tabela B</option> <option value="3.0847">Tabela C</option> <option value="2.7198">Tabela D</option> <option value="2.5697">Tabela E</option> <option value="2.3397">Tabela F</option> <option value="2.1836">Tabela G</option> <option value="2.0244">Tabela H</option> <option value="1.9439">Tabela I</option> <option value="1.8627">Tabela J</option> <option value="1.7807">Tabela K</option> <option value="1.6977">Tabela L</option> <option value="1.6145">Tabela M</option></select></div>'); 
         
           
           if ($('#tabela').length) {
@@ -19,7 +19,7 @@ $(document).ready(function(){
                     var Valor = $(this).val();
 
                     switch(Valor){
-                        case '8':
+                        case '3.7747':// letra A
                             $('.valor').remove();
                             $('#inp').append('<div class="valor form-group col-md-4"><label for="valorSimulacao">Valor R$ </label><input id="valorSimulacao" type="text" class="form-control" placeholder="Valor da simulação"></div>');                       
                             $('#valorSimulacao').mask('000.000.000,00', {reverse: true});
@@ -28,7 +28,7 @@ $(document).ready(function(){
                                 $('#valorSimulacao').val(ValorAnterior);
                             }
                             break;
-                        case '7':
+                        case '3.3667':// letra  B
                             $('.valor').remove();
                             $('#inp').append('<div class="valor form-group col-md-4"><label for="valorSimulacao">Valor R$ </label><input id="valorSimulacao" type="text" class="form-control" placeholder="Valor da simulação"></div>');                       
                             $('#valorSimulacao').mask('000.000.000,00', {reverse: true});
@@ -37,7 +37,7 @@ $(document).ready(function(){
                                 $('#valorSimulacao').val(ValorAnterior);
                             }
                             break;
-                        case '6':
+                        case '3.0847':// letra C
                             $('.valor').remove();
                             $('#inp').append('<div class="valor form-group col-md-4"><label for="valorSimulacao">Valor R$ </label><input id="valorSimulacao" type="text" class="form-control" placeholder="Valor da simulação"></div>');                       
                             $('#valorSimulacao').mask('000.000.000,00', {reverse: true});
@@ -46,7 +46,7 @@ $(document).ready(function(){
                                 $('#valorSimulacao').val(ValorAnterior);
                             }
                             break;
-                        case '5':
+                        case '2.7198':// letra D
                             $('.valor').remove();
                             $('#inp').append('<div class="valor form-group col-md-4"><label for="valorSimulacao">Valor R$ </label><input id="valorSimulacao" type="text" class="form-control" placeholder="Valor da simulação"></div>');                       
                             $('#valorSimulacao').mask('000.000.000,00', {reverse: true});
@@ -55,7 +55,7 @@ $(document).ready(function(){
                                 $('#valorSimulacao').val(ValorAnterior);
                             }
                             break;
-                        case '4':
+                        case '2.5697':// letra E
                             $('.valor').remove();
                             $('#inp').append('<div class="valor form-group col-md-4"><label for="valorSimulacao">Valor R$ </label><input id="valorSimulacao" type="text" class="form-control" placeholder="Valor da simulação"></div>');                       
                             $('#valorSimulacao').mask('000.000.000,00', {reverse: true});
@@ -64,6 +64,80 @@ $(document).ready(function(){
                                 $('#valorSimulacao').val(ValorAnterior);
                             }
                             break;
+                        case '2.3397':// letra F
+                            $('.valor').remove();
+                            $('#inp').append('<div class="valor form-group col-md-4"><label for="valorSimulacao">Valor R$ </label><input id="valorSimulacao" type="text" class="form-control" placeholder="Valor da simulação"></div>');                       
+                            $('#valorSimulacao').mask('000.000.000,00', {reverse: true});
+                            
+                            if(ValorAnterior != null){
+                                $('#valorSimulacao').val(ValorAnterior);
+                            }
+                            break;
+                        case '2.1836':// letra G
+                            $('.valor').remove();
+                            $('#inp').append('<div class="valor form-group col-md-4"><label for="valorSimulacao">Valor R$ </label><input id="valorSimulacao" type="text" class="form-control" placeholder="Valor da simulação"></div>');                       
+                            $('#valorSimulacao').mask('000.000.000,00', {reverse: true});
+                            
+                            if(ValorAnterior != null){
+                                $('#valorSimulacao').val(ValorAnterior);
+                            }
+                            break;
+                        case '2.0244':// letra H
+                            $('.valor').remove();
+                            $('#inp').append('<div class="valor form-group col-md-4"><label for="valorSimulacao">Valor R$ </label><input id="valorSimulacao" type="text" class="form-control" placeholder="Valor da simulação"></div>');                       
+                            $('#valorSimulacao').mask('000.000.000,00', {reverse: true});
+                            
+                            if(ValorAnterior != null){
+                                $('#valorSimulacao').val(ValorAnterior);
+                            }
+                            break;
+                        case '1.9439':// letra I
+                            $('.valor').remove();
+                            $('#inp').append('<div class="valor form-group col-md-4"><label for="valorSimulacao">Valor R$ </label><input id="valorSimulacao" type="text" class="form-control" placeholder="Valor da simulação"></div>');                       
+                            $('#valorSimulacao').mask('000.000.000,00', {reverse: true});
+                            
+                            if(ValorAnterior != null){
+                                $('#valorSimulacao').val(ValorAnterior);
+                            }
+                            break;
+                        case '1.8627':// letra J
+                            $('.valor').remove();
+                            $('#inp').append('<div class="valor form-group col-md-4"><label for="valorSimulacao">Valor R$ </label><input id="valorSimulacao" type="text" class="form-control" placeholder="Valor da simulação"></div>');                       
+                            $('#valorSimulacao').mask('000.000.000,00', {reverse: true});
+                            
+                            if(ValorAnterior != null){
+                                $('#valorSimulacao').val(ValorAnterior);
+                            }
+                            break;
+                        case '1.7807':// letra K
+                            $('.valor').remove();
+                            $('#inp').append('<div class="valor form-group col-md-4"><label for="valorSimulacao">Valor R$ </label><input id="valorSimulacao" type="text" class="form-control" placeholder="Valor da simulação"></div>');                       
+                            $('#valorSimulacao').mask('000.000.000,00', {reverse: true});
+                            
+                            if(ValorAnterior != null){
+                                $('#valorSimulacao').val(ValorAnterior);
+                            }
+                            break;
+                         case '1.6977':// letra L
+                            $('.valor').remove();
+                            $('#inp').append('<div class="valor form-group col-md-4"><label for="valorSimulacao">Valor R$ </label><input id="valorSimulacao" type="text" class="form-control" placeholder="Valor da simulação"></div>');                       
+                            $('#valorSimulacao').mask('000.000.000,00', {reverse: true});
+                            
+                            if(ValorAnterior != null){
+                                $('#valorSimulacao').val(ValorAnterior);
+                            }
+                            break;
+                        case '1.6145':// letra M
+                            $('.valor').remove();
+                            $('#inp').append('<div class="valor form-group col-md-4"><label for="valorSimulacao">Valor R$ </label><input id="valorSimulacao" type="text" class="form-control" placeholder="Valor da simulação"></div>');                       
+                            $('#valorSimulacao').mask('000.000.000,00', {reverse: true});
+                            
+                            if(ValorAnterior != null){
+                                $('#valorSimulacao').val(ValorAnterior);
+                            }
+                            break;
+
+
 
                     }
 
@@ -72,7 +146,9 @@ $(document).ready(function(){
                 $('#btnSimulador').click(function(){
 
                     var valor =$('#valorSimulacao').val();
-                    var taxa = $("#tabela option:selected").val();
+                    var taxa = parseFloat($("#tabela option:selected").val());
+
+                    console.log(taxa)
 
                     if(valor.indexOf(".") >= 1){
                         var arrq = valor.split('.');
