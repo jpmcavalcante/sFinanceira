@@ -131,7 +131,7 @@ class Colaborador extends Model {
   public function get($id){
        $array = array();
 
-          $sql = "SELECT nome, email, senha, atendente, unidade, id_permission FROM colaborador WHERE id = :id";
+          $sql = "SELECT id, nome, email, senha, atendente, unidade, id_permission FROM colaborador WHERE id = :id";
           $sql = $this->db->prepare($sql);
           $sql->bindValue(':id', $id);
           $sql->execute();
@@ -157,28 +157,32 @@ class Colaborador extends Model {
         return $array;
     }
 
-  public function update($data){
+    public function update($nome, $email, $atendente, $unidade, $id_permission, $id){
 
-      try {
+        try {
 
-          $sql = "UPDATE colaborador SET nome = :nome, email = :email, atendente = :atendente, unidade = :unidade, id_permission = :nivel  WHERE id = :id";
-          $sql = $this->db->prepare($sql);
-          $sql->bindValue(':nome', $data->nome);
-          $sql->bindValue(':email', $data->email);
-          $sql->bindValue(':atendente', $data->atendente);
-          $sql->bindValue(':unidade', $data->unidade);
-          $sql->bindValue(':id_permission', $data->nivel);
-          $sql->bindValue(':id', $data->id);
-          return  $sql->execute();
+            $sql = "UPDATE colaborador SET nome = :nome, email = :email, atendente = :atendente, unidade = :unidade, id_permission = :id_permission  WHERE id = :id";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(':nome', $nome);
+            $sql->bindValue(':email', $email);
+            $sql->bindValue(':atendente', $atendente);
+            $sql->bindValue(':unidade', $unidade);
+            $sql->bindValue(':id_permission', $id_permission);
+            $sql->bindValue(':id', $id);
+            $sql->execute();
 
-          }catch(\PDOException $e){
-               $e->getMessage();
-}
+            return true;
 
-return false;
-  }
+        }catch(\PDOException $e){
+            $e->getMessage();
+        }
 
-  public function delete($id){
+        return false;
+    }
+
+
+
+    public function delete($id){
 
       try {
           $sql = "DELETE FROM  colaborador WHERE  id = :id";

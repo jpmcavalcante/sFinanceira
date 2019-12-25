@@ -30,6 +30,15 @@ class ColaboradorController extends Controller {
 
     public function index() {
 
+        $this->arrayInfo['erros'] = array('er' => '', 'suc' =>'');
+        if (!empty($_SESSION['errorMsg'])){
+            $this->arrayInfo['erros']['er'] = $_SESSION['errorMsg'];
+            $_SESSION['errorMsg'] = '';
+        }elseif (!empty($_SESSION['sucMsg'])){
+            $this->arrayInfo['erros']['suc'] = $_SESSION['sucMsg'];
+            $_SESSION['sucMsg'] = '';
+        }
+
             $this->arrayInfo = array(
                 'colaborador' => $this->col
             );
@@ -40,9 +49,23 @@ class ColaboradorController extends Controller {
 
             $this->arrayInfo['listGroups'] = $col->getGroups();
 
-            $this->loadTemplate('colaborador_add', $this->arrayInfo);
+            $this->loadTemplate('colaborador', $this->arrayInfo);
 
         }
+
+    public function add(){
+        $this->arrayInfo = array(
+            'colaborador' => $this->col
+        );
+
+        $col = new Colaborador();
+
+        $this->arrayInfo['list'] = $col->getAllItems();
+
+        $this->arrayInfo['listGroups'] = $col->getGroups();
+
+        $this->loadTemplate('colaborador_add', $this->arrayInfo);
+    }
 
     public function save() {
 
@@ -61,10 +84,15 @@ class ColaboradorController extends Controller {
     }
 
     public function edit($id){
+        $this->arrayInfo = array(
+            'colaborador' => $this->col
+
+        );
+
         $col = new Colaborador();
 
         $this->arrayInfo['permissaoList'] = $col->listaPermissao();
-
+        $this->arrayInfo['id_col'] = $id;
         $this->arrayInfo['info'] = $col->get($id);
 
         if(!empty($id)){
@@ -76,27 +104,39 @@ class ColaboradorController extends Controller {
         }
     }
 
-    public function edit_action($id){
+    public function edit_action($id)   {
 
 
-        try {
+        if (isset($id)){
+
             $col = new Colaborador();
-            $post = $_POST ?? null;
-            $data = $this->obj($post);
 
-            var_dump($data); exit;
+            if(isset($_POST['nome']) && !empty($_POST['nome'])){
+                $nome = addslashes($_POST['nome']);
+                $email = addslashes($_POST['email']);
+                $atendente = addslashes($_POST['atendente']);
+                $unidade = addslashes($_POST['unidade']);
+                $nivel = addslashes($_POST['nivel']);
 
-            if ($col->update($data))
-                echo json_encode(["success" => true, "message" => "Salvo com sucesso", "data" => $data]);
 
+                if ($col->update($nome, $email, $atendente, $unidade, $nivel, $id)){
+                    $_SESSION['sucMsg'] = 'Colaborador cadastrado com sucesso';
+                    header("Location: ".BASE_URL.'colaborador');
+                    exit;
+                }
 
-        }catch (\Exception $e){
-            echo json_encode(["success" => false, "message" => $e->getMessage()]);
+            }else{
+                $_SESSION['errorMsg'] = 'Colaborador não cadastrado.';
+                header("Location: ".BASE_URL.'colaborador/edit/'.$id);
+                exit;
+            }
+
+        }else{
+            header("Location: ".BASE_URL.'colaborador');
+            exit;
         }
-
-
-
     }
+
 
     public function del($id){
 

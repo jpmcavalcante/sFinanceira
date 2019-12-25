@@ -98,10 +98,10 @@
 
 
                     <li class="nav-item mb-1">
-                        <a href="" class="item-style p-3">
+                        <a href="<?php echo BASE_URL;?>cliente" class="item-style p-3">
                             <i class="nav-icon fas fa-user-friends"></i>
                             <p style="margin: 0;">
-                                Buscar Cliente
+                                Cadastro de Cliente
                             </p>
                         </a>
                     </li>
@@ -198,7 +198,7 @@
 
 <!--  scripts-->
 
-<script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/colaborador.js"></script>
+
 
 </body>
 </html>
