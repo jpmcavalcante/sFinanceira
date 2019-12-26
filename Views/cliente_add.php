@@ -15,7 +15,7 @@
 <?php endif; ?>
 
 
-<form method="post" action="<?php echo BASE_URL;?>Cliente/add_action">
+<form method="post" action="<?php echo BASE_URL;?>Cliente/add_action" enctype="multipart/form-data">
 
 
             <h3>2. DADOS PESSOAIS</h3>
@@ -24,9 +24,15 @@
 
                     <div class="container">
                         <div class="form-row">
+
+                            <div class="form-group col-md-3">
+                                <label>Imagem</label>
+                                <input type="file"  name="foto">
+                            </div>
+
                             <div class="form-group col-md-3">
                                 <label for="cpf">CPF</label>
-                                <input type="text" class='"form-control"' id="cpf" name="cpf" >
+                                <input type="text" class="form-control" id="cpf" name="cpf" >
                             </div>
 
                             <div class="form-group col-md-4">

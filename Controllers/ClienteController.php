@@ -53,9 +53,10 @@ class ClienteController extends Controller {
 
     public function add_action(){
 
+
         $c = new Cliente();
 
-        if(!empty($_POST['nome']) && !empty($_POST['cpf']) && !empty($_POST['email'])){
+       // if(!empty($_POST['nome']) && !empty($_POST['cpf']) && !empty($_POST['email'])){
 
             $nome = addslashes($_POST['nome']);
             $cpf = addslashes($_POST['cpf']);
@@ -82,20 +83,24 @@ class ClienteController extends Controller {
             $nome_pai = addslashes($_POST['nomePai']);
             $nome_mae = addslashes($_POST['nomeMae']);
 
+            $foto = (!empty($_FILES['foto']))?$_FILES['foto']:array();
+
+
+
 
             if ($c->salvar($nome, $cpf, $email, $rg, $emissor, $estado_emissor, $data_expedicao, $data_nascimento, $estado_civil, $sexo, $telefone, $celular, $cep, $endereco, $numero,
-                           $complemento, $bairro, $estado, $cidade, $tipo_residencia, $tempo_residencia, $naturalidade, $nome_pai, $nome_mae)){
+                           $complemento, $bairro, $estado, $cidade, $tipo_residencia, $tempo_residencia, $naturalidade, $nome_pai, $nome_mae, $foto)){
 
                 $_SESSION['sucMsg'] = 'Cliente cadastrado com sucesso';
                 header("Location: ".BASE_URL.'cliente');
                 exit;
             }
 
-            }else{
+           /* }else{
             $_SESSION['formError'] = array('nome');
             header("Location: ".BASE_URL.'cliente/add');
             exit;
-        }
+        }*/
     }
 
     public function edit($id){
