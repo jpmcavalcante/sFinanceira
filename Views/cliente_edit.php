@@ -16,7 +16,7 @@
 
 
 
-<form method="post" action="<?php echo BASE_URL;?>Cliente/edit_action/<?php echo $id_cli;?>">
+<form id="cadCliente" name="cadCliente" method="post" action="<?php echo BASE_URL;?>Cliente/edit_action/<?php echo $id_cli;?>">
 
 
     <h3>2. DADOS PESSOAIS</h3>
@@ -179,7 +179,7 @@
     </div>
     </div>
 
-    <input type="submit" value="Editar">
+    <button type="submit" name="enviar">Enviar</button>
 
 </form>
 
