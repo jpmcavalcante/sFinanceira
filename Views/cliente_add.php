@@ -1,3 +1,4 @@
+
 <?php if (!empty($erros['suc'])): ?>
     <div class="alert alert-success" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -15,7 +16,7 @@
 <?php endif; ?>
 
 
-<form method="post" action="<?php echo BASE_URL;?>Cliente/add_action" enctype="multipart/form-data">
+<form id="cadCliente" name="cadCliente" method="post" action="<?php echo BASE_URL;?>Cliente/add_action" enctype="multipart/form-data">
 
 
             <h3>2. DADOS PESSOAIS</h3>
@@ -27,12 +28,18 @@
 
                             <label>Imagem</label>
                             <div class="form-group col-md-3">
+<<<<<<< HEAD
                                 <input type="file" name="foto">
+=======
+                                <label>Imagem</label>
+                                <label  for="file" class="center"><img id="img" src="/img/test/18-CONTACTUS-HEADER.jpg" class="img-fluid" alt="Imagem responsiva" style="width: 200px; height: 150px; border-radius: 10px"></label>
+                                <input type="file"  id="file" name="foto" accept="image/jpeg, image/jpg, image/png ,application/pdf" hidden>
+>>>>>>> 6a78c3a17f9caddd38e030c49b1bbb529d534316
                             </div>
 
                             <div class="form-group col-md-3">
                                 <label for="cpf">CPF</label>
-                                <input type="text" class="form-control" id="cpf" name="cpf" >
+                                <input type="text" class="form-control" id="cpf" name="cpf" data-mask="000.000.000-00">
                             </div>
 
                             <div class="form-group col-md-4">
@@ -55,7 +62,7 @@
 
                             <div class="form-group col-md-2">
                                 <label for="orgaoEmissor">Orgão Emissor</label>
-                                <input id="orgaoEmissor" name="orgaoEmissor" type="text" class="form-control" >
+                                <input id="orgaoEmissor" name="orgaoEmissor" type="text" class="form-control" data-mask="SSS">
                             </div>
 
 
@@ -96,14 +103,14 @@
 
                             <div class="form-group col-md-2">
                                 <label for="dataExpedica">Data expedição do RG</label>
-                                <input id="dataExpedicao" name="dataExpedicao" type="text" class="form-control" >
+                                <input id="dataExpedicao" name="dataExpedicao" type="text" class="form-control" data-mask="00/00/0000">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-2">
                                 <label for="dataNascimento">Data de nascimento</label>
-                                <input id="dataNascimento" name="dataNascimento" type="text" class="form-control" >
+                                <input id="dataNascimento" name="dataNascimento" type="text" class="form-control" data-mask="00/00/0000">
                             </div>
 
                             <div class="form-group col-md-2">
@@ -128,12 +135,12 @@
 
                             <div class="form-group col-md-3">
                                 <label for="telefone">Telefone</label>
-                                <input id="telefone" name="telefone" type="text" class="form-control">
+                                <input id="telefone" name="telefone" type="text" class="form-control" data-mask="(00) 0000-0000">
                             </div>
 
                             <div class="form-group col-md-3">
                                 <label for="celular">Celular</label>
-                                <input id="celular" name="celular" type="text" class="form-control">
+                                <input id="celular" name="celular" type="text" class="form-control" data-mask="(00) 00000-0000">
                             </div>
                         </div>
 
@@ -170,7 +177,7 @@
 
                             <div class="form-group col-md-1">
                                 <label for="uf">Estado</label>
-                                <input id="estado" name="estado" type="text" maxlength="2" class="form-control" >
+                                <input id="estado" name="estado" type="text" maxlength="2" class="form-control" data-mask="SS">
                             </div>
 
                             <div class="form-group col-md-3">
@@ -211,10 +218,12 @@
             </div>
         </div>
 
-       <input type="submit" value="salvar">
+       <button type="submit" name="enviar">Enviar</button>
 
     </form>
 
+
+<!--  scripts-->
 
 
 

@@ -4,12 +4,12 @@
 
 
 <section class="content-fluid">
-    <form id="formPermissao" method="post" class="form-horizontal" action="<?php echo BASE_URL;?>Permissao/edit_action/<?php echo $permission_id;?>">
+    <form id="formPermissao" name="formPermissao" method="post" class="form-horizontal" action="<?php echo BASE_URL;?>Permissao/edit_action/<?php echo $permission_id;?>">
         <div class="box">
             <div class="box-header">
                 <h3 class="info-box-text">Editar Grupo de Permissão</h3>
                 <div class="box-tools">
-                    <input type="submit" class="btn btn-success" value="Salvar">
+                    <button type="submit" class="btn btn-success">Salvar</button>
                 </div>
             </div>
 
@@ -32,7 +32,7 @@
                         <label for="item-<?php echo $item['id'];?>"><?php echo $item['name']; ?></label>
                     </div>
                 <?php endforeach;?>
-
+                <div id="checks"></div>
             </div>
         </div>
 

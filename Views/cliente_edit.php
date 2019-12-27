@@ -15,7 +15,12 @@
 <?php endif; ?>
 
 
+<<<<<<< HEAD
 <form method="post" action="<?php echo BASE_URL;?>Cliente/edit_action/<?php echo $id_cli;?>" enctype="multipart/form-data">
+=======
+
+<form id="cadCliente" name="cadCliente" method="post" action="<?php echo BASE_URL;?>Cliente/edit_action/<?php echo $id_cli;?>">
+>>>>>>> 6a78c3a17f9caddd38e030c49b1bbb529d534316
 
 
     <h3>2. DADOS PESSOAIS</h3>
@@ -197,7 +202,7 @@
     </div>
     </div>
 
-    <input type="submit" value="Editar">
+    <button type="submit" name="enviar">Enviar</button>
 
 </form>
 
