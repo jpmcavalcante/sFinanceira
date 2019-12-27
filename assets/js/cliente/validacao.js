@@ -236,6 +236,9 @@ $(document).ready(function(){
 	});
 })
 
+
+//JQUERY MASK
+
 $("#nome").mask("#", {
    maxlength: false,
    translation: {

@@ -201,5 +201,8 @@
 <script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/cliente/preview-img.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
 
+
+<!-- IMPORTS DA PAGINA PERMIÇOES -->
+<script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/permissoes/validacao.js"></script>
 </body>
 </html>
