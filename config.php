@@ -4,6 +4,7 @@ require 'environment.php';
 $config = array();
 if(ENVIRONMENT == 'development') {
 	define("BASE_URL", "http://localhost/sistema/");
+	define("PATH_FOTO", "../sistema/");
 	$config['dbname'] = 'financeira';
 	$config['host'] = 'localhost:3306';
 	$config['dbuser'] = 'root';

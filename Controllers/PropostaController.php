@@ -28,5 +28,10 @@ class PropostaController extends Controller {
 		$this->loadTemplate('novaProposta', $this->arrayInfo);
 	}
 
+	public function analise(){
+
+        $this->loadView('analise', $this->arrayInfo);
+    }
+
 
 }

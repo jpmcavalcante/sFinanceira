@@ -15,8 +15,7 @@
 <?php endif; ?>
 
 
-
-<form method="post" action="<?php echo BASE_URL;?>Cliente/edit_action/<?php echo $id_cli;?>">
+<form method="post" action="<?php echo BASE_URL;?>Cliente/edit_action/<?php echo $id_cli;?>" enctype="multipart/form-data">
 
 
     <h3>2. DADOS PESSOAIS</h3>
@@ -25,6 +24,25 @@
 
             <div class="container">
                 <div class="form-row">
+
+                    <label>Imagem</label>
+
+                    <div class="imgEdit">
+
+                        <?php foreach($listar['images'] as $id_image => $url): ?>
+                            <div class="cli_image">
+                                <img src="<?php echo $url; ?>" />
+                                <a href="javascript:;" >[ apagar ]</a>
+                                <input type="hidden" name="cli_images" value="<?php echo $id_image ;?>">
+                            </div>
+                        <?php endforeach;?>
+                    </div>
+
+                    <label>Imagem</label>
+                    <div class="form-group col-md-3">
+                        <input type="file" name="foto">
+                    </div>
+
                     <div class="form-group col-md-3">
                         <label for="cpf">CPF</label>
                         <input type="text" class='"form-control"' id="cpf" name="cpf" value="<?php echo $listar['cpf'];?>">

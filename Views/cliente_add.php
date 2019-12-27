@@ -25,9 +25,9 @@
                     <div class="container">
                         <div class="form-row">
 
+                            <label>Imagem</label>
                             <div class="form-group col-md-3">
-                                <label>Imagem</label>
-                                <input type="file"  name="foto">
+                                <input type="file" name="foto">
                             </div>
 
                             <div class="form-group col-md-3">

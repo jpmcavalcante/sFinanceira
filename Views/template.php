@@ -196,6 +196,8 @@
 <!-- jQuery mask min-->
 <script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/jquery.mask.min.js"></script>
 
+<script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/foto.js"></script>
+
 <!--  scripts-->
 
 

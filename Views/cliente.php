@@ -44,7 +44,7 @@
                             <div class="btn-group">
                                 <a href="<?php echo BASE_URL.'cliente/edit/'.$item['id'];?>" class="btn btn-xs btn-primary">Editar</a>
 
-                                <a href="<?php echo BASE_URL.'cliente/del/'.$item['id'];?>" class="btn btn-xs btn-danger">Excluir</a>
+                                <a href="<?php echo BASE_URL.'cliente/del/'.$item['id'];?>" onclick="return confirm('Tem certeza que deseja EXCLUIR esse Cliente ?')" class="btn btn-xs btn-danger">Excluir</a>
                             </div>
                         </td>
                     </tr>

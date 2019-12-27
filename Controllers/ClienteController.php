@@ -56,7 +56,7 @@ class ClienteController extends Controller {
 
         $c = new Cliente();
 
-       // if(!empty($_POST['nome']) && !empty($_POST['cpf']) && !empty($_POST['email'])){
+       if(!empty($_POST['nome']) && !empty($_POST['cpf']) && !empty($_POST['email'])){
 
             $nome = addslashes($_POST['nome']);
             $cpf = addslashes($_POST['cpf']);
@@ -96,11 +96,11 @@ class ClienteController extends Controller {
                 exit;
             }
 
-           /* }else{
+            }else{
             $_SESSION['formError'] = array('nome');
             header("Location: ".BASE_URL.'cliente/add');
             exit;
-        }*/
+        }
     }
 
     public function edit($id){
@@ -111,6 +111,7 @@ class ClienteController extends Controller {
         $this->arrayInfo['id_cli'] = $id;
 
 
+
         $this->loadTemplate('cliente_edit', $this->arrayInfo);
     }
 
@@ -118,7 +119,6 @@ class ClienteController extends Controller {
 
         if (isset($id)){
             $c = new Cliente();
-
 
             if(!empty($_POST['nome']) && !empty($_POST['cpf']) && !empty($_POST['email'])){
 
@@ -147,10 +147,13 @@ class ClienteController extends Controller {
                 $nome_pai = addslashes($_POST['nomePai']);
                 $nome_mae = addslashes($_POST['nomeMae']);
 
+                $cli_images = (!empty($_POST['cli_images']))?$_POST['cli_images']:array();
+
+                $foto = (!empty($_FILES['foto']))?$_FILES['foto']:array();
 
 
                 if ($c->atualizar($nome, $cpf, $email, $rg, $emissor,  $estado_emissor,  $data_expedicao,  $data_nascimento, $estado_civil, $sexo, $telefone,  $celular,$cep, $endereco, $numero, $complemento, $bairro,
-                                  $estado, $cidade, $tipo_residencia, $tempo_residencia, $naturalidade, $nome_pai, $nome_mae, $id)){
+                                  $estado, $cidade, $tipo_residencia, $tempo_residencia, $naturalidade, $nome_pai, $nome_mae, $cli_images, $foto, $id)){
 
                     $_SESSION['sucMsg'] = 'Cliente editado com sucesso';
                     header("Location: ".BASE_URL.'cliente');
@@ -159,7 +162,7 @@ class ClienteController extends Controller {
 
             }else{
                 $_SESSION['formError'] = array('nome');
-                header("Location: ".BASE_URL.'cliente/add');
+                header("Location: ".BASE_URL.'cliente/edit/'.$id);
                 exit;
             }
 
@@ -167,6 +170,20 @@ class ClienteController extends Controller {
             header("Location: ".BASE_URL.'cliente');
             exit;
         }
+    }
+
+    public function del($id){
+
+        if (!empty($id)){
+
+            $cli = new Cliente();
+           if ($cli->del($id)) {
+               $_SESSION['sucMsg'] = 'Cliente excluido com sucesso';
+           }
+        }
+
+        header("Location: ".BASE_URL.'cliente');
+        exit;
     }
 
 }

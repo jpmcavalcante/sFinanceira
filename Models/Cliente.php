@@ -34,8 +34,29 @@ class Cliente extends Model {
 
             if ($sql->rowCount() > 0){
                 $array = $sql->fetch(\PDO::FETCH_ASSOC);
-                return $array;
+
             }
+
+            $sql = "SELECT id, url FROM imagemCliente where id_cliente = :id";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(':id', $id);
+            $sql->execute();
+
+
+            $array['images'] = array();
+            if ($sql->rowCount() > 0){
+               $imgs = $sql->fetchAll(\PDO::FETCH_ASSOC);
+
+                foreach ($imgs as $item){
+                    $array['images'][$item['id']] = BASE_URL.'fotos/'.$item['url'];
+                }
+
+            }else{
+                $array['images'] = BASE_URL.'fotos/sem-foto.gif';
+            }
+
+            return $array;
+
         }catch (\PDOException $e){
             $e->getMessage();
         }
@@ -119,6 +140,7 @@ class Cliente extends Model {
             case 'image/png';
                 $o_img = imagecreatefrompng($tmp_name);
                 break;
+
         }
 
         if (!empty($o_img)){
@@ -164,11 +186,12 @@ class Cliente extends Model {
 
             $filename = md5(time().rand(0,999).rand(0,999)).'.jpg';
 
-            imagejpeg($img, '../sistema/fotos/'.$filename);
 
-            $sql = "INSERT INTO imagemCliente (id, url) VALUES (:id, :url)";
+            imagejpeg($img, PATH_FOTO.'fotos/'.$filename);
+
+            $sql = "INSERT INTO imagemCliente (id_cliente, url) VALUES (:id_cliente, :url)";
             $sql = $this->db->prepare($sql);
-            $sql->bindValue(':id', $id);
+            $sql->bindValue(':id_cliente', $id);
             $sql->bindValue(':url', $filename);
             $sql->execute();
         }
@@ -176,7 +199,8 @@ class Cliente extends Model {
     }
 
     public function atualizar($nome, $cpf, $email, $rg, $emissor,  $estado_emissor,  $data_expedicao,  $data_nascimento, $estado_civil, $sexo, $telefone,  $celular,$cep, $endereco, $numero, $complemento, $bairro,
-                              $estado, $cidade, $tipo_residencia, $tempo_residencia, $naturalidade, $nome_pai, $nome_mae, $id){
+                              $estado, $cidade, $tipo_residencia, $tempo_residencia, $naturalidade, $nome_pai, $nome_mae, $cli_images, $foto, $id){
+
 
         try {
 
@@ -213,8 +237,29 @@ class Cliente extends Model {
 
             if ($sql->execute()){
 
-                return true;
-            }
+                   $sql = "DELETE FROM imagemCliente WHERE id_cliente = :id";
+                   $sql = $this->db->prepare($sql);
+                   $sql->bindValue(':id', $id);
+                   $sql->execute();
+
+                $allow_images = array(
+                    'image/jpeg',
+                    'image/png',
+                    'image/jpg'
+                );
+                $tmp_name = $foto['tmp_name'];
+                $type = $foto['type'];
+
+
+
+                if (in_array($type, $allow_images)){
+
+                    $this->addClientImage($id, $tmp_name, $type);
+                }
+                   return true;
+               }
+
+
 
 
         }catch (\PDOException $e){
@@ -224,5 +269,19 @@ class Cliente extends Model {
         return false;
     }
 
+    public function del($id){
+        try {
+
+            $sql = "DELETE FROM clientes WHERE id = :id";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(':id', $id);
+            if ($sql->execute()){
+                return true;
+            }
+        }catch (\PDOException $e){
+            $e->getMessage();
+        }
+        return false;
+    }
 
 }

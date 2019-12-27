@@ -55,6 +55,17 @@
     min-width: 80px;
 }
 
+/*div da img na tela de cliente_edit*/
+
+.imgEdit{
+width: 200px;
+text-align: center;
+}
+
+.cli_image img{
+    width: 100%;
+}
+
 
 
 

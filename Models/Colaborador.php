@@ -157,6 +157,7 @@ class Colaborador extends Model {
         return $array;
     }
 
+
     public function update($nome, $email, $atendente, $unidade, $id_permission, $id){
 
         try {
