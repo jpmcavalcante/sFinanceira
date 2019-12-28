@@ -38,7 +38,7 @@ $("#formPermissao").validate({
 $("#name").mask("#", {
     maxlength: false,
     translation: {
-        '#': {pattern: /[A-zÀ-ÿ]/, recursive: true}
+        '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
     }
  });
 

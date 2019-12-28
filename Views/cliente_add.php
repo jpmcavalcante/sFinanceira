@@ -26,15 +26,11 @@
                     <div class="container">
                         <div class="form-row">
 
-                            <label>Imagem</label>
+                            
                             <div class="form-group col-md-3">
-<<<<<<< HEAD
-                                <input type="file" name="foto">
-=======
-                                <label>Imagem</label>
-                                <label  for="file" class="center"><img id="img" src="/img/test/18-CONTACTUS-HEADER.jpg" class="img-fluid" alt="Imagem responsiva" style="width: 200px; height: 150px; border-radius: 10px"></label>
+                                <label>Imagem</label><br>
+                                <label  for="file" class="center" style="cursor: pointer"><img id="img" src="../assets/img/avatar.jpeg" class="img-fluid" alt="Imagem responsiva" style="width: 200px; height: 150px; border-radius: 10px"></label>
                                 <input type="file"  id="file" name="foto" accept="image/jpeg, image/jpg, image/png ,application/pdf" hidden>
->>>>>>> 6a78c3a17f9caddd38e030c49b1bbb529d534316
                             </div>
 
                             <div class="form-group col-md-3">

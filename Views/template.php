@@ -196,20 +196,22 @@
 <!-- jQuery mask min-->
 <script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/jquery.mask.min.js"></script>
 
-<<<<<<< HEAD
+
 <script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/foto.js"></script>
 
 <!--  scripts-->
 
-=======
+
 <!-- IMPORTS DA PAGINA DE CLIENTES -->
 <script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/cliente/validacao.js"></script>
 <script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/cliente/preview-img.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
->>>>>>> 6a78c3a17f9caddd38e030c49b1bbb529d534316
 
 
 <!-- IMPORTS DA PAGINA PERMIÇOES -->
 <script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/permissoes/validacao.js"></script>
+
+<!-- IMPORTS DA PAGINA COLABORADOR -->
+<script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/colaborador/validacao.js"></script>
 </body>
 </html>

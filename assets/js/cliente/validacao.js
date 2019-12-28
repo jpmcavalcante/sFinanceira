@@ -143,6 +143,7 @@ $(document).ready(function(){
             maxlength:100,
 			},
 			submitHandler: function(form){
+            $("#file").removeAttr("hidden");
 				form.submit()
 			}
 			
@@ -242,42 +243,42 @@ $(document).ready(function(){
 $("#nome").mask("#", {
    maxlength: false,
    translation: {
-       '#': {pattern: /[A-zÀ-ÿ]/, recursive: true}
+       '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
    }
 });
 
 $("#endereco").mask("#", {
    maxlength: false,
    translation: {
-       '#': {pattern: /[A-zÀ-ÿ]/, recursive: true}
+       '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
    }
 });
 
 $("#bairro").mask("#", {
    maxlength: false,
    translation: {
-       '#': {pattern: /[A-zÀ-ÿ]/, recursive: true}
+       '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
    }
 });
 
 $("#cidade").mask("#", {
    maxlength: false,
    translation: {
-       '#': {pattern: /[A-zÀ-ÿ]/, recursive: true}
+       '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
    }
 });
 
 $("#tipoResidencia").mask("#", {
    maxlength: false,
    translation: {
-       '#': {pattern: /[A-zÀ-ÿ]/, recursive: true}
+       '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
    }
 });
 
 $("#naturalidade").mask("#", {
    maxlength: false,
    translation: {
-       '#': {pattern: /[A-zÀ-ÿ]/, recursive: true}
+       '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
    }
 });
 
@@ -285,13 +286,13 @@ $("#naturalidade").mask("#", {
 $("#nomePai").mask("#", {
    maxlength: false,
    translation: {
-       '#': {pattern: /[A-zÀ-ÿ]/, recursive: true}
+       '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
    }
 });
 
 $("#nomeMae").mask("#", {
    maxlength: false,
    translation: {
-       '#': {pattern: /[A-zÀ-ÿ]/, recursive: true}
+       '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
    }
 });
