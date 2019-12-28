@@ -12,8 +12,6 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/adminlte/dist/css/adminlte.min.css">
     
-    <!-- Theme style nova proposta-->
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/novaProposta/NovaPasta.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <!--CSS Interno-->
@@ -213,5 +211,10 @@
 
 <!-- IMPORTS DA PAGINA COLABORADOR -->
 <script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/colaborador/validacao.js"></script>
+
+
+<!-- IMPORTS DA NOVA PROPOSTA -->
+<script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/novaProposta/etapaS.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/novaProposta/ProgressClick.js"></script>
 </body>
 </html>

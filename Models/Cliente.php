@@ -19,7 +19,7 @@ class Cliente extends Model {
 
 		return $array;
 	}
-
+ 
     public function getUsers($id){
 
         $array = array();
@@ -284,4 +284,29 @@ class Cliente extends Model {
         return false;
     }
 
+
+
+    public function buscarCli($textoBusca){
+        try {
+            $sql = "SELECT id , nome , cpf FROM clientes WHERE nome LIKE :nome";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(':nome', '%'.$textoBusca.'%');
+            $sql->execute();
+
+            $retorno = array();
+            $retorno['dados'] = '';
+            $conteudo = array();
+            if ($sql->rowCount() > 0) {
+                $retorno['qtd'] = $sql->rowCount();
+                while($conteudo= $sql->fetch(\PDO::FETCH_ASSOC)){
+                    $retorno['dados'] .= '<br><a href="#" id="'.$conteudo['id'].':'.$conteudo['nome'].':'.$conteudo['cpf'].'" class="busca" >'.$conteudo['nome'].'</a>';
+                };
+            }
+            return $retorno;           
+           
+        }catch (\PDOException $e){
+            $e->getMessage();
+        }
+
+    }
 }

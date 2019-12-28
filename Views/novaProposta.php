@@ -41,183 +41,26 @@
   </div>
   <div class="tab-pane fade" id="nav-dadosPessoais" role="tabpanel" aria-labelledby="nav-dadosPessoais-tab">
     <div class="row">
-            
-        <div class="container">
-            <div class="form-row">
-                <div class="form-group col-md-3">
-                    <label for="cpf">CPF</label>
-                    <input type="text" class='form-control' id="cpf" name=cpf>
-                </div>
+        
+        <div class="col-md-12 ">
+            <label>Informe o nome do cliente</label>
+            <input type="text" name="textoBusca" id="textoBusca" >
+        </div>
+        <div class="col-md-12 " id="resultado_busca" >
 
-                <div class="form-group col-md-4">
-                    <label for="nome" >Nome</label>
-                    <input type="text" class=form-control id="nome" name=nome>
-                </div>
-
-                <div class="form-group col-md-4">
-                    <label for="email">Email</label>
-                    <input id="email" type="email" class=form-control maxlength="40" name=email>
-                </div>
-
-            </div>
-            <div class="form-row">
-
-                <div class="form-group col-md-3">
-                    <label for="rg">RG</label>
-                    <input id="rg" type="text" class=form-control name=rg>
-                </div>
-
-                <div class="form-group col-md-2">
-                    <label for="orgaoEmissor">Orgão Emissor</label>
-                    <input id="orgaoEmissor" type="text" class=form-control name=orgaoEmissor>
-                </div>
-
-                
-                <div class=" form-group col-md-2">
-                    <label for="estado">Estado</label>
-                    <select id="estado" class="form-control" name=estado>
-                        <option value="" disabled selected>UF</option>
-                        <option value="AC">Acre</option>
-                        <option value="AL">Alagoas</option>
-                        <option value="AP">Amapá</option>
-                        <option value="AM">Amazonas</option>
-                        <option value="BA">Bahia</option>
-                        <option value="CE">Ceará</option>
-                        <option value="DF">Distrito Federal</option>
-                        <option value="ES">Espírito Santo</option>
-                        <option value="GO">Goiás</option>
-                        <option value="MA">Maranhão</option>
-                        <option value="MT">Mato Grosso</option>
-                        <option value="MS">Mato Grosso do Sul</option>
-                        <option value="MG">Minas Gerais</option>
-                        <option value="PA">Pará</option>
-                        <option value="PB">Paraíba</option>
-                        <option value="PR">Paraná</option>
-                        <option value="PE">Pernambuco</option>
-                        <option value="PI">Piauí</option>
-                        <option value="RJ">Rio de Janeiro</option>
-                        <option value="RN">Rio Grande do Norte</option>
-                        <option value="RS">Rio Grande do Sul</option>
-                        <option value="RO">Rondônia</option>
-                        <option value="RR">Roraima</option>
-                        <option value="SC">Santa Catarina</option>
-                        <option value="SP">São Paulo</option>
-                        <option value="SE">Sergipe</option>
-                        <option value="TO">Tocantins</option>
-                        <option value="EX">Estrangeiro</option>
-                    </select>
-                </div>  
-                
-                <div class="form-group col-md-2">
-                    <label for="dataExpedica">Data expedição do RG</label>
-                    <input id="dataExpedicao" type="text" class="form-control" name="rg">
-                </div>
-            </div>
-            
-            <div class="form-row">
-                <div class="form-group col-md-2">
-                    <label for="dataNascimento">Data de nascimento</label>
-                    <input id="dataNascimento" type="text" class="form-control" name="dataNascimento">
-                </div>
-
-                <div class=" form-group col-md-2">
-                    <label>Estado civil</label>
-                    <select id="estadoCivil" class="form-control" name="estadoCivil">
-                        <option value="" disabled selected>Estado civil</option>
-                        <option value="1">Solteiro(a)</option>
-                        <option value="1">Casado(a)</option>
-                        <option value="1">Divorciado(a)</option>
-                        <option value="1">Viúvo(a)</option>
-                    </select>
-                </div>
-
-                <div class=" form-group col-md-2">
-                    <label>Sexo</label>
-                    <select id="genero" class="form-control" name="sexo">
-                        <option value="" disabled selected>Sexo</option>
-                        <option value="1">Msculino</option>
-                        <option value="1">feminino</option>
-                    </select>
-                </div>
-
-                <div class="form-group col-md-3">
-                    <label for="telefone">Telefone</label>
-                    <input id="telefone" type="text" class="form-control" name="telefone">
-                </div>
-
-                <div class="form-group col-md-3">
-                    <label for="celular">Celular</label>
-                    <input id="celular" type="text" class="form-control" name="celular">
-                </div>  
-            </div>
-            
         </div>
         
-        <div class="col-md-12" style="margin-top: 30px;">
+        <div class="col-md-12 " style="margin-top: 30px;">
 
-            <div class="form-group col-md-3">
-                <label for="cep" >CEP</label>
-                <input type="text"  id="cep" class="form-control">
-            </div>
-        </div>
-        <div class="col-md-12" style="margin-top: 30px;">
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="rua">Endereço</label>
-                    <input id="rua" type="text" class=form-control maxlength="50" name=rua>
-                </div>
+            <label for="nome">id</label>
+            <input type="text" name="id" id="id" disabled>
 
-                <div class="form-group col-md-1">
-                    <label for="numero">Nº</label>
-                    <input id="numero" type="text" class=form-control name=numero>
-                </div>
+            <label for="nome" >Nome</label>
+            <input type="text" class="col-md-6 " name="nome" id="nome" disabled>
 
-                <div class="form-group col-md-4">
-                    <label for="complemento">Complemento</label>
-                    <input id="complemento" type="text" class=form-control name=complemento>
-                </div>
+            <label for="nome">CPF</label>
+            <input type="text" name="cpf" id="cpf" disabled>
 
-                <div class="form-group col-md-3">
-                    <label for="bairro">Bairro</label>
-                    <input id="bairro" type="text" class=form-control name=bairro>
-                </div>
-
-                <div class="form-group col-md-1">
-                    <label for="uf">Estado</label>
-                    <input id="uf" type="text" class=form-control name=uf>
-                </div>
-
-                <div class="form-group col-md-3">
-                    <label for="cidade">Cidade</label>
-                    <input id="cidade" type="text" class=form-control name=cidade>
-                </div>
-
-                <div class="form-group col-md-3">
-                    <label for="tipoResidencia">Tipo de residencia</label>
-                    <input id="tipoResidencia" type="text" class=form-control name=tipoResidencia>
-                </div>
-
-                <div class="form-group col-md-3">
-                    <label for="tempoResidencia">Tempo de Residencia (anos)</label>
-                    <input id="tempoResidencia" type="text" class=form-control name=tempoResidencia>
-                </div>
-
-                <div class="form-group col-md-2">
-                    <label for="naturalidade">Naturalidaade</label>
-                    <input id="naturalidade" type="text" class=form-control name=naturalidade>
-                </div>
-
-                <div class="form-group col-md-6">
-                    <label for="nomePai">Nome do pai</label>
-                    <input id="nomePai" type="text" class=form-control name=pai>
-                </div>
-
-                <div class="form-group col-md-6">
-                    <label for="nomeMae">Nome da mãe</label>
-                    <input id="nomeMae" type="text" class=form-control name=mae>
-                </div>
-
-            </div>
         </div>
 
         <div class="btn-group " role="group" aria-label="">
@@ -417,9 +260,48 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<!-- Jquery for Nova Proposta -->
-<script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/jquery.mask.js"></script>
-<script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/jquery.mask.min.js"></script>
-<script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/novaProposta/etapaS.js"></script>
-<script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/novaProposta/ProgressClick.js"></script>
+<script>
+
+$(document).ready(function(){
+
+    $('#textoBusca').keyup(function(){
+        var textoBusca = $(this).val();
+
+        
+
+        if(textoBusca.length >= 3){
+
+            $.ajax({
+                method: 'post', 
+                url: "<?php echo BASE_URL;?>Proposta/buscarCliente",
+                data: {
+                    busca : 'sim',
+                    textoBusca: textoBusca
+                },
+                dataType: 'json',
+                success: function(retorno){
+                    if(retorno.dados == ''){
+                        console.log(retorno)
+                        $('#resultado_busca').html('<p>O cliente informado ainda não esta cadastrado!!</p>');
+                    }else{
+                        $('#resultado_busca').html(retorno.dados);
+                    }
+                }
+            });
+        }
+    })
+
+
+    $('body').on("click","#resultado_busca a",function(){
+        var dadosCliente = $(this).attr('id');
+        var splitDados = dadosCliente.split(':')
+        
+
+        $("#id").val(splitDados[0]);
+        $("#nome").val(splitDados[1]);
+        $("#cpf").val(splitDados[2]);
+    })
+
+
+})
+</script>

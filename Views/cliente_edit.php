@@ -31,20 +31,19 @@
 
                     <label>Imagem</label>
 
-                    <div class="imgEdit">
+                    <div class="imgEdit"> 
 
                         <?php foreach($listar['images'] as $id_image => $url): ?>
                             <div class="cli_image">
-                                <img src="<?php echo $url; ?>" />
+                                <label  for="file" class="center" style="cursor: pointer"><img id="img" src="<?php echo $url; ?>" class="img-fluid" alt="Imagem responsiva" style="width: 200px; height: 150px; border-radius: 10px"></label>
                                 <a href="javascript:;" >[ apagar ]</a>
                                 <input type="hidden" name="cli_images" value="<?php echo $id_image ;?>">
                             </div>
                         <?php endforeach;?>
-                    </div>
+                    </div> 
 
-                    <label>Imagem</label>
                     <div class="form-group col-md-3">
-                        <input type="file" name="foto">
+                        <input type="file"  id="file" name="foto" accept="image/jpeg, image/jpg, image/png ,application/pdf" hidden>
                     </div>
 
                     <div class="form-group col-md-3">
