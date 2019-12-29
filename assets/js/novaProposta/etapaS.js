@@ -8,7 +8,7 @@ $(document).ready(function(){
        if(ValorOperacao == 1){
 
            //SELECT OPERAÇÃO 
-          $(".fxd").append('<div class="form-group col-md-4"><select id="tabela" class="form-control"><option value="" disabled selected>selecione o tipo de tabela</option><option value="3.7747">Tabela A</option> <option value="3.3667">Tabela B</option> <option value="3.0847">Tabela C</option> <option value="2.7198">Tabela D</option> <option value="2.5697">Tabela E</option> <option value="2.3397">Tabela F</option> <option value="2.1836">Tabela G</option> <option value="2.0244">Tabela H</option> <option value="1.9439">Tabela I</option> <option value="1.8627">Tabela J</option> <option value="1.7807">Tabela K</option> <option value="1.6977">Tabela L</option> <option value="1.6145">Tabela M</option></select></div>'); 
+          $(".fxd").append('<div class="form-group col-md-4"><select id="tabela" class="form-control"><option value="" disabled selected>selecione o tipo de tabela</option><option id="3.7747" value="A">Tabela A</option> <option id="3.3667" value="B">Tabela B</option> <option id="3.0847" value="C">Tabela C</option> <option id="2.7198" value="D">Tabela D</option> <option id="2.5697" value="E">Tabela E</option> <option id="2.3397" value="F">Tabela F</option> <option G="2.1836" value="G">Tabela G</option> <option H="2.0244" value="H">Tabela H</option> <option id="1.9439" value="I">Tabela I</option> <option id="1.8627" value="J">Tabela J</option> <option id="1.7807" value="K">Tabela K</option> <option id="1.6977" value="L">Tabela L</option> <option id="1.6145" value="M">Tabela M</option></select></div>'); 
 
           var content = $('#operacao option:selected').text();
            
@@ -20,8 +20,9 @@ $(document).ready(function(){
                $("#tabela").change(function(){
                    var ValorTabela = $(this).val();
 
+                   console.log(ValorTabela)
                    switch(ValorTabela){
-                       case '3.7747':// letra A
+                       case 'A':// letra A
                             $('.div1').remove();
                             var content = $('#content').text();
                             var tbText = $('#tabela option:selected').text()
@@ -55,7 +56,7 @@ $(document).ready(function(){
                                 $('#valorSimulacao').val(ValorAnterior);
                             }
                            break;
-                       case '3.3667':// letra  B
+                       case 'B':// letra  B
                             $('.div1').remove();
                             var content = $('#content').text();
                             var tbText = $('#tabela option:selected').text()
@@ -78,7 +79,7 @@ $(document).ready(function(){
                                 $('#valorSimulacao').val(ValorAnterior);
                             }
                             break; 
-                        case '3.0847':// letra  C
+                        case 'C':// letra  C
                             $('.div1').remove();
                             var content = $('#content').text();
                             var tbText = $('#tabela option:selected').text()
@@ -101,7 +102,7 @@ $(document).ready(function(){
                                 $('#valorSimulacao').val(ValorAnterior);
                             }
                             break; 
-                        case '2.7198':// letra  D
+                        case 'D':// letra  D
                             $('.div1').remove();
                             var content = $('#content').text();
                             var tbText = $('#tabela option:selected').text()
@@ -123,7 +124,7 @@ $(document).ready(function(){
                             $('#valorSimulacao').val(ValorAnterior);
                             }
                             break;
-                        case '2.5697':// letra  E
+                        case 'E':// letra  E
                             $('.div1').remove();
                             var content = $('#content').text();
                             var tbText = $('#tabela option:selected').text()
@@ -145,7 +146,7 @@ $(document).ready(function(){
                                 $('#valorSimulacao').val(ValorAnterior);
                             }
                             break;
-                        case '2.3397':// letra  F
+                        case 'F':// letra  F
                             $('.div1').remove();
                             var content = $('#content').text();
                             var tbText = $('#tabela option:selected').text()
@@ -167,7 +168,7 @@ $(document).ready(function(){
                             $('#valorSimulacao').val(ValorAnterior);
                             }
                             break;
-                        case '2.1836':// letra  G
+                        case 'G':// letra  G
                             $('.div1').remove();
                             var content = $('#content').text();
                             var tbText = $('#tabela option:selected').text()
@@ -189,7 +190,7 @@ $(document).ready(function(){
                                 $('#valorSimulacao').val(ValorAnterior);
                             }
                             break;
-                        case '2.0244':// letra  H
+                        case 'H':// letra  H
                             $('.div1').remove();
                             var content = $('#content').text();
                             var tbText = $('#tabela option:selected').text()
@@ -211,7 +212,7 @@ $(document).ready(function(){
                                 $('#valorSimulacao').val(ValorAnterior);
                             }
                             break;
-                        case '1.9439':// letra  I
+                        case 'I':// letra  I
                             $('.div1').remove();
                             var content = $('#content').text();
                             var tbText = $('#tabela option:selected').text()
@@ -233,7 +234,7 @@ $(document).ready(function(){
                                 $('#valorSimulacao').val(ValorAnterior);
                             }
                             break;
-                        case '1.8627':// letra  J
+                        case 'J':// letra  J
                             $('.div1').remove();
                             var content = $('#content').text();
                             var tbText = $('#tabela option:selected').text()
@@ -255,7 +256,7 @@ $(document).ready(function(){
                                 $('#valorSimulacao').val(ValorAnterior);
                             }
                             break;
-                        case '1.7807':// letra  K
+                        case 'K':// letra  K
                             $('.div1').remove();
                             var content = $('#content').text();
                             var tbText = $('#tabela option:selected').text()
@@ -277,7 +278,7 @@ $(document).ready(function(){
                                 $('#valorSimulacao').val(ValorAnterior);
                             }
                             break;
-                        case '1.6977':// letra  L
+                        case 'L':// letra  L
                             $('.div1').remove();
                             var content = $('#content').text();
                             var tbText = $('#tabela option:selected').text()
@@ -299,7 +300,7 @@ $(document).ready(function(){
                                 $('#valorSimulacao').val(ValorAnterior);
                             }
                             break;
-                        case '1.6145':// letra  M
+                        case 'M':// letra  M
                             $('.div1').remove();
                             var content = $('#content').text();
                             var tbText = $('#tabela option:selected').text()
@@ -325,10 +326,12 @@ $(document).ready(function(){
                    }
 
                    $("#valor").blur(function(){
-
+                        console.log('passou')
                         var valor = $('#valor').val();
-                        var taxa = conversor($("#tabela option:selected").val());
-            
+                        var taxa = conversor($("#tabela option:selected").attr('id'));
+
+                        console.log(taxa)
+
                         if(valor.indexOf(".") >= 1){
                             var arrq = valor.split('.');
                             arrq = arrq[0]+arrq[1]
@@ -360,7 +363,7 @@ $(document).ready(function(){
                    //FUNÇÃO PARA CALCULAR E MOSTRAR O VALOR TOTAL
                    $('#QtParcelas').blur(function(){
                        var multiplicador = $('#QtParcelas option:selected').val();
-                       var taxa = $("#tabela option:selected").val();
+                       var taxa = $("#tabela option:selected").attr('id');
                        var valor = $('#valor').val();
 
                         if(valor.indexOf(".") >= 1){

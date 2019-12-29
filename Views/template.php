@@ -213,8 +213,6 @@
 <script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/colaborador/validacao.js"></script>
 
 
-<!-- IMPORTS DA NOVA PROPOSTA -->
-<script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/novaProposta/etapaS.js"></script>
-<script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/novaProposta/ProgressClick.js"></script>
+
 </body>
 </html>
