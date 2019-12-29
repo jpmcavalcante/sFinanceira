@@ -7,12 +7,13 @@ class Colaborador extends Model {
 
     private $uid;
     private $permissao;
+    private $colName;
 
   public function isLogged(){
       if(!empty($_SESSION['token'])){
           $token = $_SESSION['token'];
 
-          $sql = "SELECT id, id_permission from colaborador WHERE token = :token";
+          $sql = "SELECT id, nome, id_permission from colaborador WHERE token = :token";
           $sql = $this->db->prepare($sql);
           $sql->bindValue(':token', $token);
           $sql->execute();
@@ -21,7 +22,7 @@ class Colaborador extends Model {
               $p = new Permissao();
 
               $data = $sql->fetch();
-
+              $this->colName = $data['nome'];
               $this->uid = $data['id'];
 
 
@@ -40,6 +41,11 @@ class Colaborador extends Model {
 
       return false;
   }
+
+
+    public function getName(){
+        echo $this->colName;
+    }
 
     public function temPermissao($permissao_slug){
         if (in_array($permissao_slug, $this->permissao)){
@@ -199,7 +205,7 @@ class Colaborador extends Model {
 
 
   public function getId(){
-      return $this->uid;
+        echo $this->uid;
   }
 
 }

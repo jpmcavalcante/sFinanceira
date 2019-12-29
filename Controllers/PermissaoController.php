@@ -30,7 +30,8 @@ class PermissaoController extends Controller {
     public function index() {
             $this->arrayInfo = array(
                 'colaborador' => $this->col,
-                'list' => array()
+                'list' => array(),
+                'user'=> $this->col
             );
 
             $p = new Permissao();

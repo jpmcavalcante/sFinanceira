@@ -299,7 +299,7 @@ class Cliente extends Model {
             if ($sql->rowCount() > 0) {
                 $retorno['qtd'] = $sql->rowCount();
                 while($conteudo= $sql->fetch(\PDO::FETCH_ASSOC)){
-                    $retorno['dados'] .= '<br><a href="#" id="'.$conteudo['id'].':'.$conteudo['nome'].':'.$conteudo['cpf'].'" class="busca" >'.$conteudo['nome'].'</a>';
+                    $retorno['dados'] .= '<br><a  id="'.$conteudo['id'].':'.$conteudo['nome'].':'.$conteudo['cpf'].'" class="busca" >'.$conteudo['nome'].'</a>';
                 };
             }
             return $retorno;           

@@ -1,3 +1,21 @@
+<?php if (!empty($erros['suc'])): ?>
+    <div class="alert alert-success" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <p><?php echo $erros['suc']; ?></p>
+    </div>
+<?php elseif (!empty($erros['er'])): ?>
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <p><?php echo $erros['er']; ?></p>
+    </div>
+<?php endif; ?>
+
+
+
 <!-- progress bar -->
 <div class="progress">
   <div class="progress-bar bg-success" role="progressbar" id="progress-bar" style="width: 25%; font-size: 16px " aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">1/4</div>
@@ -11,14 +29,21 @@
     <a class="nav-item nav-link" id="nav-anexos-tab" data-toggle="tab" href="#nav-anexos" role="tab" aria-controls="nav-anexos" aria-selected="false">4. ANEXOS</a>
   </div>
 </nav>
+
+
+
 <div class="tab-content" id="nav-tabContent">
   <div class="tab-pane fade show active" id="nav-dadosDaOperacao" role="tabpanel" aria-labelledby="nav-dadosDaOperacao-tab">
-    <div class="row">
+
+
+      <form action="<?php BASE_URL;?>proposta/add_action" method="post">
+      <div class="row">
+          <input type="hidden" name="idColaborador" value="<?php $viewData['colId']->getId(); ?>">
         <div class=" fxd  col-md-12">
             <div class=" form-group col-md-4"> 
-                <select id="operacao" class="form-control">
+                <select id="operacao" name="operacao" class="form-control">
                     <option value="" disabled selected>selecione um tipo de operação</option>
-                    <option value="1">Cartão de Credito</option>
+                    <option value="Cartão de Credito">Cartão de Credito</option>
                 </select>
             </div>
         </div>
@@ -53,7 +78,7 @@
         <div class="col-md-12 " style="margin-top: 30px;">
 
             <label for="nome">id</label>
-            <input type="text" name="id" id="id" disabled>
+            <input type="text" name="idCli" id="id">
 
             <label for="nome" >Nome</label>
             <input type="text" class="col-md-6 " name="nome" id="nome" disabled>
@@ -99,12 +124,12 @@
                     
                     <div class="form-group col-md-4">
                         <label>
-                            <input name="group1" type="radio" id="contaCorrente"/>
+                            <input name="group1" type="radio" value="contaCorrente" id="contaCorrente"/>
                             <span>Conta Corrente</span>
                         </label>
 
                         <label>
-                            <input name="group1" type="radio" id="contaPoupanca"/>
+                            <input name="group1" type="radio" value="contaPoupanca"/>
                             <span>Conta Poupança</span>
                         </label>
                     </div>
@@ -140,37 +165,37 @@
                                 <div class=row>
                                     <div class="pessoaFisica input-field col s3" hidden>
                                         <label>
-                                            <input name="group3" type="radio" id="paiMae" />
+                                            <input name="group3" type="radio" value="paiMae" />
                                             <span>Pai/Mãe</span>
                                         </label>
                                     </div>
                                     <div class="pessoaFisica input-field col s3" hidden>
                                         <label>
-                                            <input name="group3" type="radio" id="avos" />
+                                            <input name="group3" type="radio" value="avos" />
                                             <span>Avô/Avó</span>
                                         </label>
                                     </div>
                                     <div class="pessoaFisica input-field col s3" hidden>
                                         <label>
-                                            <input name=group3 type=radio id=filho />
+                                            <input name="group3" type="radio" value="filho" />
                                             <span>Filho</span>
                                         </label>
                                     </div>
-                                    <div class='pessoaFisica input-field col s3' hidden>
+                                    <div class="pessoaFisica input-field col s3" hidden>
                                         <label>
-                                            <input name=group3 type=radio  id=irmao />
+                                            <input name="group3" type="radio"  value="irmao" />
                                             <span>Irmãos</span>
                                         </label>
                                     </div>
-                                    <div class='pessoaFisica input-field col s3' hidden>
+                                    <div class="pessoaFisica input-field col s3" hidden>
                                         <label>
-                                            <input name=group3 type=radio id=conjuge />
+                                            <input name="group3" type="radio" value="conjuge" />
                                             <span>Conjuge</span>
                                         </label>
                                     </div>
-                                    <div class='pessoaFisica input-field col s3' hidden> 
+                                    <div class="pessoaFisica input-field col s3" hidden>
                                         <label>
-                                            <input name=group3 type=radio  id=outro />
+                                            <input name="group3" type="radio"  value="outro" />
                                             <span>Outros</span>
                                         </label>
                                     </div>
@@ -180,10 +205,10 @@
                                     </div>
                                 </div>
                             
-                                <div class=' input-field col s12'>
-                                    <div class='pessoaJuridica input-field col s4' hidden>
-                                        <input type='text' class='validate' id='razaoSocial' name='razaoSocial'>
-                                        <label for=razaoSocial>Razão Social</label>
+                                <div class="input-field col s12">
+                                    <div class="pessoaJuridica input-field col s4" hidden>
+                                        <input type="text" class="validate" id="razaoSocial" name="razaoSocial">
+                                        <label for="razaoSocial">Razão Social</label>
                                     </div>
                                     <div class="pessoaJuridica input-field col s4" hidden>
                                         <input id="cnpj" type="text" class="validate" name="cnpj">
@@ -216,7 +241,7 @@
                 <input type="file" class="form-control-file" id="exampleFormControlFile1">
             </div>
             <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                    <input class="file-path validate" type="text" name="obs1" placeholder="Upload one or more files">
             </div>
         </div>
 
@@ -226,7 +251,7 @@
                 <input type="file" class="form-control-file" id="exampleFormControlFile1">
             </div>
             <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                    <input class="file-path validate" type="text" name="obs2" placeholder="Upload one or more files">
             </div>
         </div>
 
@@ -236,7 +261,7 @@
                 <input type="file" class="form-control-file" id="exampleFormControlFile1">
             </div>
             <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                    <input class="file-path validate" type="text" name="obs3" placeholder="Upload one or more files">
             </div>
         </div>
 
@@ -246,16 +271,18 @@
                 <input type="file" class="form-control-file" id="exampleFormControlFile1">
             </div>
             <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                    <input class="file-path validate" type="text" name="obs4" placeholder="Upload one or more files">
             </div>
         </div>  
 
         <div class="btn-group" role="group">
             <a href="#step2" id="back-dadosB" class="btn back" type="button" data-toggle="tab" data-step="3" ><span class="glyphicon glyphicon-chevron-left">&nbsp;Back</span></a>
-            <a href="#step4" class="btn btn-primary next" type="submit" data-toggle="tab" data-step="4">Finalizar Proposta&nbsp;<span class="glyphicon glyphicon-chevron-right"></span></a>   
+            <input type="submit" value="Finalizar proposta">
         </div>  
     </div>
+      </form>
   </div>
+
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -324,13 +351,15 @@ $(document).ready(function(){
 
         if(valor != ""){
             //FUNÇÃO PARA CALCULAR AS PARCELAS
-            
+
             for( var i = 3; i <= 12; i++){
 
                 var valorParcelaComposto = jurosComposto(valor, taxa, i);
-                
+
+                var splitValor = valorParcelaComposto.split(":");
+
                 //OPTIONS DO SELECT QUANTIDADE DE PARCELAS
-                $("#QtParcelas").append('<option value='+ i +' class="qtdp">'+ i +'x - '+ valorParcelaComposto +'</option>');
+                $("#QtParcelas").append('<option value='+ i +' class="qtdp">'+ i +'x - R$ '+ splitValor[0] +'</option>');
             }
         }
 
@@ -350,18 +379,26 @@ $(document).ready(function(){
             valor = arr[0] + "."+ arr[1];
         }else{
             valor = valor.replace(',','.');
-            
+
         }
 
         var valorParcelaComposto = jurosComposto(valor, taxa, multiplicador);
 
+        var splitValor = valorParcelaComposto.split(":");
+
+        var valorF = (parseFloat(splitValor[1]) + parseFloat(valor));
+
+        var valParcela= valorF.toFixed(2).split('.');
+
+        valParcela[0] = valParcela  [0].split(/(?=(?:...)*$)/).join('.');
+
         if(multiplicador > 0){
-            $("#total").text('Valor total: '+ valorParcelaComposto);
-            $("#valorFinal").val(valorParcelaComposto);
+            $("#total").text('Valor total: R$ '+ valParcela);
+            $("#valorFinal").val(valParcela);
         }else{
             $("#total").text('Valor total: ');
-            $("#valorFinal").val("   ");
+            $("#valorFinal").val("");
         }
-    });         
+    });
 })
 </script>
