@@ -5,10 +5,11 @@ $config = array();
 if(ENVIRONMENT == 'development') {
 	define("BASE_URL", "http://localhost/sistema/");
 	define("PATH_FOTO", "../sistema/");
+	define("PATH_ARQUIVOS", "../sistema/");
 	$config['dbname'] = 'financeira';
 	$config['host'] = 'localhost:3306';
 	$config['dbuser'] = 'root';
-	$config['dbpass'] = 'root';
+	$config['dbpass'] = 'A9c@16h-';
 } else {
 	define("BASE_URL", "http://localhost/nova_loja_painel/");
 	$config['dbname'] = 'loja2';

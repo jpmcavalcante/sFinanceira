@@ -245,7 +245,7 @@ $("#nome").mask("#", {
    translation: {
        '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
    }
-});
+}).attr('maxlength', 100);
 
 $("#endereco").mask("#", {
    maxlength: false,
@@ -280,7 +280,7 @@ $("#naturalidade").mask("#", {
    translation: {
        '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
    }
-});
+}).attr('maxlength', 50);
 
 
 $("#nomePai").mask("#", {
@@ -288,11 +288,11 @@ $("#nomePai").mask("#", {
    translation: {
        '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
    }
-});
+}).attr('maxlength', 100);
 
 $("#nomeMae").mask("#", {
    maxlength: false,
    translation: {
        '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
    }
-});
+}).attr('maxlength', 100);

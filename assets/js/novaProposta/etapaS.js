@@ -18,10 +18,9 @@ $(document).ready(function(){
 
             if ($('#tabela' ).length) {
 
-                $("#tabela").change(function(){
+                $("body").on('change','#tabela',function(){
                     var ValorTabela = $(this).val();
 
-                    console.log(ValorTabela)
                     switch(ValorTabela){
                         case 'A':// letra A
                             $('.div1').remove();
@@ -50,8 +49,12 @@ $(document).ready(function(){
                             $('#valor').mask('000.000.000,00', {reverse: true});
                             $('#numeroCartao').mask('0000-0000-0000-0000');
                             $('#codigoSeguranca').mask('0000');
-                            $('#titular').mask('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
-
+                            $("#titular").mask("#", {
+                                maxlength: false,
+                                translation: {
+                                    '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
+                                }
+                            }).attr('maxlength', 100); 
                             // valor inserido na tabela anterior
                             if(ValorAnterior != null){
                                 $('#valorSimulacao').val(ValorAnterior);
@@ -73,8 +76,12 @@ $(document).ready(function(){
                             $('#valor').mask('000.000.000,00', {reverse: true});
                             $('#numeroCartao').mask('0000-0000-0000-0000');
                             $('#codigoSeguranca').mask('0000');
-                            $('#titular').mask('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
-
+                            $("#titular").mask("#", {
+                                maxlength: false,
+                                translation: {
+                                    '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
+                                }
+                            }).attr('maxlength', 100); 
                             // valor inserido na tabela anterior
                             if(ValorAnterior != null){
                                 $('#valorSimulacao').val(ValorAnterior);
@@ -96,8 +103,12 @@ $(document).ready(function(){
                             $('#valor').mask('000.000.000,00', {reverse: true});
                             $('#numeroCartao').mask('0000-0000-0000-0000');
                             $('#codigoSeguranca').mask('0000');
-                            $('#titular').mask('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
-
+                            $("#titular").mask("#", {
+                                maxlength: false,
+                                translation: {
+                                    '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
+                                }
+                            }).attr('maxlength', 100); 
                             // valor inserido na tabela anterior
                             if(ValorAnterior != null){
                                 $('#valorSimulacao').val(ValorAnterior);
@@ -118,8 +129,12 @@ $(document).ready(function(){
                             $('#valor').mask('000.000.000,00', {reverse: true});
                             $('#numeroCartao').mask('0000-0000-0000-0000');
                             $('#codigoSeguranca').mask('0000');
-                            $('#titular').mask('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
-
+                            $("#titular").mask("#", {
+                                maxlength: false,
+                                translation: {
+                                    '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
+                                }
+                            }).attr('maxlength', 100); 
                             // valor inserido na tabela anterior
                             if(ValorAnterior != null){
                                 $('#valorSimulacao').val(ValorAnterior);
@@ -140,8 +155,12 @@ $(document).ready(function(){
                             $('#valor').mask('000.000.000,00', {reverse: true});
                             $('#numeroCartao').mask('0000-0000-0000-0000');
                             $('#codigoSeguranca').mask('0000');
-                            $('#titular').mask('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
-
+                            $("#titular").mask("#", {
+                                maxlength: false,
+                                translation: {
+                                    '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
+                                }
+                            }).attr('maxlength', 100); 
                             // valor inserido na tabela anterior
                             if(ValorAnterior != null){
                                 $('#valorSimulacao').val(ValorAnterior);
@@ -162,8 +181,12 @@ $(document).ready(function(){
                             $('#valor').mask('000.000.000,00', {reverse: true});
                             $('#numeroCartao').mask('0000-0000-0000-0000');
                             $('#codigoSeguranca').mask('0000');
-                            $('#titular').mask('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
-
+                            $("#titular").mask("#", {
+                                maxlength: false,
+                                translation: {
+                                    '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
+                                }
+                            }).attr('maxlength', 100); 
                             // valor inserido na tabela anterior
                             if(ValorAnterior != null){
                                 $('#valorSimulacao').val(ValorAnterior);
@@ -184,8 +207,12 @@ $(document).ready(function(){
                             $('#valor').mask('000.000.000,00', {reverse: true});
                             $('#numeroCartao').mask('0000-0000-0000-0000');
                             $('#codigoSeguranca').mask('0000');
-                            $('#titular').mask('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
-
+                            $("#titular").mask("#", {
+                                maxlength: false,
+                                translation: {
+                                    '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
+                                }
+                            }).attr('maxlength', 100); 
                             // valor inserido na tabela anterior
                             if(ValorAnterior != null){
                                 $('#valorSimulacao').val(ValorAnterior);
@@ -206,8 +233,12 @@ $(document).ready(function(){
                             $('#valor').mask('000.000.000,00', {reverse: true});
                             $('#numeroCartao').mask('0000-0000-0000-0000');
                             $('#codigoSeguranca').mask('0000');
-                            $('#titular').mask('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
-
+                            $("#titular").mask("#", {
+                                maxlength: false,
+                                translation: {
+                                    '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
+                                }
+                            }).attr('maxlength', 100); 
                             // valor inserido na tabela anterior
                             if(ValorAnterior != null){
                                 $('#valorSimulacao').val(ValorAnterior);
@@ -228,8 +259,12 @@ $(document).ready(function(){
                             $('#valor').mask('000.000.000,00', {reverse: true});
                             $('#numeroCartao').mask('0000-0000-0000-0000');
                             $('#codigoSeguranca').mask('0000');
-                            $('#titular').mask('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
-
+                            $("#titular").mask("#", {
+                                maxlength: false,
+                                translation: {
+                                    '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
+                                }
+                            }).attr('maxlength', 100); 
                             // valor inserido na tabela anterior
                             if(ValorAnterior != null){
                                 $('#valorSimulacao').val(ValorAnterior);
@@ -250,8 +285,12 @@ $(document).ready(function(){
                             $('#valor').mask('000.000.000,00', {reverse: true});
                             $('#numeroCartao').mask('0000-0000-0000-0000');
                             $('#codigoSeguranca').mask('0000');
-                            $('#titular').mask('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
-
+                            $("#titular").mask("#", {
+                                maxlength: false,
+                                translation: {
+                                    '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
+                                }
+                            }).attr('maxlength', 100); 
                             // valor inserido na tabela anterior
                             if(ValorAnterior != null){
                                 $('#valorSimulacao').val(ValorAnterior);
@@ -272,8 +311,12 @@ $(document).ready(function(){
                             $('#valor').mask('000.000.000,00', {reverse: true});
                             $('#numeroCartao').mask('0000-0000-0000-0000');
                             $('#codigoSeguranca').mask('0000');
-                            $('#titular').mask('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
-
+                            $("#titular").mask("#", {
+                                maxlength: false,
+                                translation: {
+                                    '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
+                                }
+                            }).attr('maxlength', 100); 
                             // valor inserido na tabela anterior
                             if(ValorAnterior != null){
                                 $('#valorSimulacao').val(ValorAnterior);
@@ -294,8 +337,12 @@ $(document).ready(function(){
                             $('#valor').mask('000.000.000,00', {reverse: true});
                             $('#numeroCartao').mask('0000-0000-0000-0000');
                             $('#codigoSeguranca').mask('0000');
-                            $('#titular').mask('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
-
+                            $("#titular").mask("#", {
+                                maxlength: false,
+                                translation: {
+                                    '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
+                                }
+                            }).attr('maxlength', 100); 
                             // valor inserido na tabela anterior
                             if(ValorAnterior != null){
                                 $('#valorSimulacao').val(ValorAnterior);
@@ -316,7 +363,12 @@ $(document).ready(function(){
                             $('#valor').mask('000.000.000,00', {reverse: true});
                             $('#numeroCartao').mask('0000-0000-0000-0000');
                             $('#codigoSeguranca').mask('0000');
-                            $('#titular').mask('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
+                            $("#titular").mask("#", {
+                                maxlength: false,
+                                translation: {
+                                    '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
+                                }
+                            }).attr('maxlength', 100);                            
 
                             // valor inserido na tabela anterior
                             if(ValorAnterior != null){
@@ -420,30 +472,3 @@ function jurosComposto(valor, taxa, parcelas) {
     return valParcela +":"+ valorSemForma;
 }
 
-//VALIDAÇÃO ETAPA 2
-$('#cpf').mask('999.999.999-99');
-$('#nome').mask('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
-$('#rg').mask('99.999.999-9');
-$('#telefone').mask('(00) 0000-0000');
-$('#celular').mask('(00) 00000-0000');
-$('#residen').mask('0000');
-// $('#cep').mask('00-000-000');
-$('#orgaoEmissor').mask('SSS');
-$('#dataExpedicao').mask('00/00/0000');
-$('#dataNascimento').mask('00/00/0000');
-$('#uf').mask('SSS');
-$('#tipoResidencia').mask('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
-$('#nomePai').mask('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
-$('#nomeMae').mask('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
-//VALIDAÇÃO ETAPA 3
-$('#banco').mask('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
-$('#agencia').mask('00000000000000000');
-$('#conta').mask('000000000');
-$('#digito').mask('00000');
-$('#dataDeAbertura').mask('00/00/0000');
-$('#razaoSocial').mask('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
-$('#cnpj').mask('99.999.999/9999-99');
-$('#vinculo').mask('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
-$('#outro').mask('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');
-$('#cpfTerceiro').mask('999.999.999-99');
-$('#nomeTerceiro').mask('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS');

@@ -5,6 +5,7 @@ use \Core\Controller;
 use Models\Cliente;
 use Models\Colaborador;
 use Models\Proposta;
+use Models\Arquivos;
 
 class PropostaController extends Controller {
    
@@ -82,7 +83,7 @@ class PropostaController extends Controller {
 
             $operacao = addslashes($_POST['operacao']);
             $tabela = "Tabela ". addslashes($_POST['tabela']);
-            $valor = addslashes($_POST['valor']);
+            $valor = addslashes($_POST['valorFinal']);
             $QtParcelas = addslashes($_POST['QtParcelas']);
             $valorFinal = addslashes($_POST['valorFinal']);
             $bandeiraBancaria = addslashes($_POST['bandeiraBancaria']);
@@ -110,11 +111,6 @@ class PropostaController extends Controller {
             $razaoSocial = addslashes($_POST['razaoSocial']);
             $cnpj = addslashes($_POST['cnpj']);
             $vinculo = addslashes($_POST['vinculo']);
-            $obs1 = addslashes($_POST['obs1']);
-            $obs2 = addslashes($_POST['obs2']);
-            $obs3 = addslashes($_POST['obs3']);
-            $obs4 = addslashes($_POST['obs4']);
-
 
 
            // $satus = "analise";
@@ -149,27 +145,25 @@ class PropostaController extends Controller {
             if ($vinculo == "") {
                 $vinculo = "não informado";
             }
-            if ($obs1 == "") {
-                $obs1 = "não informado";
-            }
-            if ($obs2 == "") {
-                $obs2 = "não informado";
-            }
-            if ($obs3 == "") {
-                $obs3 = "não informado";
-            }
-            if ($obs4 == ""){
-                $obs4 = "não informado";
-            }
            /* echo  $operacao." - ".$tabela." - ".$valor." - ".$QtParcelas." - ".$valorFinal." - ".$bandeiraBancaria." - ".$numeroCartao." - ".$titular." - ".$mesVenci." - ".$anoVenci." - ".$codigoSeguranca." - ".$idCliente." - ".$banco." - ".$agencia." - ".$conta." - ".$digito." - ".$dataDeAbertura." - ".
                 $group1." - ".$nomeTerceiro." - ".$cpfTerceiro." - ".$group3." - ".$outro." - ".$razaoSocial." - ".$cnpj." - ".$vinculo." - ".$obs1." - ".$obs2." - ". $obs3." - ".$obs4; exit;*/
 
              if ($p->salvar($operacao, $tabela, $valor, $QtParcelas, $valorFinal, $bandeiraBancaria, $numeroCartao, $titular, $mesVenci, $anoVenci, $codigoSeguranca,
                             $idCliente, $banco, $agencia, $conta, $digito, $dataDeAbertura, $group1, $nomeTerceiro, $cpfTerceiro, $group3, $outro, $razaoSocial,
-                            $cnpj, $vinculo, $obs1, $obs2, $obs3, $obs4)){
-                 $_SESSION['sucMsg'] = 'Proposta cadastrado com sucesso';
-                 header("Location: ".BASE_URL.'Proposta');
-                 exit;
+                            $cnpj, $vinculo)){
+
+                 //SALVANDO OS ANEXOS E SUAS OBSERVAÇOES ALEM DO CAMINHO
+                $a = new Arquivos();
+                $file = $_FILES['arquivo'];
+                $nomes = $_POST['obss'];
+                if($a->salvarPDF($file, $nomes)){
+                    $_SESSION['sucMsg'] = 'Proposta cadastrada com sucesso';
+                    header("Location: ".BASE_URL.'Proposta');
+                    exit;
+                }else{
+                    echo "não foi";
+                    exit;
+                };
              }
 
 

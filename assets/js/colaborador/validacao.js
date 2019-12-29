@@ -62,18 +62,18 @@ $("#nome").mask("#", {
     translation: {
         '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
     }
- });
+ }).attr('maxlength', 100);
 
  $("#atendente").mask("#", {
     maxlength: false,
     translation: {
         '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
     }
- });
+ }).attr('maxlength', 100);
 
  $("#unidade").mask("#", {
     maxlength: false,
     translation: {
         '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
     }
- });
+ }).attr('maxlength', 50);

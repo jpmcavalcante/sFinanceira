@@ -15,7 +15,11 @@
     </div>
 <?php endif; ?>
 
-
+<style>
+.error{
+  color: red;
+}
+</style>
 <form id="cadCliente" name="cadCliente" method="post" action="<?php echo BASE_URL;?>Cliente/add_action" enctype="multipart/form-data">
 
 

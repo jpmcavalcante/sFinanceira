@@ -40,7 +40,7 @@ $("#name").mask("#", {
     translation: {
         '#': {pattern: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/, recursive: true}
     }
- });
+ }).attr('maxlength', 100);
 
 
 

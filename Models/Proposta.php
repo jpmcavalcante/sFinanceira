@@ -8,20 +8,21 @@ class Proposta extends Model {
 
 
 
-	public function salvar($operacao, $tabela, $valor, $QtParcelas, $valorFinal, $bandeiraBancaria, $numeroCartao, $titular, $mesVenci, $anoVenci, $codigoSeguranca,
-                           $idCliente, $banco, $agencia, $conta, $digito, $dataDeAbertura, $group1, $nomeTerceiro, $cpfTerceiro, $group3, $outro, $razaoSocial,
-                           $cnpj, $vinculo, $obs1, $obs2, $obs3, $obs4){
+	public function salvar($operacao, $tabela ,  $valor, $QtParcelas, $valorFinal, $bandeiraBancaria, $numeroCartao, $titular, $mesVenci, $anoVenci, $codigoSeguranca,
+    $idCliente, $banco, $agencia, $conta, $digito, $dataDeAbertura, $group1, $nomeTerceiro, $cpfTerceiro, $group3, $outro, $razaoSocial,
+    $cnpj, $vinculo){
 
         try {
 
-            $sql = "INSERT INTO proposta (operacao, tabela, valor, qtParcelas, valorFinal, bandeiraCartao, numeroCartao, titular, mesVenc, anoVenci, codSeguranca, id_cli, banco, agencia, conta, digito, dtAbertura, group1, nomeTerceiro,
-                                          cpfTerceiro, group3, outro, razaoSocial, cnpj, vinculo, obs1, obs2, obs3, obs4)
-                     VALUES (:operacao, :tabela, :valor, :qtParcelas, :valorFinal, :bandeiraCartao, :numeroCartao, :titular, :mesVenc, :anoVenci, :codSeguranca, :id_cli, :banco, :agencia, :conta, :digito, :dtAbertura, :group1, :nomeTerceiro, 
-                             :cpfTerceiro, :group3, :outro, :razaoSocial, :cnpj, :vinculo, :obs1, :obs2, :obs3, :obs4)";
+            $sql = "INSERT INTO proposta (operacao, tabela ,valor, qtParcelas, valorFinal, bandeiraCartao, numeroCartao, titular, mesVenc, anoVenci, codSeguranca, id_cli, banco, agencia, conta, digito, dtAbertura, group1, nomeTerceiro,
+            cpfTerceiro, group3, outro, razaoSocial, cnpj, vinculo)
+            VALUES (:operacao, :tabela, :valor, :qtParcelas, :valorFinal, :bandeiraCartao, :numeroCartao, :titular, :mesVenc, :anoVenci, :codSeguranca, :id_cli, :banco, :agencia, :conta, :digito, :dtAbertura, :group1, :nomeTerceiro, 
+            :cpfTerceiro, :group3, :outro, :razaoSocial, :cnpj, :vinculo)";
 
             $sql = $this->db->prepare($sql);
             $sql->bindValue(':operacao', $operacao);
             $sql->bindValue(':tabela', $tabela);
+            $sql->bindValue(':valor', $valor);
             $sql->bindValue(':valor', $valor);
             $sql->bindValue(':qtParcelas', $QtParcelas);
             $sql->bindValue(':valorFinal', $valorFinal);
@@ -45,13 +46,9 @@ class Proposta extends Model {
             $sql->bindValue(':razaoSocial', $razaoSocial);
             $sql->bindValue(':cnpj', $cnpj);
             $sql->bindValue(':vinculo', $vinculo);
-            $sql->bindValue(':obs1', $obs1);
-            $sql->bindValue(':obs2', $obs2);
-            $sql->bindValue(':obs3', $obs3);
-            $sql->bindValue(':obs4', $obs4);
 
             if ($sql->execute()){
-                return true;
+               return true;
             }
         }catch (PDOException $e){
             $e->getMessage();

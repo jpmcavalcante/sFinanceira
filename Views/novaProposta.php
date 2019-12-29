@@ -30,13 +30,13 @@
   </div>
 </nav>
 
-
-
+<form action="<?php BASE_URL;?>Proposta/add_action" method="post" enctype="multipart/form-data">
 <div class="tab-content" id="nav-tabContent">
   <div class="tab-pane fade show active" id="nav-dadosDaOperacao" role="tabpanel" aria-labelledby="nav-dadosDaOperacao-tab">
 
 
-      <form action="<?php BASE_URL;?>proposta/add_action" method="post">
+      
+      
       <div class="row">
           <input type="hidden" name="idColaborador" value="<?php $viewData['colId']->getId(); ?>">
         <div class=" fxd  col-md-12">
@@ -234,57 +234,59 @@
     </div>
   </div>
   <div class="tab-pane fade" id="nav-anexos" role="tabpanel" aria-labelledby="nav-anexos-tab">
-    <div class="row">
-        <div class="input-field col s12">
-            <div class="form-group">
-                <label for="exampleFormControlFile1">Obseervação</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+        <!-- <form id="etapas" name="etapas" action="<?php echo BASE_URL;?>Arquivos/upload_pdf_action/" method="post" enctype="multipart/form-data"> -->
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Obseervação</label>
+                    <input type="file" name="arquivo[]" class="form-control-file" id="exampleFormControlFile1"  accept="application/pdf"> 
+                </div>
+                <div class="file-path-wrapper">
+                    <input id="arquivo1 " name="obss[]" class="file-path validate"  type="text" placeholder="Upload one or more files" >
+                </div>
             </div>
-            <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text" name="obs1" placeholder="Upload one or more files">
+            
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Obseervação</label>
+                    <input type="file" name="arquivo[]" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+                <div class="file-path-wrapper">
+                        <input id="arquivo2" name="obss[]" class="file-path validate" type="text" placeholder="Upload one or more files" accept="application/pdf" >
+                </div>
             </div>
-        </div>
-
-        <div class="input-field col s12">
-            <div class="form-group">
-                <label for="exampleFormControlFile1">Obseervação</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Obseervação</label>
+                    <input type="file" name="arquivo[]" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+                <div class="file-path-wrapper">
+                        <input id="arquivo3" name="obss[]" class="file-path validate" type="text" placeholder="Upload one or more files" accept="application/pdf">  
+                </div>
+            </div> 
+       
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Obseervação</label>
+                    <input type="file" name="arquivo[]" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+                <div class="file-path-wrapper">
+                        <input id="arquivo4" name="obss[]" class="file-path validate" type="text" placeholder="Upload one or more files" accept="application/pdf">
+                </div>
             </div>
-            <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text" name="obs2" placeholder="Upload one or more files">
+       
+            <div class="btn-group" role="group">
+                <a href="#step2" id="back-dadosB" class="btn back" type="button" data-toggle="tab" data-step="3" ><span class="glyphicon glyphicon-chevron-left">&nbsp;Back</span></a>
+                <button name="enviar" class="btn btn-primary next" type="submit" >Finalizar Proposta&nbsp;<span class="glyphicon glyphicon-chevron-right"></span></button>   
             </div>
-        </div>
-
-        <div class="input-field col s12">
-            <div class="form-group">
-                <label for="exampleFormControlFile1">Obseervação</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1">
-            </div>
-            <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text" name="obs3" placeholder="Upload one or more files">
-            </div>
-        </div>
-
-        <div class="input-field col s12">
-            <div class="form-group">
-                <label for="exampleFormControlFile1">Obseervação</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1">
-            </div>
-            <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text" name="obs4" placeholder="Upload one or more files">
-            </div>
-        </div>  
-
-        <div class="btn-group" role="group">
-            <a href="#step2" id="back-dadosB" class="btn back" type="button" data-toggle="tab" data-step="3" ><span class="glyphicon glyphicon-chevron-left">&nbsp;Back</span></a>
-            <input type="submit" value="Finalizar proposta">
-        </div>  
+        <!-- </form> -->
+      </div>
+     
     </div>
-      </form>
+
   </div>
-
 </div>
-
+</form>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script>
