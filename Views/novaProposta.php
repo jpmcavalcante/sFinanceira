@@ -259,10 +259,7 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<!-- IMPORTS DA NOVA PROPOSTA -->
-<script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/jquery.mask.min.js"></script>
-<script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/novaProposta/etapaS.js"></script>
-<script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/novaProposta/ProgressClick.js"></script>
+
 <script>
 
 $(document).ready(function(){
@@ -306,5 +303,65 @@ $(document).ready(function(){
     })
 
 
+    $('body').on('blur','#valor',function(){
+        console.log('passou1')
+        var valor = $('#valor').val();
+        var taxa = $('#tabela option:selected').attr('id');
+
+        console.log(taxa)
+
+        if(valor.indexOf(".") >= 1){
+            var arrq = valor.split('.');
+            arrq = arrq[0]+arrq[1]
+            var arr = arrq.split(',');
+
+            valor = arr[0] + "."+ arr[1];
+        }else{
+            valor = valor.replace(',','.');
+        }
+        
+        $('.qtdp').remove();
+
+        if(valor != ""){
+            //FUNÇÃO PARA CALCULAR AS PARCELAS
+            
+            for( var i = 3; i <= 12; i++){
+
+                var valorParcelaComposto = jurosComposto(valor, taxa, i);
+                
+                //OPTIONS DO SELECT QUANTIDADE DE PARCELAS
+                $("#QtParcelas").append('<option value='+ i +' class="qtdp">'+ i +'x - '+ valorParcelaComposto +'</option>');
+            }
+        }
+
+    });
+
+    //FUNÇÃO PARA CALCULAR E MOSTRAR O VALOR TOTAL
+    $('body').on('blur','#QtParcelas',function(){
+        var multiplicador = $('#QtParcelas option:selected').val();
+        var taxa = $("#tabela option:selected").attr('id');
+        var valor = $('#valor').val();
+
+        if(valor.indexOf(".") >= 1){
+            var arrq = valor.split('.');
+            arrq = arrq[0]+arrq[1]
+            var arr = arrq.split(',');
+
+            valor = arr[0] + "."+ arr[1];
+        }else{
+            valor = valor.replace(',','.');
+            
+        }
+
+        var valorParcelaComposto = jurosComposto(valor, taxa, multiplicador);
+
+        if(multiplicador > 0){
+            $("#total").text('Valor total: '+ valorParcelaComposto);
+            $("#valorFinal").val(valorParcelaComposto);
+        }else{
+            $("#total").text('Valor total: ');
+            $("#valorFinal").val("   ");
+        }
+    });         
 })
 </script>

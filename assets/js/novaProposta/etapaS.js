@@ -325,72 +325,11 @@ $(document).ready(function(){
 
                    }
 
-                   $("#valor").blur(function(){
-                        console.log('passou')
-                        var valor = $('#valor').val();
-                        var taxa = conversor($("#tabela option:selected").attr('id'));
-
-                        console.log(taxa)
-
-                        if(valor.indexOf(".") >= 1){
-                            var arrq = valor.split('.');
-                            arrq = arrq[0]+arrq[1]
-                            var arr = arrq.split(',');
-
-                            valor = arr[0] + "."+ arr[1];
-                        }else{
-                            valor = valor.replace(',','.');
-                        }
-                        
-                       if($('.qtdp').length){
-                           $('.qtdp').remove();
-                       }else{
-
-                           if(valor != ""){
-                                //FUNÇÃO PARA CALCULAR AS PARCELAS
-                               
-                                for( var i = 3; i <= 12; i++){
-
-                                    var valorParcelaComposto = jurosComposto(valor, taxa, i);
-                                    
-                                    //OPTIONS DO SELECT QUANTIDADE DE PARCELAS
-                                    $("#QtParcelas").append('<option value='+ i +' class="qtdp">'+ i +'x - '+ valorParcelaComposto +'</option>');
-                                }
-                           }
-                       }
-                   });
-
-                   //FUNÇÃO PARA CALCULAR E MOSTRAR O VALOR TOTAL
-                   $('#QtParcelas').blur(function(){
-                       var multiplicador = $('#QtParcelas option:selected').val();
-                       var taxa = $("#tabela option:selected").attr('id');
-                       var valor = $('#valor').val();
-
-                        if(valor.indexOf(".") >= 1){
-                            var arrq = valor.split('.');
-                            arrq = arrq[0]+arrq[1]
-                            var arr = arrq.split(',');
-
-                            valor = arr[0] + "."+ arr[1];
-                        }else{
-                            valor = valor.replace(',','.');
-                            
-                        }
-
-                       var valorParcelaComposto = jurosComposto(valor, taxa, multiplicador);
-
-                       if(multiplicador > 0){
-                           $("#total").text('Valor total: '+ valorParcelaComposto);
-                           $("#valorFinal").val(valorParcelaComposto);
-                       }else{
-                           $("#total").text('Valor total: ');
-                           $("#valorFinal").val("   ");
-                       }
-                   });
+                
                    
 
                });
-
+               
            }
            
        }
