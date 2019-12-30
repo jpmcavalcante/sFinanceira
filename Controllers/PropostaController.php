@@ -72,9 +72,8 @@ class PropostaController extends Controller {
         }
     }
 
-    public function add_action(){
 
-
+    public function add_action(){   
 
         if ($_POST['operacao']){
 
@@ -83,7 +82,7 @@ class PropostaController extends Controller {
 
             $operacao = addslashes($_POST['operacao']);
             $tabela = "Tabela ". addslashes($_POST['tabela']);
-            $valor = addslashes($_POST['valorFinal']);
+            $valor = addslashes($_POST['valor']);
             $QtParcelas = addslashes($_POST['QtParcelas']);
             $valorFinal = addslashes($_POST['valorFinal']);
             $bandeiraBancaria = addslashes($_POST['bandeiraBancaria']);
@@ -94,7 +93,7 @@ class PropostaController extends Controller {
             $codigoSeguranca = addslashes($_POST['codigoSeguranca']);
 
 
-            $idCliente = addslashes($_POST['idCli']);
+            $idCliente = addslashes($_POST['idColaborador']);
 
 
             $banco = addslashes($_POST['banco']);
@@ -145,27 +144,31 @@ class PropostaController extends Controller {
             if ($vinculo == "") {
                 $vinculo = "não informado";
             }
-           /* echo  $operacao." - ".$tabela." - ".$valor." - ".$QtParcelas." - ".$valorFinal." - ".$bandeiraBancaria." - ".$numeroCartao." - ".$titular." - ".$mesVenci." - ".$anoVenci." - ".$codigoSeguranca." - ".$idCliente." - ".$banco." - ".$agencia." - ".$conta." - ".$digito." - ".$dataDeAbertura." - ".
-                $group1." - ".$nomeTerceiro." - ".$cpfTerceiro." - ".$group3." - ".$outro." - ".$razaoSocial." - ".$cnpj." - ".$vinculo." - ".$obs1." - ".$obs2." - ". $obs3." - ".$obs4; exit;*/
+            // echo  $operacao." - ".$tabela." - ".$valor." - ".$QtParcelas." - ".$valorFinal." - ".$bandeiraBancaria." - ".$numeroCartao." - ".$titular." - ".$mesVenci." - ".$anoVenci." - ".$codigoSeguranca." - ".$idCliente." - ".$banco." - ".$agencia." - ".$conta." - ".$digito." - ".$dataDeAbertura." - ".
+            //     $group1." - ".$nomeTerceiro." - ".$cpfTerceiro." - ".$group3." - ".$outro." - ".$razaoSocial." - ".$cnpj." - ".$vinculo; exit;
 
-             if ($p->salvar($operacao, $tabela, $valor, $QtParcelas, $valorFinal, $bandeiraBancaria, $numeroCartao, $titular, $mesVenci, $anoVenci, $codigoSeguranca,
-                            $idCliente, $banco, $agencia, $conta, $digito, $dataDeAbertura, $group1, $nomeTerceiro, $cpfTerceiro, $group3, $outro, $razaoSocial,
-                            $cnpj, $vinculo)){
+            $file = $_FILES['arquivo'];
+            $nomes = $_POST['obss'];
 
-                 //SALVANDO OS ANEXOS E SUAS OBSERVAÇOES ALEM DO CAMINHO
-                $a = new Arquivos();
-                $file = $_FILES['arquivo'];
-                $nomes = $_POST['obss'];
-                if($a->salvarPDF($file, $nomes)){
+            $enviar = $_POST['enviar'];
+
+            echo "<pre>";
+            \print_r($_POST);
+            exit;
+            if($enviar == "sim"){
+                if ($p->salvar($file,$nomes,$operacao, $tabela, $valor, $QtParcelas, $valorFinal, $bandeiraBancaria, $numeroCartao, $titular, $mesVenci, $anoVenci, $codigoSeguranca,
+                $idCliente, $banco, $agencia, $conta, $digito, $dataDeAbertura, $group1, $nomeTerceiro, $cpfTerceiro, $group3, $outro, $razaoSocial,
+                $cnpj, $vinculo)){
+
+                
                     $_SESSION['sucMsg'] = 'Proposta cadastrada com sucesso';
-                    header("Location: ".BASE_URL.'Proposta');
+                    header("Location: ".BASE_URL.'Home');
                     exit;
                 }else{
-                    echo "não foi";
-                    exit;
-                };
-             }
-
+                    echo "chegou no if";
+                    exit;  
+                }
+            }
 
         }else{
             header("Location: ".BASE_URL.'proposta');

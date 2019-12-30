@@ -8,7 +8,7 @@ class Proposta extends Model {
 
 
 
-	public function salvar($operacao, $tabela ,  $valor, $QtParcelas, $valorFinal, $bandeiraBancaria, $numeroCartao, $titular, $mesVenci, $anoVenci, $codigoSeguranca,
+	public function salvar($file,$nomes,$operacao, $tabela , $valor, $QtParcelas, $valorFinal, $bandeiraBancaria, $numeroCartao, $titular, $mesVenci, $anoVenci, $codigoSeguranca,
     $idCliente, $banco, $agencia, $conta, $digito, $dataDeAbertura, $group1, $nomeTerceiro, $cpfTerceiro, $group3, $outro, $razaoSocial,
     $cnpj, $vinculo){
 
@@ -22,7 +22,6 @@ class Proposta extends Model {
             $sql = $this->db->prepare($sql);
             $sql->bindValue(':operacao', $operacao);
             $sql->bindValue(':tabela', $tabela);
-            $sql->bindValue(':valor', $valor);
             $sql->bindValue(':valor', $valor);
             $sql->bindValue(':qtParcelas', $QtParcelas);
             $sql->bindValue(':valorFinal', $valorFinal);
@@ -46,8 +45,17 @@ class Proposta extends Model {
             $sql->bindValue(':razaoSocial', $razaoSocial);
             $sql->bindValue(':cnpj', $cnpj);
             $sql->bindValue(':vinculo', $vinculo);
-
+            
+            
             if ($sql->execute()){
+
+                $idProposta = $this->db->lastInsertId();
+
+                //SALVANDO OS ANEXOS E SUAS OBSERVAÇOES ALEM DO CAMINHO
+                $a = new Arquivos();
+                if($a->salvarPDFProposta($file, $nomes,$idProposta)){
+                    echo "foi";
+                }
                return true;
             }
         }catch (PDOException $e){
@@ -96,7 +104,7 @@ class Proposta extends Model {
             $sql->bindValue(':nome_mae', $nome_mae);
             $sql->bindValue(':id', $id);
 
-            if ($sql->execute()){
+            if ($sql->execute()){ 
 
                    $sql = "DELETE FROM imagemCliente WHERE id_cliente = :id";
                    $sql = $this->db->prepare($sql);

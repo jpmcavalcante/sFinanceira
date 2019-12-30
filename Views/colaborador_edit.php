@@ -7,7 +7,7 @@
     </div>
 
 
-        <form class="form-horizontal" id="formEdit" method="post" action="<?php echo BASE_URL;?>Colaborador/edit_action/<?php echo $id_col;?>">
+        <form class="form-horizontal" id="cadCola" name="cadCola" method="post" action="<?php echo BASE_URL;?>Colaborador/edit_action/<?php echo $id_col;?>">
 
             <input type="text" id="nome" name="nome"         value="<?php echo $info['nome'];?>">
             <input type="text" name="email"        value="<?php echo $info['email'];?>">
@@ -24,9 +24,9 @@
                 <?php endforeach;?>
             </select>
 
-            <input type="submit" id="btnformEdit" value="editar">
+            <button type="submit" id="enviar">editar</button>
 
-    </form>
+        </form>
 </div>
 
 <hr>

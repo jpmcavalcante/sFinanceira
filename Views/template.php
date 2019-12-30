@@ -113,6 +113,15 @@
                         </a>
                     </li>
 
+                    <li class="nav-item mb-1">
+                        <a href="<?php echo BASE_URL;?>Arquivo" class="item-style p-3">
+                            <i class="nav-icon fas fa-clipboard-list"></i>
+                            <p style="margin: 0;">
+                                Banco de Arquivos
+                            </p>
+                        </a>
+                    </li>
+
                     <?php if ( $viewData['colaborador']->temPermissao('cad_colaborador')): ?>
                         <li class="nav-item mb-1" >
                             <a href="<?php echo BASE_URL;?>colaborador" class="item-style p-3">
@@ -216,5 +225,8 @@
 <script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/novaProposta/etapaS.js"></script>
 <script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/novaProposta/validacao.js"></script>
 <script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/novaProposta/ProgressClick.js"></script>
+
+<!-- IMPORTS DA BANCO DE ARQUIVOS -->
+<script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/arquivo/validacao.js"></script>
 </body>
 </html>

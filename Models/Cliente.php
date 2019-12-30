@@ -23,7 +23,7 @@ class Cliente extends Model {
     public function getUsers($id){
 
         $array = array();
-
+ 
         try {
             $sql = "SELECT id, nome, cpf, email, rg, emissor, estado_emissor, data_expedicao, data_nascimento, estado_civil, sexo, telefone, celular, cep, endereco, numero, complemento, 
 	    bairro, estado, cidade, tipo_residencia, tempo_residencia, naturalidade, nome_pai, nome_mae FROM clientes WHERE id = :id";
