@@ -6,7 +6,7 @@
         <li class="nav-item">
             <a class="nav-link active" href="#">Banco de Arquivos</a>
         </li>
-        <a href="<?php echo BASE_URL.'Arquivo/add' ;?>" type="button" class="btn btn-primary" style="margin-left: 70%;">add novo arquivo</a>
+        <a href="<?php echo BASE_URL.'Arquivo/add' ;?>" type="button" class="btn btn-primary" style="margin-left: 70%;">Adicionar novo arquivo</a>
     </ul>
     
     <div style="margin: 40px"></div>

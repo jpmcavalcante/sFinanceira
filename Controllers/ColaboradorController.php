@@ -67,20 +67,30 @@ class ColaboradorController extends Controller {
         $this->loadTemplate('colaborador_add', $this->arrayInfo);
     }
 
-    public function save() {
+    public function add_action() {
 
-        try {
-            $col = new Colaborador();
-            $post = $_POST ?? null;
-            $data = $this->obj($post);
+        $c = new Colaborador();
 
-            if ($col->salvar($data))
-                echo json_encode(["success" => true, "message" => "Salvo com sucesso", "data" => $data]);
+        if (!empty($_POST['nome']) && !empty($_POST['email'])){
+
+            $nome = addslashes($_POST['nome']);
+            $email = addslashes($_POST['email']);
+            $atendente = addslashes($_POST['atendente']);
+            $unidade = addslashes($_POST['unidade']);
+            $senha = addslashes($_POST['senha']);
+            $id_permissao = addslashes($_POST['id_permissao']);
 
 
-        }catch (\Exception $e){
-            echo json_encode(["success" => false, "message" => $e->getMessage()]);
+            if ($c->salvar($nome, $email, $atendente, $unidade, $senha, $id_permissao)){
+                $_SESSION['sucMsg'] = 'Colaborador cadastrado com sucesso';
+                header("Location: ".BASE_URL.'colaborador');
+                exit;
+            }
         }
+        header("Location: ".BASE_URL.'colaborador/add');
+        exit;
+
+
     }
 
     public function edit($id){
@@ -153,16 +163,4 @@ class ColaboradorController extends Controller {
             exit;
         }
     }
-
-    public function obj($post){
-        $request = new \stdClass();
-
-        foreach ($post as $k => $v){
-            $request->$k = $v;
-        }
-
-        return $request;
-    }
-
-
 }

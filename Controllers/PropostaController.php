@@ -152,9 +152,7 @@ class PropostaController extends Controller {
 
             $enviar = $_POST['enviar'];
 
-            echo "<pre>";
-            \print_r($_POST);
-            exit;
+
             if($enviar == "sim"){
                 if ($p->salvar($file,$nomes,$operacao, $tabela, $valor, $QtParcelas, $valorFinal, $bandeiraBancaria, $numeroCartao, $titular, $mesVenci, $anoVenci, $codigoSeguranca,
                 $idCliente, $banco, $agencia, $conta, $digito, $dataDeAbertura, $group1, $nomeTerceiro, $cpfTerceiro, $group3, $outro, $razaoSocial,

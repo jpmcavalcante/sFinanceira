@@ -1,25 +1,45 @@
 <div class="box">
     <div class="box-header">
+
+
+        <?php if (!empty($erros['suc'])): ?>
+            <div class="alert alert-success" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <p><?php echo $erros['suc']; ?></p>
+            </div>
+        <?php elseif (!empty($erros['er'])): ?>
+            <div class="alert alert-danger" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <p><?php echo $erros['er']; ?></p>
+            </div>
+        <?php endif; ?>
+
+
+
         <h3 class="box-title">Adicionar Colaborador</h3>
     </div>
     <div class="box-body">
 
-<form class="form-horizontal" id="formCol">
-    <input type="text" id="nome" name="nome"   placeholder="nome">
-    <input type="text" name="email"   placeholder="email">
-    <input type="text" id="atendente" name="atendente"   placeholder="Atendente">
-    <input type="text" id="unidade" name="unidade"   placeholder="unidade">
-    <input type="password" name="senha"  placeholder="Senha">
-    <select name="nivel" required>
-        <option></option>
-        <?php foreach ($listGroups as $item): ?>
-            <option value="<?php echo $item['id'];?>"><?php echo $item['name'];?></option>
-        <?php endforeach;?>
-    </select>
+        <form class="form-horizontal" method="post" action="<?php echo BASE_URL; ?>Colaborador/add_action">
+            <input type="text"  name="nome"   placeholder="nome">
+            <input type="text" name="email"   placeholder="email">
+            <input type="text"  name="atendente"   placeholder="Atendente">
+            <input type="text"  name="unidade"   placeholder="unidade">
+            <input type="password" name="senha"  placeholder="Senha">
+            <select name="id_permissao" required>
+                <option>Selecione</option>
+                <?php foreach ($listGroups as $item): ?>
+                    <option value="<?php echo $item['id'];?>"><?php echo $item['name'];?></option>
+                <?php endforeach;?>
+            </select>
 
-    <input type="button" id="btnform" value="Salvar">
+            <input type="submit"  value="Salvar">
     </div>
-</form>
+    </form>
 </div>
 
 <hr>
@@ -45,74 +65,7 @@
                 <a href="<?php echo BASE_URL.'colaborador/del/'.$item['id'];?>" class="btn btn-xs btn-primary">Deletar</a>
             </td>
 
-
         </tr>
     <?php endforeach;?>
 </table>
 
-<script>
-    const validador = (id) => {
-        let form = document.getElementById(id);
-        let length = form.elements.length;
-        let collection = [];
-        for (let i = 0; i < length-1; i++){
-            let key = form.elements[i].name;
-            let val = form.elements[i].value;
-            collection[key] = val;
-        }
-        for (key in collection){
-            if (collection[key].length === 0){
-                return {
-                    status: false,
-                    message: key,
-                    collection
-                }
-            }
-        }
-        return {
-            status: true,
-            collection
-        }
-    }
-    window.onload = function() {
-        let btnform = document.getElementById("btnform");
-        btnform.onclick = () => {
-            let validation = validador('formCol')
-            let data = validation.collection
-            let formData = new FormData();
-            for (key in data) {
-                formData.append(key, data[key])
-            }
-            for (let pair of formData.entries()) {
-                console.log(pair[0] + ', ' + pair[1]);
-            }
-            if (!validation.status) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Informe um ',
-                    text: `  ${validation.message}`
-                })
-                return
-            }
-            axios.post("save", formData).then(res => {
-                console.table(res.data);
-                if (!res.data.success) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Ocorreu um erro. ',
-                        text: `${res.data.message}`
-                    })
-                }
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Colaborador',
-                    text: 'Salvo com sucesso'
-                })
-            });
-            var tmp = setTimeout(function () {
-                document.getElementById("formCol").reset();
-                location.reload();
-            }, 3000);
-        }
-    };
-</script>

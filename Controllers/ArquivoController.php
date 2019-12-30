@@ -46,7 +46,8 @@ class ArquivoController extends Controller {
         $descricao = addslashes($_POST['descricao']);
 
         if($a->salvarPDFBanco($file, $nome ,$descricao)){
-            echo "foi";
+            header("Location:".BASE_URL.'arquivo');
+            exit;
         }
     }
 

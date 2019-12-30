@@ -87,25 +87,27 @@ class Colaborador extends Model {
 
   }
 
-  public function salvar($data){
-      try {
+    public function salvar($nome, $email, $atendente, $unidade, $senha, $id_permissao){
 
-          $sql = "INSERT INTO colaborador (nome, email, senha, atendente, unidade, id_permission) VALUES (:nome, :email, :senha, :atendente, :unidade, :id_permission)";
-          $sql = $this->db->prepare($sql);
-          $sql->bindValue(':nome', $data->nome);
-          $sql->bindValue(':email', $data->email);
-          $sql->bindValue(':senha', $data->senha);
-          $sql->bindValue(':atendente', $data->atendente);
-          $sql->bindValue(':unidade', $data->unidade);
-          $sql->bindValue(':id_permission', $data->nivel);
-          return  $sql->execute();
+        try {
+            $sql = "INSERT INTO colaborador (nome, email, senha, atendente, unidade, id_permission)  VALUES (:nome, :email, :senha, :atendente, :unidade, :id_permission)";
 
-      }catch(\PDOException $e){
-          $e->getMessage();
-      }
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(':nome', $nome);
+            $sql->bindValue(':email', $email);
+            $sql->bindValue(':senha', $senha);
+            $sql->bindValue(':atendente', $atendente);
+            $sql->bindValue(':unidade', $unidade);
+            $sql->bindValue(':id_permission', $id_permissao);
 
-      return false;
-  }
+            if ($sql->execute()){
+                return true;
+            }
+
+        }catch (\PDOException $e){
+            $e->getMessage();
+        }
+    }
 
   public function getGroups(){
       $array = array();
