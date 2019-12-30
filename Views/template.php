@@ -19,8 +19,8 @@
     <!--Bootastrap 4.4.1
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">-->
 </head>
-<body class="hold-transition sidebar-mini" style="background: #ebebeb; box-sizing: border-box;">
-<div class="wrapper" style="width: 100vw;">
+<body class="hold-transition sidebar-mini" style="margin: 0; padding: 0;">
+<div class="wrapper">
 
     <!-- Navbar -->
     <nav class="navbar navbar-light container-fluid" style="">
@@ -98,8 +98,8 @@
                     <li class="nav-item mb-1">
                         <a href="<?php echo BASE_URL;?>cliente" class="item-style p-3">
                             <i class="nav-icon fas fa-user-friends"></i>
-                            <p style="margin: 0;">
-                                Cadastro de Cliente
+                            <p style="margin: 0; text-align: center; line-height: 10pt;">
+                                Cadastro<br>de Cliente
                             </p>
                         </a>
                     </li>
@@ -115,9 +115,9 @@
 
                     <li class="nav-item mb-1">
                         <a href="<?php echo BASE_URL;?>Arquivo" class="item-style p-3">
-                            <i class="nav-icon fas fa-clipboard-list"></i>
-                            <p style="margin: 0;">
-                                Banco de Arquivos
+                            <i class="nav-icon fas fa-database"></i>
+                            <p style="margin: 0; text-align: center; line-height: 10pt;">
+                                Banco de<br>Arquivos
                             </p>
                         </a>
                     </li>
@@ -126,24 +126,23 @@
                         <li class="nav-item mb-1" >
                             <a href="<?php echo BASE_URL;?>colaborador" class="item-style p-3">
                             <i class="nav-icon fas fa-users-cog"></i>
-                                <p style="margin: 0;">
+                                <p class="text-align-center" style="margin: 0;">
                                     Colaboradores
                                 </p>
                             </a>
                         </li>
                     <?php endif;?>
-                </ul>
 
-                <?php if ( $viewData['colaborador']->temPermissao('cad_permissoes')): ?>
-                    <li class="nav-item mb-1" >
-                        <a href="<?php echo BASE_URL;?>permissao" class="item-style p-3">
-                            <i class="nav-icon fas fa-users-cog"></i>
-                            <p style="margin: 0;">
-                               Permissões
-                            </p>
-                        </a>
-                    </li>
-                <?php endif;?>
+                    <?php if ( $viewData['colaborador']->temPermissao('cad_permissoes')): ?>
+                        <li class="nav-item mb-1" >
+                            <a href="<?php echo BASE_URL;?>permissao" class="item-style p-3">
+                                <i class="nav-icon fas fa-shield-alt"></i>
+                                <p class="text-align-center" style="margin: 0;">
+                                    Permissões 
+                                </p>
+                            </a>
+                        </li>
+                    <?php endif;?>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
@@ -152,7 +151,7 @@
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper content-template main-conteudo" style="">
+    <div class="content-wrapper content-template main-conteudo">
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
@@ -179,11 +178,11 @@
     <!-- /.control-sidebar -->
 
     <!-- Main Footer -->
-    <footer class="main-footer container-fluid" style="text-align: center;">
+    <footer class="main-footer container-fluid" style="text-align: center; margin: 0;">
         <!-- To the right -->
         
         <!-- Default to the left -->
-        <strong>Copyright &copy; <?php echo date('Y');?> <a href="#" style="color: orange;">FabricaDeSoftaware</a>.</strong> Todos os direitos reservados.
+        <strong>Copyright &copy; <?php echo date('Y');?> <a href="#" style="color: #0c496e;">FabricaDeSoftaware</a>.</strong> Todos os direitos reservados.
     </footer>
 </div>
 <!-- ./wrapper -->
@@ -228,5 +227,6 @@
 
 <!-- IMPORTS DA BANCO DE ARQUIVOS -->
 <script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/arquivo/validacao.js"></script>
+
 </body>
 </html>

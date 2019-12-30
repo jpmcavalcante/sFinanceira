@@ -24,14 +24,14 @@
     </div>
     <div class="box-body">
 
-        <form class="form-horizontal" id="cadCola" name="cadCola" method="post" action="<?php echo BASE_URL; ?>Colaborador/add_action">
-            <input type="text" id="nome" name="nome"   placeholder="nome">
+        <form class="form-horizontal" method="post" action="<?php echo BASE_URL; ?>Colaborador/add_action">
+            <input type="text"  name="nome"   placeholder="nome">
             <input type="text" name="email"   placeholder="email">
-            <input type="text" id="atendente" name="atendente"   placeholder="Atendente">
-            <input type="text"  id="unidade" name="unidade"   placeholder="unidade">
+            <input type="text"  name="atendente"   placeholder="Atendente">
+            <input type="text"  name="unidade"   placeholder="unidade">
             <input type="password" name="senha"  placeholder="Senha">
-            <select name="nivel" >
-                <option selected disabled>Selecione</option>
+            <select name="id_permissao" required>
+                <option>Selecione</option>
                 <?php foreach ($listGroups as $item): ?>
                     <option value="<?php echo $item['id'];?>"><?php echo $item['name'];?></option>
                 <?php endforeach;?>

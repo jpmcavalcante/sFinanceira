@@ -4,7 +4,7 @@
 
 
 <section class="content-fluid">
-    <div class="box">
+    <div class="box pb-3">
 
         <?php if (!empty($erros['suc'])): ?>
             <div class="alert alert-success" role="alert">
@@ -22,23 +22,18 @@
             </div>
         <?php endif; ?>
 
-        <div class="box-header">
-            <h3 class="info-box-text">Clientes Cadastrados</h3>
-            <div class="box-tools">
-                <a href="<?php echo BASE_URL.'cliente/add' ;?>" class="btn btn-success">Adicionar</a>
-            </div>
-        </div>
-        <div class="box-body">
-            <table class="table">
-                <tr>
-                    <th>Nome </th>
-                    <th>CPF </th>
-                    <th>Ações</th>
+        
+        <div class="box-body" style="width: 80vw; text-align: center;">
+            <table class="table table-bordered table-light">
+                <tr class="bg-info">
+                    <th width="400">Nome </th>
+                    <th width="200">CPF </th>
+                    <th width="200">Ações</th>
                 </tr>
 
                 <?php foreach ($list as $item): ?>
                     <tr>
-                        <td><?php echo $item['nome'];?></td>
+                        <td style="text-align: left;"><?php echo $item['nome'];?></td>
                         <td><?php echo $item['cpf'];?></td>
                         <td>
                             <div class="btn-group">
@@ -51,6 +46,9 @@
                 <?php endforeach; ?>
             </table>
         </div>
+            <div class="box-tools">
+                <a href="<?php echo BASE_URL.'cliente/add' ;?>" class="btn btn-primary">Adicionar</a>
+            </div>
     </div>
 </section>
 
