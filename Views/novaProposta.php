@@ -424,6 +424,7 @@
                             <a href="#step2" id="back-dadosB" class="btn back" type="button" data-toggle="tab" data-step="3" ><span class="glyphicon glyphicon-chevron-left">&nbsp;Back</span></a>
                             <button id="enviar" class="btn btn-primary next" type="button" >Finalizar Proposta&nbsp;<span class="glyphicon glyphicon-chevron-right"></span></button>   
                         </div>
+                        <input type="text" class="col-md-6 " name="enviar" value="sim" hidden>
                 </div>
                 
                 </div>
