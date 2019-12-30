@@ -11,7 +11,7 @@
             <span aria-hidden="true">&times;</span>
         </button>
         <p><?php echo $erros['er']; ?></p>
-    </div>
+    </div> 
 <?php endif; ?>
 
 
@@ -222,28 +222,29 @@
                                 <div class="form-group col-md-4">
                                     <label for="banco">Banco</label>
                                     <input id="banco" type="text" class="form-control" name="banco">
-                                    <span id="idCli" hidden></span>
+                                    <span id="banco" hidden></span>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="agencia">Agencia</label>
                                     <input id="agencia" type="text" class="form-control" name="agencia">
+                                    <span id="agencia" hidden></span>
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="conta">Conta</label>
                                     <input id="conta" type="text" class="form-control" name="conta">
-                                    <span id="idCli" hidden></span>
+                                    <span id="conta" hidden></span>
                                 </div>
 
                                 <div class="form-group col-md-2">
                                     <label for="digito">Digito</label>
                                     <input id="digito" type="text" class="form-control" name="digito">
-                                    <span id="idCli" hidden></span>
+                                    <span id="digito" hidden></span>
                                 </div>
 
                                 <div class="form-group col-md-2">
                                     <label for="dataDeAbertura">Data de abertura</label>
                                     <input id="dataDeAbertura" type="text" class="form-control" name="dataDeAbertura">
-                                    <span id="idCli" hidden></span>
+                                    <span id="dataDeAbertura" hidden></span>
                                 </div>
                                 
                                 <div class="form-group col-md-4">
@@ -256,6 +257,7 @@
                                         <input name="group1" type="radio" value="contaPoupanca"/>
                                         <span>Conta Poupança</span>
                                     </label>
+                                    <span id="group1" hidden></span>
                                 </div>
 
                                 <div class="form-group col-md-12">
@@ -267,7 +269,17 @@
 
                                 <div class="form-group col-md-12">
                                     <div id="dados2" class="row">
-
+                                        <div id="open" hidden>
+                                            <div class="form-group col-md-4">
+                                                <select name="pessoa" id="pessoa" class="form-control">
+                                                    <option value="" selectend disebled>Selecione o tipo de pessoa</opition>
+                                                    <option value="Pessoa Fisíca">Pessoa Fisíca</option>
+                                                    <option value="Pessoa Juridica" >Pessoa Juridica</option>
+                                                </select>
+                                                <span id="pessoa" hidden></span>
+                                            </div>
+                                        </div>
+                                        
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -275,12 +287,14 @@
                                         <div class="input-field col s12">
                                             <div class="row">
                                                 <div class="pessoaFisica input-field col s6" hidden>
-                                                    <input id="nomeTerceiro" name="nomeTerceiro" type="text" class="validate">
+                                                    <input id="nomeTerceiro" name="nomeTerceiro" type="text" class="validate pessoaFisica" >
                                                     <label for="nomeTerceiro" >Nome do Terceiro</label>
+                                                    <span id="nomeTerceiro" hidden></span>
                                                 </div>
                                                 <div class="pessoaFisica input-field col s6" hidden>
-                                                    <input id="cpfTerceiro" type="text" class="validate" name="cpfTerceiro">
+                                                    <input id="cpfTerceiro" type="text" class="validate pessoaFisica" name="cpfTerceiro">
                                                     <label for="cpfTerceiro">CPF do Terceiro</label>
+                                                    <span id="cpfTerceiro" hidden></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -289,58 +303,62 @@
                                             <div class=row>
                                                 <div class="pessoaFisica input-field col s3" hidden>
                                                     <label>
-                                                        <input name="group3" type="radio" value="paiMae" />
+                                                        <input name="group3" type="radio" class="validate " value="paiMae" />
                                                         <span>Pai/Mãe</span>
                                                     </label>
                                                 </div>
                                                 <div class="pessoaFisica input-field col s3" hidden>
                                                     <label>
-                                                        <input name="group3" type="radio" value="avos" />
+                                                        <input name="group3" type="radio" class="validate " value="avos" />
                                                         <span>Avô/Avó</span>
                                                     </label>
                                                 </div>
                                                 <div class="pessoaFisica input-field col s3" hidden>
                                                     <label>
-                                                        <input name="group3" type="radio" value="filho" />
+                                                        <input name="group3" type="radio" class="validate " value="filho" />
                                                         <span>Filho</span>
                                                     </label>
                                                 </div>
                                                 <div class="pessoaFisica input-field col s3" hidden>
                                                     <label>
-                                                        <input name="group3" type="radio"  value="irmao" />
+                                                        <input name="group3" type="radio" class="validate " value="irmao" />
                                                         <span>Irmãos</span>
                                                     </label>
                                                 </div>
                                                 <div class="pessoaFisica input-field col s3" hidden>
                                                     <label>
-                                                        <input name="group3" type="radio" value="conjuge" />
+                                                        <input name="group3" type="radio" class="validate " value="conjuge" />
                                                         <span>Conjuge</span>
                                                     </label>
                                                 </div>
                                                 <div class="pessoaFisica input-field col s3" hidden>
                                                     <label>
-                                                        <input name="group3" type="radio"  value="outro" />
+                                                        <input name="group3" type="radio" class="validate " value="outro" />
                                                         <span>Outros</span>
                                                     </label>
                                                 </div>
                                                 <div class="pessoaFisica input-field col s4" hidden>
-                                                    <input id="outro" type="text" class="validate" name="outro">
+                                                    <input id="outro" type="text" class="validate pessoaFisica" name="outro">
                                                     <label for="outro">Outro</label>
                                                 </div>
+                                                <span id="group3" hidden></span>
                                             </div>
                                         
-                                            <div class="input-field col s12">
-                                                <div class="pessoaJuridica input-field col s4" hidden>
-                                                    <input type="text" class="validate" id="razaoSocial" name="razaoSocial">
+                                            <div class=" pessoaJuridica input-field col s12" hidden >
+                                                <div class=" input-field col s4">
+                                                    <input type="text" class="validate pessoaJuridica" id="razaoSocial" name="razaoSocial" >
                                                     <label for="razaoSocial">Razão Social</label>
+                                                    <span id="razaoSocial" hidden></span>
                                                 </div>
-                                                <div class="pessoaJuridica input-field col s4" hidden>
-                                                    <input id="cnpj" type="text" class="validate" name="cnpj">
+                                                <div class=" input-field col s4">
+                                                    <input id="cnpj" type="text" class="validate pessoaJuridica" name="cnpj" >
                                                     <label for="cnpj">CNPJ</label>
+                                                    <span id="cnpj" hidden></span>
                                                 </div>
-                                                <div class="pessoaJuridica input-field col s4" hidden>
-                                                    <input id="vinculo" type="text" class="vinculo" name="vinculo">
+                                                <div class=" input-field col s4" >
+                                                    <input id="vinculo" type="text" class="vinculo pessoaJuridica" name="vinculo" >
                                                     <label for="vinculo">Vinculo</label>
+                                                    <span id="vinculo" hidden></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -351,7 +369,7 @@
 
                         <div class="btn-group" role="group" >
                             <a href="#step2" id="back-dadosP" class="btn back" type="button" data-toggle="tab" data-step="2"><span class="glyphicon glyphicon-chevron-left">&nbsp;Back</span></a>
-                            <a href="#step4" id="anexos" class="btn btn-primary next" type="submit" data-toggle="tab" data-step="4">Continue&nbsp;<span class="glyphicon glyphicon-chevron-right"></span></a>
+                            <button id="anexos" class="btn btn-primary next" type="button" >Continue</button>
                         </div>    
 
                     </div>

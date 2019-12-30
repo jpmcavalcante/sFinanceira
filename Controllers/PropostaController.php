@@ -93,8 +93,8 @@ class PropostaController extends Controller {
             $codigoSeguranca = addslashes($_POST['codigoSeguranca']);
 
 
-            $idCliente = addslashes($_POST['idColaborador']);
-
+            $idCliente = addslashes($_POST['idCli']);
+            $idColaborador = addslashes($_POST['idColaborador']);
 
             $banco = addslashes($_POST['banco']);
             $agencia = addslashes($_POST['agencia']);
@@ -153,12 +153,18 @@ class PropostaController extends Controller {
             $enviar = $_POST['enviar'];
 
 
+            $status = 1;
+            $data_proposta = date('d/m/y');
+               
+
+            
+
             if($enviar == "sim"){
                 if ($p->salvar($file,$nomes,$operacao, $tabela, $valor, $QtParcelas, $valorFinal, $bandeiraBancaria, $numeroCartao, $titular, $mesVenci, $anoVenci, $codigoSeguranca,
                 $idCliente, $banco, $agencia, $conta, $digito, $dataDeAbertura, $group1, $nomeTerceiro, $cpfTerceiro, $group3, $outro, $razaoSocial,
-                $cnpj, $vinculo)){
+                $cnpj, $vinculo ,$status,$data_proposta,$idColaborador)){
 
-                
+                    
                     $_SESSION['sucMsg'] = 'Proposta cadastrada com sucesso';
                     header("Location: ".BASE_URL.'Home');
                     exit;

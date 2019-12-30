@@ -10,14 +10,13 @@ class Proposta extends Model {
 
 	public function salvar($file,$nomes,$operacao, $tabela , $valor, $QtParcelas, $valorFinal, $bandeiraBancaria, $numeroCartao, $titular, $mesVenci, $anoVenci, $codigoSeguranca,
     $idCliente, $banco, $agencia, $conta, $digito, $dataDeAbertura, $group1, $nomeTerceiro, $cpfTerceiro, $group3, $outro, $razaoSocial,
-    $cnpj, $vinculo){
+    $cnpj, $vinculo,$status,$data_proposta,$idColaborador){
 
         try {
-
             $sql = "INSERT INTO proposta (operacao, tabela ,valor, qtParcelas, valorFinal, bandeiraCartao, numeroCartao, titular, mesVenc, anoVenci, codSeguranca, id_cli, banco, agencia, conta, digito, dtAbertura, group1, nomeTerceiro,
-            cpfTerceiro, group3, outro, razaoSocial, cnpj, vinculo)
+            cpfTerceiro, group3, outro, razaoSocial, cnpj, vinculo,status_proposta, data_proposta,id_colaborador)
             VALUES (:operacao, :tabela, :valor, :qtParcelas, :valorFinal, :bandeiraCartao, :numeroCartao, :titular, :mesVenc, :anoVenci, :codSeguranca, :id_cli, :banco, :agencia, :conta, :digito, :dtAbertura, :group1, :nomeTerceiro, 
-            :cpfTerceiro, :group3, :outro, :razaoSocial, :cnpj, :vinculo)";
+            :cpfTerceiro, :group3, :outro, :razaoSocial, :cnpj, :vinculo,:status_proposta ,:data_proposta, :id_colaborador)";
 
             $sql = $this->db->prepare($sql);
             $sql->bindValue(':operacao', $operacao);
@@ -45,7 +44,9 @@ class Proposta extends Model {
             $sql->bindValue(':razaoSocial', $razaoSocial);
             $sql->bindValue(':cnpj', $cnpj);
             $sql->bindValue(':vinculo', $vinculo);
-            
+            $sql->bindValue(':status_proposta', $status);
+            $sql->bindValue(':data_proposta', $data_proposta);
+            $sql->bindValue(':id_colaborador', $idColaborador);
             
             if ($sql->execute()){
 

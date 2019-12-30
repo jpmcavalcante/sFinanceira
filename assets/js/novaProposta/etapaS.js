@@ -227,12 +227,12 @@ $("body").on("change","#operacao",function(){
     $("#liberacao").change(function(){
     if($(this).prop( "checked" )){
        //INPUTS RADIOS
-       $("#dados2").append('<div id="open"><div class="form-group col-md-4"><select name="group3" id="pessoa" class="form-control"><option selectend disebled>Selecione o tipo de pessoa</opition><option value="Pessoa Fisíca">Pessoa Fisíca</option><option value="Pessoa Juridica" >Pessoa Juridica</option></select></div></div>');
+       $("#open").attr('hidden' , false);
        //IDs
        // pessoa fisica = #pessoaFisica
        // pessoa juridica = #pessoaJuridica
     
-       $("#pessoa").change(function(){
+       $("body").on('change','#pessoa',function(){
             if($("#pessoa option:selected").val() == "Pessoa Fisíca"){
                 $('.pessoaJuridica  ').attr('hidden' , 'hidden');
                 $('.pessoaFisica').removeAttr('hidden');
@@ -245,9 +245,9 @@ $("body").on("change","#operacao",function(){
         
     
     }else{
-       $("#open").remove();
-       $('.pessoaFisica').attr('hidden' , 'hidden');
-       $('.pessoaJuridica  ').attr('hidden' , 'hidden');
+        $('#open').attr('hidden' , true);
+        $('.pessoaFisica').attr('hidden' , 'hidden');
+        $('.pessoaJuridica  ').attr('hidden' , 'hidden');
     }
     
     });

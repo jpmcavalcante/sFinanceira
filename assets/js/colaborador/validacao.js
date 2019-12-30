@@ -46,7 +46,7 @@ $("#cadCola").validate({
         senha:{
             required:"Este campo é obrigatorio",
             minlength: "No minimo 6 caracteres",
-            maxlength: "No maximo 10 caracteres"
+            maxlength: "No maximo 12 caracteres"
         },
         nivel:{
             required: "Este campo é obrigatorio",
