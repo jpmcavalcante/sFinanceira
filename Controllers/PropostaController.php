@@ -73,15 +73,16 @@ class PropostaController extends Controller {
     }
 
 
-    public function add_action(){   
+    public function add_action()
+    {
 
-        if ($_POST['operacao']){
+        if ($_POST['operacao']) {
 
             $p = new Proposta();
 
 
             $operacao = addslashes($_POST['operacao']);
-            $tabela = "Tabela ". addslashes($_POST['tabela']);
+            $tabela = "Tabela " . addslashes($_POST['tabela']);
             $valor = addslashes($_POST['valor']);
             $QtParcelas = addslashes($_POST['QtParcelas']);
             $valorFinal = addslashes($_POST['valorFinal']);
@@ -112,12 +113,11 @@ class PropostaController extends Controller {
             $vinculo = addslashes($_POST['vinculo']);
 
 
-           // $satus = "analise";
-           // $colIdentificacao =  $_POST['idColaborador'];
+            // $satus = "analise";
+            // $colIdentificacao =  $_POST['idColaborador'];
             $now = new \DateTime();
             $dateTime = $now->format('Y-m-d H:i:s');
-           // $data_proposta = $dateTime;
-
+            // $data_proposta = $dateTime;
 
 
             if ($nomeTerceiro == "") {
@@ -135,7 +135,7 @@ class PropostaController extends Controller {
                 $outro = "não informado";
             }
             if ($razaoSocial == "") {
-               $razaoSocial = "não informado";
+                $razaoSocial = "não informado";
             }
 
             if ($cnpj == "") {
@@ -155,32 +155,24 @@ class PropostaController extends Controller {
 
             $status = 1;
             $data_proposta = date('d/m/y');
-               
 
-            // echo "<pre>";
-            // print_r($_POST);
-            // exit;
 
-            if($enviar == "sim"){
- 
-                if ($p->salvar($file,$nomes,$operacao, $tabela, $valor, $QtParcelas, $valorFinal, $bandeiraBancaria, $numeroCartao, $titular, $mesVenci, $anoVenci, $codigoSeguranca,
-                $idCliente, $banco, $agencia, $conta, $digito, $dataDeAbertura, $group1, $nomeTerceiro, $cpfTerceiro, $group3, $outro, $razaoSocial,
-                $cnpj, $vinculo ,$status,$data_proposta,$idColaborador)){
+            if ($enviar == "sim") {
 
-                    
+                if ($p->salvar($file, $nomes, $operacao, $tabela, $valor, $QtParcelas, $valorFinal, $bandeiraBancaria, $numeroCartao, $titular, $mesVenci, $anoVenci, $codigoSeguranca,
+                    $idCliente, $banco, $agencia, $conta, $digito, $dataDeAbertura, $group1, $nomeTerceiro, $cpfTerceiro, $group3, $outro, $razaoSocial,
+                    $cnpj, $vinculo, $status, $data_proposta, $idColaborador)) {
+
                     $_SESSION['sucMsg'] = 'Proposta cadastrada com sucesso';
-                    header("Location: ".BASE_URL.'Home');
+                    header("Location: " . BASE_URL . 'proposta');
                     exit;
-                }else{
-                    echo "chegou no if";
-                    exit;  
+                      }
                 }
+
+            } else {
+                header("Location: " . BASE_URL . 'proposta');
+                exit;
             }
-
-        }else{
-            header("Location: ".BASE_URL.'proposta');
-            exit;
         }
-    }
 
-} 
+    }

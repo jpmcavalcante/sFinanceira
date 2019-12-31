@@ -3,6 +3,7 @@ namespace Controllers;
 
 use \Core\Controller;
 use Models\Colaborador;
+use Models\Proposta;
 
 
 class HomeController extends Controller {
@@ -25,8 +26,18 @@ class HomeController extends Controller {
     }
 
     public function index() {
+        $p = Proposta();
+
+        $this->arrayInfo['listProp'] = $p->listarPropostas();
+
+
 
 		$this->loadTemplate('home', $this->arrayInfo);
 	}
+
+	public function listProposta(){
+
+
+    }
 
 }

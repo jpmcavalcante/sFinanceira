@@ -56,7 +56,7 @@ class Proposta extends Model {
                 //SALVANDO OS ANEXOS E SUAS OBSERVAÇOES ALEM DO CAMINHO
                 $a = new Arquivos();
                 if($a->salvarPDFProposta($file, $nomes,$idProposta)){
-                    echo "foi";
+
                 }
                return true;
             }
@@ -154,6 +154,12 @@ class Proposta extends Model {
         }
         return false;
     }
+
+    public function listarPropostas(){
+
+	    
+
+}
 
 
 }
