@@ -78,6 +78,8 @@ class PropostaController extends Controller {
 
         if ($_POST['operacao']) {
 
+
+
             $p = new Proposta();
 
 
@@ -94,8 +96,8 @@ class PropostaController extends Controller {
             $codigoSeguranca = addslashes($_POST['codigoSeguranca']);
 
 
-            $idCliente = addslashes($_POST['idCli']);
-            $idColaborador = addslashes($_POST['idColaborador']);
+            $nomeCliente = addslashes($_POST['nome']);
+            $nomeColaborador = addslashes($_POST['nome_colaborador']);
 
             $banco = addslashes($_POST['banco']);
             $agencia = addslashes($_POST['agencia']);
@@ -113,11 +115,10 @@ class PropostaController extends Controller {
             $vinculo = addslashes($_POST['vinculo']);
 
 
-            // $satus = "analise";
-            // $colIdentificacao =  $_POST['idColaborador'];
+
             $now = new \DateTime();
             $dateTime = $now->format('Y-m-d H:i:s');
-            // $data_proposta = $dateTime;
+
 
 
             if ($nomeTerceiro == "") {
@@ -144,30 +145,27 @@ class PropostaController extends Controller {
             if ($vinculo == "") {
                 $vinculo = "não informado";
             }
-            // echo  $operacao." - ".$tabela." - ".$valor." - ".$QtParcelas." - ".$valorFinal." - ".$bandeiraBancaria." - ".$numeroCartao." - ".$titular." - ".$mesVenci." - ".$anoVenci." - ".$codigoSeguranca." - ".$idCliente." - ".$banco." - ".$agencia." - ".$conta." - ".$digito." - ".$dataDeAbertura." - ".
-            //     $group1." - ".$nomeTerceiro." - ".$cpfTerceiro." - ".$group3." - ".$outro." - ".$razaoSocial." - ".$cnpj." - ".$vinculo; exit;
+
 
             $file = $_FILES['arquivo'];
             $nomes = $_POST['obss'];
-
-            $enviar = $_POST['enviar'];
 
 
             $status = 1;
             $data_proposta = date('d/m/y');
 
 
-            if ($enviar == "sim") {
+
 
                 if ($p->salvar($file, $nomes, $operacao, $tabela, $valor, $QtParcelas, $valorFinal, $bandeiraBancaria, $numeroCartao, $titular, $mesVenci, $anoVenci, $codigoSeguranca,
-                    $idCliente, $banco, $agencia, $conta, $digito, $dataDeAbertura, $group1, $nomeTerceiro, $cpfTerceiro, $group3, $outro, $razaoSocial,
-                    $cnpj, $vinculo, $status, $data_proposta, $idColaborador)) {
+                    $nomeCliente, $banco, $agencia, $conta, $digito, $dataDeAbertura, $group1, $nomeTerceiro, $cpfTerceiro, $group3, $outro, $razaoSocial,
+                    $cnpj, $vinculo, $status, $data_proposta, $nomeColaborador)) {
 
                     $_SESSION['sucMsg'] = 'Proposta cadastrada com sucesso';
                     header("Location: " . BASE_URL . 'proposta');
                     exit;
                       }
-                }
+
 
             } else {
                 header("Location: " . BASE_URL . 'proposta');

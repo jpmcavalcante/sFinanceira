@@ -26,17 +26,18 @@ class HomeController extends Controller {
     }
 
     public function index() {
-        $p = Proposta();
 
-        $this->arrayInfo['listProp'] = $p->listarPropostas();
+        $prop = new Proposta();
 
-
+        $this->arrayInfo['listarPropostasNova'] = $prop->listprop();
+        $this->arrayInfo['listarPropostasAprovadas'] = $prop->listpropAprovadas();
 
 		$this->loadTemplate('home', $this->arrayInfo);
 	}
 
 	public function listProposta(){
 
+        $this->loadTemplate('teste', $this->arrayInfo);
 
     }
 

@@ -12,9 +12,8 @@ class Controller {
 		require 'Views/template.php';
 	}
 
-	public function loadViewInTemplate($viewName, $viewData = array()) {
-		extract($viewData);
-		require 'Views/'.$viewName.'.php';
-	}
-
+    public function loadViewInTemplate($viewName, $viewData = array()) {
+        extract($viewData);
+        require 'Views/'.$viewName.'.php';
+    }
 }

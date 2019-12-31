@@ -163,6 +163,7 @@
         <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
+
                 <?php $this->loadViewInTemplate($viewName, $viewData); ?>
                 <!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -221,12 +222,14 @@
 <script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/colaborador/validacao.js"></script>
 
 <!-- IMPORTS DA NOVA PROPOSTA -->
-<script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/novaProposta/etapaS.js"></script>
-<script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/novaProposta/validacao.js"></script>
-<script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/novaProposta/ProgressClick.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/novaProposta/etapaS.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/novaProposta/validacao.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/novaProposta/ProgressClick.js"></script>
 
 <!-- IMPORTS DA BANCO DE ARQUIVOS -->
-<script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/arquivo/validacao.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/arquivo/validacao.js"></script>
+
+<script type="text/javascript" src="<?php echo BASE_URL;?>assets/js/script.js"></script>
 
 </body>
 </html>

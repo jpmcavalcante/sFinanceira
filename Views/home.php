@@ -1,7 +1,7 @@
 
 <div class="row mb-2 mr-0 d-flex justify-content-center container-fluid">
     <div class="container">
-    
+
         <ul class="nav nav-tabs">
             <li class="nav-item">
                 <a class="nav-link active" href="#">Novas Propostas</a>
@@ -55,23 +55,81 @@
             </form>
             <!--FIM FORMULARIO-->
 
-            <!--INICIO TABELA-->
-            <table class="table table-bordered table-light mt-2">
-                <tr class="bg-info text-center">
-                    <th>Data</th>
-                    <th>Tipo</th>
-                    <th>Nome</th>
-                    <th>Valor Financiado</th>
-                    <th>Franqueado</th>
-                    <th>Última Atualização</th>
-                    <th>Funções</th>
-                </tr>
+            <div role="tabpanel" class="tab-pane active ac" id="Novas">
 
-            </table>
-            <!--INICIO TABELA-->
+                <!--INICIO TABELA-->
+                <table class="table table-bordered table-light mt-2">
+                    <tr class="bg-info text-center">
+                        <th>Data</th>
+                        <th>Tipo</th>
+                        <th>Nome</th>
+                        <th>Valor Financiado</th>
+                        <th>Franqueado</th>
+                        <th>Última Atualização</th>
+                        <th>Funções</th>
+                    </tr>
 
-            <div role="tabpanel" class="tab-pane active ac" id="Novas">Novas</div>
-            <div role="tabpanel" class="tab-pane ac" id="Aprovadas"><h1>Aprovadas</h1></div>
+                    <?php foreach ($listarPropostasNova as $item): ?>
+                        <tr>
+                            <td><?php echo $item['data_proposta'];?></td>
+                            <td><?php echo $item['operacao'];?></td>
+                            <td><?php echo $item['nome_cli'];?></td>
+                            <td><?php echo $item['valor'];?></td>
+                            <td><?php echo $item['QtParcelas'];?></td>
+                            <td><?php echo $item['nome_colaborador'];?></td>
+
+                            <td>
+                                <div class="btn-group">
+                                    <a href="" class="btn btn-xs btn-primary">Editar</a>
+
+                                    <a href="" class="btn btn-xs btn-danger">Excluir</a>
+                                </div>
+                            </td>
+
+                        </tr>
+                    <?php endforeach; ?>
+
+                </table>
+            </div> <!--Fim div nova-->
+
+            <div role="tabpanel" class="tab-pane ac" id="Aprovadas">
+
+                <!--INICIO TABELA-->
+                <table class="table table-bordered table-light mt-2">
+                    <tr class="bg-info text-center">
+                        <th>Data</th>
+                        <th>Tipo</th>
+                        <th>Nome</th>
+                        <th>Valor Financiado</th>
+                        <th>Franqueado</th>
+                        <th>Última Atualização</th>
+                        <th>Funções</th>
+                    </tr>
+
+                    <?php foreach ($listarPropostasAprovadas as $item): ?>
+                        <tr>
+                            <td><?php echo $item['data_proposta'];?></td>
+                            <td><?php echo $item['operacao'];?></td>
+                            <td><?php echo $item['nome_cli'];?></td>
+                            <td><?php echo $item['valor'];?></td>
+                            <td><?php echo $item['QtParcelas'];?></td>
+                            <td><?php echo $item['nome_colaborador'];?></td>
+
+                            <td>
+                                <div class="btn-group">
+                                    <a href="" class="btn btn-xs btn-primary">Editar</a>
+
+                                    <a href="" class="btn btn-xs btn-danger">Excluir</a>
+                                </div>
+                            </td>
+
+                        </tr>
+                    <?php endforeach; ?>
+
+                </table>
+
+
+            </div><!--Fim div Aprovadas-->
             <div role="tabpanel" class="tab-pane ac" id="Reprovadas">Reprovadas</div>
             <div role="tabpanel" class="tab-pane ac" id="Pendentes">Pendentes</div>
             <div role="tabpanel" class="tab-pane ac" id="Canceladas">Canceladas</div>

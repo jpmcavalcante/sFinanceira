@@ -9,16 +9,18 @@ class Proposta extends Model {
 
 
 	public function salvar($file,$nomes,$operacao, $tabela , $valor, $QtParcelas, $valorFinal, $bandeiraBancaria, $numeroCartao, $titular, $mesVenci, $anoVenci, $codigoSeguranca,
-    $idCliente, $banco, $agencia, $conta, $digito, $dataDeAbertura, $group1, $nomeTerceiro, $cpfTerceiro, $group3, $outro, $razaoSocial,
-    $cnpj, $vinculo,$status,$data_proposta,$idColaborador){
+                           $nomeCliente, $banco, $agencia, $conta, $digito, $dataDeAbertura, $group1, $nomeTerceiro, $cpfTerceiro, $group3, $outro, $razaoSocial,
+    $cnpj, $vinculo,$status,$data_proposta,$nomeColaborador){
+
+
 
         
         try {
 
-            $sql = "INSERT INTO proposta (operacao, tabela ,valor, qtParcelas, valorFinal, bandeiraCartao, numeroCartao, titular, mesVenc, anoVenci, codSeguranca, id_cli, banco,  agencia, conta, digito, dtAbertura, group1, nomeTerceiro,
-            cpfTerceiro, group3, outro, razaoSocial, cnpj, vinculo,status_proposta,data_proposta,id_colaborador)
-            VALUES (:operacao, :tabela, :valor, :qtParcelas, :valorFinal, :bandeiraCartao, :numeroCartao, :titular, :mesVenc, :anoVenci, :codSeguranca, :id_cli, :banco,:agencia, :conta, :digito, :dtAbertura, :group1, :nomeTerceiro, 
-            :cpfTerceiro, :group3, :outro, :razaoSocial, :cnpj, :vinculo,:status_proposta,:data_proposta,:id_colaborador)";
+            $sql = "INSERT INTO proposta (operacao, tabela ,valor, qtParcelas, valorFinal, bandeiraCartao, numeroCartao, titular, mesVenc, anoVenci, codSeguranca, nome_cli, banco,  agencia, conta, digito, dtAbertura, group1, nomeTerceiro,
+            cpfTerceiro, group3, outro, razaoSocial, cnpj, vinculo,status_proposta,data_proposta,nome_colaborador)
+            VALUES (:operacao, :tabela, :valor, :qtParcelas, :valorFinal, :bandeiraCartao, :numeroCartao, :titular, :mesVenc, :anoVenci, :codSeguranca, :nome_cli, :banco,:agencia, :conta, :digito, :dtAbertura, :group1, :nomeTerceiro, 
+            :cpfTerceiro, :group3, :outro, :razaoSocial, :cnpj, :vinculo,:status_proposta,:data_proposta,:nome_colaborador)";
 
             $sql = $this->db->prepare($sql);
             $sql->bindValue(':operacao', $operacao);
@@ -32,7 +34,7 @@ class Proposta extends Model {
             $sql->bindValue(':mesVenc', $mesVenci);
             $sql->bindValue(':anoVenci', $anoVenci);
             $sql->bindValue(':codSeguranca', $codigoSeguranca);
-            $sql->bindValue(':id_cli', $idCliente);
+            $sql->bindValue(':nome_cli', $nomeCliente);
             $sql->bindValue(':banco', $banco);
             $sql->bindValue(':agencia', $agencia);
             $sql->bindValue(':conta', $conta);
@@ -48,7 +50,7 @@ class Proposta extends Model {
             $sql->bindValue(':vinculo', $vinculo);
             $sql->bindValue(':status_proposta', $status);
             $sql->bindValue(':data_proposta', $data_proposta);
-            $sql->bindValue(':id_colaborador', $idColaborador);
+            $sql->bindValue(':nome_colaborador', $nomeColaborador);
             
             if ($sql->execute()){
                 $idProposta = $this->db->lastInsertId();
@@ -155,10 +157,43 @@ class Proposta extends Model {
         return false;
     }
 
-    public function listarPropostas(){
+    public function listprop(){
 
-	    
+	    $array = array();
 
+        try {
+            $sql = "SELECT operacao, tabela,  data_proposta, valor, QtParcelas, nome_colaborador, nome_cli FROM proposta WHERE status_proposta = 1";
+            $sql = $this->db->query($sql);
+            $sql->execute();
+
+            if ($sql->rowCount() > 0){
+                $array = $sql->fetchAll(\PDO::FETCH_ASSOC);
+            }
+
+            return $array;
+
+        }catch (\PDOException $e){
+            $e->getMessage();
+        }
+}
+
+public function listpropAprovadas(){
+    $array = array();
+
+    try {
+        $sql = "SELECT operacao, tabela,  data_proposta, valor, QtParcelas, nome_colaborador, nome_cli FROM proposta WHERE status_proposta = 2";
+        $sql = $this->db->query($sql);
+        $sql->execute();
+
+        if ($sql->rowCount() > 0){
+            $array = $sql->fetchAll(\PDO::FETCH_ASSOC);
+        }
+
+        return $array;
+
+    }catch (\PDOException $e){
+        $e->getMessage();
+    }
 }
 
 

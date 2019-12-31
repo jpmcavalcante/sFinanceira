@@ -46,7 +46,7 @@
                 <div class="tab-pane fade show active" id="nav-dadosDaOperacao" role="tabpanel" aria-labelledby="nav-dadosDaOperacao-tab">
 
                 <div >
-                    <input type="hidden" name="idColaborador" value="<?php $viewData['colId']->getId(); ?>">
+                    <input type="hidden" name="nome_colaborador" value="<?php $viewData['colId']->getName(); ?>">
                     <div >
                         <div class="col-md-4">
                             <select id="operacao" name="operacao" class="form-control">
@@ -197,10 +197,10 @@
                     <div class="col-md-12 " style="margin-top: 30px;">
 
                         <label for="nome">id</label>
-                        <input type="text" name="idCli" id="id">
+                        <input type="text" name="idCli" id="id" disabled>
 
                         <label for="nome" >Nome</label>
-                        <input type="text" class="col-md-6 " name="nome" id="nome" disabled>
+                        <input type="text" class="col-md-6 " name="nome" id="nome">
 
                         <label for="nome">CPF</label>
                         <input type="text" name="cpf" id="cpf" disabled>
@@ -404,7 +404,7 @@
                 
                         <div class="btn-group" role="group">
                             <a href="#step2" id="back-dadosB" class="btn back" type="button" data-toggle="tab" data-step="3" ><span class="glyphicon glyphicon-chevron-left">&nbsp;Back</span></a>
-                            <button id="enviar" class="btn btn-primary next" type="button" >Finalizar Proposta&nbsp;<span class="glyphicon glyphicon-chevron-right"></span></button>   
+                            <button id="enviar" class="btn btn-primary next" type="button" >Finalizar Proposta&nbsp;<span class="glyphicon glyphicon-chevron-right"></span></button>
                         </div>
                 </div>
                 
