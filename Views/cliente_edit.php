@@ -22,7 +22,7 @@
 
 
 
-    <h3>2. DADOS PESSOAIS</h3>
+    <h3>EDITAR CLIENTE</h3>
     <div class="well">
         <div class="row">
 
@@ -201,6 +201,9 @@
     </div>
 
     <button type="submit" name="enviar">Enviar</button>
+
+
+
 
 </form>
 
