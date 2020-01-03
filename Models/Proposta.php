@@ -162,7 +162,7 @@ class Proposta extends Model {
 	    $array = array();
 
         try {
-            $sql = "SELECT operacao, tabela,  data_proposta, valor, QtParcelas, nome_colaborador, nome_cli FROM proposta WHERE status_proposta = 1";
+            $sql = "SELECT operacao, tabela,  data_proposta, valor, qtParcelas, nome_colaborador, nome_cli FROM proposta WHERE status_proposta = 1";
             $sql = $this->db->query($sql);
             $sql->execute();
 
@@ -175,13 +175,13 @@ class Proposta extends Model {
         }catch (\PDOException $e){
             $e->getMessage();
         }
-}
+    }
 
 public function listpropAprovadas(){
     $array = array();
 
     try {
-        $sql = "SELECT operacao, tabela,  data_proposta, valor, QtParcelas, nome_colaborador, nome_cli FROM proposta WHERE status_proposta = 2";
+        $sql = "SELECT operacao, tabela,  data_proposta, valor, qtParcelas, nome_colaborador, nome_cli FROM proposta WHERE status_proposta = 2";
         $sql = $this->db->query($sql);
         $sql->execute();
 

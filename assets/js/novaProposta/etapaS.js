@@ -61,6 +61,16 @@ $("body").on("change","#operacao",function(){
 
                         $("#div-etapa1").attr("hidden", false);
                         break;
+                    case "E":
+                        var content = $('#content').text();
+                        var tbText = $('#tabela option:selected').text()
+
+                        content = content.split(' ')[0]+" "+content.split(' ')[1]+" "+content.split(' ')[2];
+
+                        $("#content").text(content+" - "+ tbText);
+                        
+                        $("#div-etapa1").attr("hidden", false);
+                        break;
                     case "F":
                         var content = $('#content').text();
                         var tbText = $('#tabela option:selected').text()

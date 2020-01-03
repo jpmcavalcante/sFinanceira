@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    //dados da proposta
     $("#dadosP").click(function(){
 
         var operacao = $("#operacao").val();
@@ -79,6 +80,7 @@ $(document).ready(function(){
         }  
     })
 
+    //dados pessoais
     $("#dadosB").click(function(){
         var textoBusca = $("#textoBusca").val();
         var id = $("#id").val();
@@ -103,22 +105,23 @@ $(document).ready(function(){
         }
     });
 
+    //dados bancarios
     $("#anexos").click(function(){
         var banco = $("#banco").val();
         var agencia = $("#agencia").val();
         var conta = $("#conta").val();
         var digito = $("#digito").val();
         var dataDeAbertura = $("#dataDeAbertura").val();
-        var group1 = $('input[name=group1]').prop( "checked" );
+        var group11 =  $('input[name="group1"]:checked').val();
         var pessoa = $("#pessoa").val();
         var nomeTerceiro = $("#nomeTerceiro").val();
         var cpfTerceiro = $("#cpfTerceiro").val();
-        var group3 = $('input[name=group3]').prop( "checked" );
+        var group3 = $('input[name=group3]').prop("checked");
         var razaoSocial = $("#razaoSocial").val();
         var cnpj = $("#cnpj").val();
         var vinculo = $("#vinculo").val();
-
-        console.log(group1)
+        
+                                
 
         if (banco == "") {
             $("span[id=banco]").text("Este campo é obrigatorio");
@@ -150,134 +153,251 @@ $(document).ready(function(){
                             $("#dataDeAbertura").focus();
                         }else{
                             $("span[id=dataDeAbertura]").attr("hidden", true);
-                            if (group1 == false) {
-                                $("span[id=group1]").text("Escolha o tipo de conta");
-                                $("span[id=group1]").attr("hidden", false);
-                            }else{
-                                $("span[id=group1]").attr("hidden", true);
-
-                                if ($("#liberacao").prop( "checked" )) {
-                                    if (pessoa == "") {
-                                        $("span[id=pessoa]").text("Escolha o tipo de pessoa");
-                                        $("span[id=pessoa]").attr("hidden", false);
-                                    }else{
-                                        $("span[id=pessoa]").attr("hidden", true);
-                                        if (pessoa == "Pessoa Fisíca") {
-                                            if (nomeTerceiro == "") {
-                                                $("span[id=nomeTerceiro]").text("Este campo é obrigatorio");
-                                                $("span[id=nomeTerceiro]").attr("hidden", false);
-                                            }else{
-                                                if (pessoa == "Pessoa Fisíca") {
-                                                    $("span[id=nomeTerceiro]").attr("hidden", true);
-                                                    if (cpfTerceiro == "") {
-                                                        $("span[id=cpfTerceiro]").text("Este campo é obrigatorio");
-                                                        $("span[id=cpfTerceiro]").attr("hidden", false);
-                                                    }else{
-                                                        if (pessoa == "Pessoa Fisíca") {
-                                                            $("span[id=cpfTerceiro]").attr("hidden", true);
-                                                            if (group3 == false) {
-                                                                $("span[id=group3]").text("Este campo é obrigatorio");
-                                                                $("span[id=group3]").attr("hidden", false);
-                                                            }else{
-                                                                $("span[id=group3]").attr("hidden", true);
-                                                                
-                                                                $(".pessoaFisica").attr("disabled", false);
-                                                                $(".pessoaFisica").attr("disabled", false);
-                                                                $(".pessoaFisica").attr("disabled", false);
-                                                                $(".pessoaFisica").attr("disabled", false);
-                                                                $(".pessoaFisica").attr("disabled", false);
-                                                                $(".pessoaFisica").attr("disabled", false);
-
-                                                                $(".pessoaJuridica").attr("disabled", false);
-                                                                $(".pessoaJuridica").attr("disabled", false);
-                                                                $(".pessoaJuridica").attr("disabled", false);
-                                                                $(".pessoaJuridica").attr("disabled", false);
-
-                                                                $("#progress-bar").css("width" ,"100%");
-                                                                $("#nav-anexos-tab").css("background", "#3CB371");
-                                                                $("#nav-anexos-tab").click();
-                                                                $("#progress-bar").text("4/4");
-
+                            switch(group11){
+                                case "contaCorrente":
+                                    $("span[id=group1]").attr("hidden", true);
+                                
+                                    if ($("#liberacao").prop( "checked" )) {
+                                        if (pessoa == "") {
+                                            $("span[id=pessoa]").text("Escolha o tipo de pessoa");
+                                            $("span[id=pessoa]").attr("hidden", false);
+                                        }else{
+                                            $("span[id=pessoa]").attr("hidden", true);
+                                            if (pessoa == "Pessoa Fisíca") {
+                                                if (nomeTerceiro == "") {
+                                                    $("span[id=nomeTerceiro]").text("Este campo é obrigatorio");
+                                                    $("span[id=nomeTerceiro]").attr("hidden", false);
+                                                }else{
+                                                    if (pessoa == "Pessoa Fisíca") {
+                                                        $("span[id=nomeTerceiro]").attr("hidden", true);
+                                                        if (cpfTerceiro == "") {
+                                                            $("span[id=cpfTerceiro]").text("Este campo é obrigatorio");
+                                                            $("span[id=cpfTerceiro]").attr("hidden", false);
+                                                        }else{
+                                                            if (pessoa == "Pessoa Fisíca") {
+                                                                $("span[id=cpfTerceiro]").attr("hidden", true);
+                                                                if (group3 == false) {
+                                                                    $("span[id=group3]").text("Este campo é obrigatorio");
+                                                                    $("span[id=group3]").attr("hidden", false);
+                                                                }else{
+                                                                    $("span[id=group3]").attr("hidden", true);
+                                                                    
+                                                                    $(".pessoaFisica").attr("disabled", false);
+                                                                    $(".pessoaFisica").attr("disabled", false);
+                                                                    $(".pessoaFisica").attr("disabled", false);
+                                                                    $(".pessoaFisica").attr("disabled", false);
+                                                                    $(".pessoaFisica").attr("disabled", false);
+                                                                    $(".pessoaFisica").attr("disabled", false);
+                                
+                                                                    $(".pessoaJuridica").attr("disabled", false);
+                                                                    $(".pessoaJuridica").attr("disabled", false);
+                                                                    $(".pessoaJuridica").attr("disabled", false);
+                                                                    $(".pessoaJuridica").attr("disabled", false);
+                                
+                                                                    $("#progress-bar").css("width" ,"100%");
+                                                                    $("#nav-anexos-tab").css("background", "#3CB371");
+                                                                    $("#nav-anexos-tab").click();
+                                                                    $("#progress-bar").text("4/4");
+                                
+                                                                }
                                                             }
                                                         }
                                                     }
                                                 }
-                                            }
-                                        }else if (pessoa == "Pessoa Juridica") {
-
-                                            if (razaoSocial == "") {
-                                                $("span[id=razaoSocial]").text("Este campo é obrigatorio");
-                                                $("span[id=razaoSocial]").attr("hidden", false);
-                                            }else{
-                                                if (pessoa == "Pessoa Juridica") {
-                                                    $("span[id=razaoSocial]").attr("hidden", true);
-                                                    if (cnpj == "") {
-                                                        $("span[id=cnpj]").text("Este campo é obrigatorio");
-                                                        $("span[id=cnpj]").attr("hidden", false);
-                                                    }else{
-                                                        if (pessoa == "Pessoa Juridica") {
-                                                            $("span[id=cnpj]").attr("hidden", true);
-                                                            if (vinculo == "") {
-                                                                $("span[id=vinculo]").text("Este campo é obrigatorio");
-                                                                $("span[id=vinculo]").attr("hidden", false);
-                                                            }else{
-                                                                $("span[id=vinculo]").attr("hidden", true);
-                                                
-                                                                $(".pessoaFisica").attr("disabled", false);
-                                                                $(".pessoaFisica").attr("disabled", false);
-                                                                $(".pessoaFisica").attr("disabled", false);
-                                                                $(".pessoaFisica").attr("disabled", false);
-                                                                $(".pessoaFisica").attr("disabled", false);
-                                                                $(".pessoaFisica").attr("disabled", false);
-
-                                                                $(".pessoaJuridica").attr("disabled", false);
-                                                                $(".pessoaJuridica").attr("disabled", false);
-                                                                $(".pessoaJuridica").attr("disabled", false);
-                                                                $(".pessoaJuridica").attr("disabled", false);
-
-                                                                $("#progress-bar").css("width" ,"100%");
-                                                                $("#nav-anexos-tab").css("background", "#3CB371");
-                                                                $("#nav-anexos-tab").click();
-                                                                $("#progress-bar").text("4/4");
-
-                                                               
+                                            }else if (pessoa == "Pessoa Juridica") {
+                                
+                                                if (razaoSocial == "") {
+                                                    $("span[id=razaoSocial]").text("Este campo é obrigatorio");
+                                                    $("span[id=razaoSocial]").attr("hidden", false);
+                                                }else{
+                                                    if (pessoa == "Pessoa Juridica") {
+                                                        $("span[id=razaoSocial]").attr("hidden", true);
+                                                        if (cnpj == "") {
+                                                            $("span[id=cnpj]").text("Este campo é obrigatorio");
+                                                            $("span[id=cnpj]").attr("hidden", false);
+                                                        }else{
+                                                            if (pessoa == "Pessoa Juridica") {
+                                                                $("span[id=cnpj]").attr("hidden", true);
+                                                                if (vinculo == "") {
+                                                                    $("span[id=vinculo]").text("Este campo é obrigatorio");
+                                                                    $("span[id=vinculo]").attr("hidden", false);
+                                                                }else{
+                                                                    $("span[id=vinculo]").attr("hidden", true);
+                                                    
+                                                                    $(".pessoaFisica").attr("disabled", false);
+                                                                    $(".pessoaFisica").attr("disabled", false);
+                                                                    $(".pessoaFisica").attr("disabled", false);
+                                                                    $(".pessoaFisica").attr("disabled", false);
+                                                                    $(".pessoaFisica").attr("disabled", false);
+                                                                    $(".pessoaFisica").attr("disabled", false);
+                                
+                                                                    $(".pessoaJuridica").attr("disabled", false);
+                                                                    $(".pessoaJuridica").attr("disabled", false);
+                                                                    $(".pessoaJuridica").attr("disabled", false);
+                                                                    $(".pessoaJuridica").attr("disabled", false);
+                                
+                                                                    $("#progress-bar").css("width" ,"100%");
+                                                                    $("#nav-anexos-tab").css("background", "#3CB371");
+                                                                    $("#nav-anexos-tab").click();
+                                                                    $("#progress-bar").text("4/4");
+                                
+                                                                
+                                                                }
                                                             }
+                                            
                                                         }
-                                        
                                                     }
                                                 }
                                             }
                                         }
-                                    }
-                                }else{
-                                    $(".pessoaFisica").attr("disabled", false);
-                                    $(".pessoaFisica").attr("disabled", false);
-                                    $(".pessoaFisica").attr("disabled", false);
-                                    $(".pessoaFisica").attr("disabled", false);
-                                    $(".pessoaFisica").attr("disabled", false);
-                                    $(".pessoaFisica").attr("disabled", false);
-
-                                    $(".pessoaJuridica").attr("disabled", false);
-                                    $(".pessoaJuridica").attr("disabled", false);
-                                    $(".pessoaJuridica").attr("disabled", false);
-                                    $(".pessoaJuridica").attr("disabled", false);
-
-                                    $("#progress-bar").css("width" ,"100%");
-                                    $("#nav-anexos-tab").css("background", "#3CB371");
-                                    $("#nav-anexos-tab").click();
-                                    $("#progress-bar").text("4/4");
-                                }
+                                    }else{
+                                        $(".pessoaFisica").attr("disabled", false);
+                                        $(".pessoaFisica").attr("disabled", false);
+                                        $(".pessoaFisica").attr("disabled", false);
+                                        $(".pessoaFisica").attr("disabled", false);
+                                        $(".pessoaFisica").attr("disabled", false);
+                                        $(".pessoaFisica").attr("disabled", false);
                                 
+                                        $(".pessoaJuridica").attr("disabled", false);
+                                        $(".pessoaJuridica").attr("disabled", false);
+                                        $(".pessoaJuridica").attr("disabled", false);
+                                        $(".pessoaJuridica").attr("disabled", false);
+                                
+                                        $("#progress-bar").css("width" ,"100%");
+                                        $("#nav-anexos-tab").css("background", "#3CB371");
+                                        $("#nav-anexos-tab").click();
+                                        $("#progress-bar").text("4/4");
+                                    }
+                                    break;
+                                case "contaPoupanca":
+                                    $("span[id=group1]").attr("hidden", true);
+                                
+                                    if ($("#liberacao").prop( "checked" )) {
+                                        if (pessoa == "") {
+                                            $("span[id=pessoa]").text("Escolha o tipo de pessoa");
+                                            $("span[id=pessoa]").attr("hidden", false);
+                                        }else{
+                                            $("span[id=pessoa]").attr("hidden", true);
+                                            if (pessoa == "Pessoa Fisíca") {
+                                                if (nomeTerceiro == "") {
+                                                    $("span[id=nomeTerceiro]").text("Este campo é obrigatorio");
+                                                    $("span[id=nomeTerceiro]").attr("hidden", false);
+                                                }else{
+                                                    if (pessoa == "Pessoa Fisíca") {
+                                                        $("span[id=nomeTerceiro]").attr("hidden", true);
+                                                        if (cpfTerceiro == "") {
+                                                            $("span[id=cpfTerceiro]").text("Este campo é obrigatorio");
+                                                            $("span[id=cpfTerceiro]").attr("hidden", false);
+                                                        }else{
+                                                            if (pessoa == "Pessoa Fisíca") {
+                                                                $("span[id=cpfTerceiro]").attr("hidden", true);
+                                                                if (group3 == false) {
+                                                                    $("span[id=group3]").text("Este campo é obrigatorio");
+                                                                    $("span[id=group3]").attr("hidden", false);
+                                                                }else{
+                                                                    $("span[id=group3]").attr("hidden", true);
+                                                                    
+                                                                    $(".pessoaFisica").attr("disabled", false);
+                                                                    $(".pessoaFisica").attr("disabled", false);
+                                                                    $(".pessoaFisica").attr("disabled", false);
+                                                                    $(".pessoaFisica").attr("disabled", false);
+                                                                    $(".pessoaFisica").attr("disabled", false);
+                                                                    $(".pessoaFisica").attr("disabled", false);
+                                
+                                                                    $(".pessoaJuridica").attr("disabled", false);
+                                                                    $(".pessoaJuridica").attr("disabled", false);
+                                                                    $(".pessoaJuridica").attr("disabled", false);
+                                                                    $(".pessoaJuridica").attr("disabled", false);
+                                
+                                                                    $("#progress-bar").css("width" ,"100%");
+                                                                    $("#nav-anexos-tab").css("background", "#3CB371");
+                                                                    $("#nav-anexos-tab").click();
+                                                                    $("#progress-bar").text("4/4");
+                                
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }else if (pessoa == "Pessoa Juridica") {
+                                
+                                                if (razaoSocial == "") {
+                                                    $("span[id=razaoSocial]").text("Este campo é obrigatorio");
+                                                    $("span[id=razaoSocial]").attr("hidden", false);
+                                                }else{
+                                                    if (pessoa == "Pessoa Juridica") {
+                                                        $("span[id=razaoSocial]").attr("hidden", true);
+                                                        if (cnpj == "") {
+                                                            $("span[id=cnpj]").text("Este campo é obrigatorio");
+                                                            $("span[id=cnpj]").attr("hidden", false);
+                                                        }else{
+                                                            if (pessoa == "Pessoa Juridica") {
+                                                                $("span[id=cnpj]").attr("hidden", true);
+                                                                if (vinculo == "") {
+                                                                    $("span[id=vinculo]").text("Este campo é obrigatorio");
+                                                                    $("span[id=vinculo]").attr("hidden", false);
+                                                                }else{
+                                                                    $("span[id=vinculo]").attr("hidden", true);
+                                                    
+                                                                    $(".pessoaFisica").attr("disabled", false);
+                                                                    $(".pessoaFisica").attr("disabled", false);
+                                                                    $(".pessoaFisica").attr("disabled", false);
+                                                                    $(".pessoaFisica").attr("disabled", false);
+                                                                    $(".pessoaFisica").attr("disabled", false);
+                                                                    $(".pessoaFisica").attr("disabled", false);
+                                
+                                                                    $(".pessoaJuridica").attr("disabled", false);
+                                                                    $(".pessoaJuridica").attr("disabled", false);
+                                                                    $(".pessoaJuridica").attr("disabled", false);
+                                                                    $(".pessoaJuridica").attr("disabled", false);
+                                
+                                                                    $("#progress-bar").css("width" ,"100%");
+                                                                    $("#nav-anexos-tab").css("background", "#3CB371");
+                                                                    $("#nav-anexos-tab").click();
+                                                                    $("#progress-bar").text("4/4");
+                                
+                                                                
+                                                                }
+                                                            }
+                                            
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }else{
+                                        $(".pessoaFisica").attr("disabled", false);
+                                        $(".pessoaFisica").attr("disabled", false);
+                                        $(".pessoaFisica").attr("disabled", false);
+                                        $(".pessoaFisica").attr("disabled", false);
+                                        $(".pessoaFisica").attr("disabled", false);
+                                        $(".pessoaFisica").attr("disabled", false);
+                                
+                                        $(".pessoaJuridica").attr("disabled", false);
+                                        $(".pessoaJuridica").attr("disabled", false);
+                                        $(".pessoaJuridica").attr("disabled", false);
+                                        $(".pessoaJuridica").attr("disabled", false);
+                                
+                                        $("#progress-bar").css("width" ,"100%");
+                                        $("#nav-anexos-tab").css("background", "#3CB371");
+                                        $("#nav-anexos-tab").click();
+                                        $("#progress-bar").text("4/4");
+                                    }
+                                    break;
+
+                                case undefined:
+                                    $("span[id=group1]").text("Escolha o tipo de conta");
+                                    $("span[id=group1]").attr("hidden", false);
+                                    break;
                             }
                         }
-                    }
+                     }
                 }
             }
         }
-
        
     });
-
+    
     $("#pessoa").change(function(){
         var pessoa = $("#pessoa").val();
 
@@ -322,7 +442,7 @@ $(document).ready(function(){
         var obs1 = $("#obs1").val();
         var obs2 = $("#obs2").val();
         var obs3 = $("#obs3").val();
-        var obs4 = $("#obs4").val();
+        var obs4 = $("#obs4").val();    
 
         if (file1 == "" && obs1 == "") {
             $("span[id=obs1]").text("Adicione 1 arquivo PDF e coloque uma Observação");
@@ -336,73 +456,12 @@ $(document).ready(function(){
             $("#nav-anexos-tab").click();
             $("#progress-bar").text("4/4");
 
-            $("#enviar").attr({type: "submit"});
-            $("#enviar").click();
+            $("#enviarr").attr("hidden" , false);
+            $("#enviarr").click();
 
         }
     })
 });
-
-
-
-// //FORM ETAPA 1
-// $("#etapa1").validate({
-//     rules:{
-//         operacao:{
-//             required: true
-//         },
-//         QtParcelas:{
-//             required: true
-//         },
-//         bandeiraBancaria:{
-//             required: true
-//         },
-//         numeroCartao:{
-//             required: true
-//         },
-//         titular:{
-//             required: true
-//         },
-//         mesVenci:{
-//             required: true
-//         },
-//         anoVenci:{
-//             required: true
-//         },
-//         codigoSeguranca:{
-//             required: true
-//         },
-//         submitHandler: function(form){
-//            return false;
-//         }
-//     },
-//     messages:{
-//         operacao:{
-//             required: "Este campo é obrigatorio"
-//         },
-//         QtParcelas:{
-//             required: "Este campo é obrigatorio"
-//         },
-//         bandeiraBancaria:{
-//             required:"Este campo é obrigatorio"
-//         },
-//         numeroCartao:{
-//             required:"Este campo é obrigatorio",
-//         },
-//         titular:{
-//             required:"Este campo é obrigatorio",
-//         },
-//         mesVenci:{
-//             required:"Este campo é obrigatorio"
-//         },
-//         anoVenci:{
-//             required: "Este campo é obrigatorio",
-//         },
-//         codigoSeguranca:{
-//             required: "Este campo é obrigatorio",
-//         }
-//     }
-// })
 
 // Validation for Etapas1
 $('#valor').mask('000.000.000,00', {reverse: true});

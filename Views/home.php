@@ -75,7 +75,7 @@
                             <td><?php echo $item['operacao'];?></td>
                             <td><?php echo $item['nome_cli'];?></td>
                             <td><?php echo $item['valor'];?></td>
-                            <td><?php echo $item['QtParcelas'];?></td>
+                            <td><?php echo $item['qtParcelas'];?></td>
                             <td><?php echo $item['nome_colaborador'];?></td>
 
                             <td>
