@@ -92,4 +92,31 @@ class Arquivos extends Model {
 
     }
     
+    public function generateRelatorio($id){
+        try{
+           $sql = "SELECT * FROM proposta WHERE id = :id";
+           $sql = $this->db->prepare($sql);
+           $sql->bindValue(':id', $id);
+
+            if($sql->execute()){
+                $result = $sql->fetch(\PDO::FETCH_ASSOC);
+            }
+
+            $sql = "SELECT * FROM clientes WHERE nome = :nome";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(':nome', $result['nome_cli']);
+
+            if($sql->execute()){
+                $res = $sql->fetch(\PDO::FETCH_ASSOC);
+            }
+
+            $resultado = $result + $res;
+
+            return $resultado;
+        }catch (\PDOException $e){
+            $e->getMessage();
+        }
+    }
+
+
 }

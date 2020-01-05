@@ -57,8 +57,6 @@ class PropostaController extends Controller {
         
 
         if (isset($_POST['busca']) && $_POST['busca'] == 'sim')  {
-            
-
 
             $textoBusca = addslashes($_POST['textoBusca']);
 
@@ -86,6 +84,7 @@ class PropostaController extends Controller {
             $operacao = addslashes($_POST['operacao']);
             $tabela = "Tabela " . addslashes($_POST['tabela']);
             $valor = addslashes($_POST['valor']);
+            $valor_parcela = addslashes($_POST['valorParcela']);
             $QtParcelas = addslashes($_POST['QtParcelas']);
             $valorFinal = addslashes($_POST['valorFinal']);
             $bandeiraBancaria = addslashes($_POST['bandeiraBancaria']);
@@ -119,11 +118,12 @@ class PropostaController extends Controller {
             $now = new \DateTime();
             $dateTime = $now->format('Y-m-d H:i:s');
 
-
+            $conta_terceiro = "não";
 
             if ($nomeTerceiro == "") {
                 $nomeTerceiro = "não informado";
-
+                
+                $conta_terceiro = "sim";
             }
             if ($cpfTerceiro == "") {
                 $cpfTerceiro = "não informado";
@@ -157,8 +157,8 @@ class PropostaController extends Controller {
 
 
 
-                if ($p->salvar($file, $nomes, $operacao, $tabela, $valor, $QtParcelas, $valorFinal, $bandeiraBancaria, $numeroCartao, $titular, $mesVenci, $anoVenci, $codigoSeguranca,
-                    $nomeCliente, $banco, $agencia, $conta, $digito, $dataDeAbertura, $group1, $nomeTerceiro, $cpfTerceiro, $group3, $outro, $razaoSocial,
+                if ($p->salvar($file, $nomes, $operacao, $tabela, $valor, $valor_parcela,$QtParcelas, $valorFinal, $bandeiraBancaria, $numeroCartao, $titular, $mesVenci, $anoVenci, $codigoSeguranca,
+                    $nomeCliente, $banco, $agencia, $conta, $digito, $dataDeAbertura, $group1,$conta_terceiro, $nomeTerceiro, $cpfTerceiro, $group3, $outro, $razaoSocial,
                     $cnpj, $vinculo, $status, $data_proposta, $nomeColaborador)) {
 
                     $_SESSION['sucMsg'] = 'Proposta cadastrada com sucesso';
@@ -173,4 +173,109 @@ class PropostaController extends Controller {
             }
         }
 
+        public function ativas_action(){
+            $p = new Proposta();
+
+            $id= $_POST['idProposta'];
+
+            $status_proposta = 1;
+
+            $retorno = $p->updateStatus($id,$status_proposta);
+            echo json_encode($retorno);
+            exit;      
+            
+        }
+
+        public function analise_action(){
+            $p = new Proposta();
+
+            $id= $_POST['idProposta'];
+
+            $status_proposta = 2;
+
+            $retorno = $p->updateStatus($id,$status_proposta);
+            echo json_encode($retorno);
+            exit;      
+            
+        }
+
+        public function aprovada_action(){
+            $p = new Proposta();
+
+            $id= $_POST['idProposta'];
+
+            $status_proposta = 3;
+
+            $retorno = $p->updateStatus($id,$status_proposta);
+            echo json_encode($retorno);
+            exit;      
+            
+        }
+
+        public function reprovada_action(){
+            $p = new Proposta();
+
+            $id= $_POST['idProposta'];
+
+            $status_proposta = 4;
+
+            $retorno = $p->updateStatus($id,$status_proposta);
+            echo json_encode($retorno);
+            exit;      
+            
+        }
+
+        public function pendente_action(){
+            $p = new Proposta();
+
+            $id= $_POST['idProposta'];
+
+            $status_proposta = 5;
+
+            $retorno = $p->updateStatus($id,$status_proposta);
+            echo json_encode($retorno);
+            exit;      
+            
+        }
+
+        public function pagas_action(){
+            $p = new Proposta();
+
+            $id= $_POST['idProposta'];
+
+            $status_proposta = 6;
+
+            $retorno = $p->updateStatus($id,$status_proposta);
+            echo json_encode($retorno);
+            exit;      
+            
+        }
+
+        public function canceladas_action(){
+            $p = new Proposta();
+
+            $id= $_POST['idProposta'];
+
+            $status_proposta = 7;
+
+            $retorno = $p->updateStatus($id,$status_proposta);
+            echo json_encode($retorno);
+            exit;      
+            
+        }
+
+        public function desativadas_action(){
+            $p = new Proposta();
+
+            $id= $_POST['idProposta'];
+
+            $status_proposta = 8;
+
+            $retorno = $p->updateStatus($id,$status_proposta);
+            echo json_encode($retorno);
+            exit;      
+            
+        }
+            
+        
     }

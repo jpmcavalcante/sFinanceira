@@ -96,7 +96,8 @@
                                         <option value="" disabled selected>Qtde de Parcelas</option>
                                     </select>
                                     <span id="QtParcelas" hidden></span>
-                                </div>
+                                    <input type="text" id="valorParcela" name="valorParcela" hidden>
+                                </div> 
                             </div>
                         </div>
                         <hr>

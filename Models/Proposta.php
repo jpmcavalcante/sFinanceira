@@ -8,8 +8,8 @@ class Proposta extends Model {
 
 
 
-	public function salvar($file,$nomes,$operacao, $tabela , $valor, $QtParcelas, $valorFinal, $bandeiraBancaria, $numeroCartao, $titular, $mesVenci, $anoVenci, $codigoSeguranca,
-                           $nomeCliente, $banco, $agencia, $conta, $digito, $dataDeAbertura, $group1, $nomeTerceiro, $cpfTerceiro, $group3, $outro, $razaoSocial,
+	public function salvar($file,$nomes,$operacao, $tabela , $valor, $valor_parcela,$QtParcelas, $valorFinal, $bandeiraBancaria, $numeroCartao, $titular, $mesVenci, $anoVenci, $codigoSeguranca,
+                           $nomeCliente, $banco, $agencia, $conta, $digito, $dataDeAbertura, $group1, $conta_terceiro,$nomeTerceiro, $cpfTerceiro, $group3, $outro, $razaoSocial,
     $cnpj, $vinculo,$status,$data_proposta,$nomeColaborador){
 
 
@@ -17,15 +17,16 @@ class Proposta extends Model {
         
         try {
 
-            $sql = "INSERT INTO proposta (operacao, tabela ,valor, qtParcelas, valorFinal, bandeiraCartao, numeroCartao, titular, mesVenc, anoVenci, codSeguranca, nome_cli, banco,  agencia, conta, digito, dtAbertura, group1, nomeTerceiro,
+            $sql = "INSERT INTO proposta (operacao, tabela ,valor, valor_parcela ,qtParcelas, valorFinal, bandeiraCartao, numeroCartao, titular, mesVenc, anoVenci, codSeguranca, nome_cli, banco,  agencia, conta, digito, dtAbertura, group1, conta_terceiro,nomeTerceiro,
             cpfTerceiro, group3, outro, razaoSocial, cnpj, vinculo,status_proposta,data_proposta,nome_colaborador)
-            VALUES (:operacao, :tabela, :valor, :qtParcelas, :valorFinal, :bandeiraCartao, :numeroCartao, :titular, :mesVenc, :anoVenci, :codSeguranca, :nome_cli, :banco,:agencia, :conta, :digito, :dtAbertura, :group1, :nomeTerceiro, 
+            VALUES (:operacao, :tabela, :valor, :valor_parcela,:qtParcelas, :valorFinal, :bandeiraCartao, :numeroCartao, :titular, :mesVenc, :anoVenci, :codSeguranca, :nome_cli, :banco,:agencia, :conta, :digito, :dtAbertura, :group1, :conta_terceiro,:nomeTerceiro, 
             :cpfTerceiro, :group3, :outro, :razaoSocial, :cnpj, :vinculo,:status_proposta,:data_proposta,:nome_colaborador)";
 
             $sql = $this->db->prepare($sql);
             $sql->bindValue(':operacao', $operacao);
             $sql->bindValue(':tabela', $tabela);
             $sql->bindValue(':valor', $valor);
+            $sql->bindValue(':valor_parcela', $valor_parcela);
             $sql->bindValue(':qtParcelas', $QtParcelas);
             $sql->bindValue(':valorFinal', $valorFinal);
             $sql->bindValue(':bandeiraCartao', $bandeiraBancaria);
@@ -41,6 +42,7 @@ class Proposta extends Model {
             $sql->bindValue(':digito', $digito);
             $sql->bindValue(':dtAbertura', $dataDeAbertura);
             $sql->bindValue(':group1', $group1);
+            $sql->bindValue(':conta_terceiro', $conta_terceiro);
             $sql->bindValue(':nomeTerceiro', $nomeTerceiro);
             $sql->bindValue(':cpfTerceiro', $cpfTerceiro);
             $sql->bindValue(':group3', $group3);
@@ -162,7 +164,7 @@ class Proposta extends Model {
 	    $array = array();
 
         try {
-            $sql = "SELECT operacao, tabela,  data_proposta, valor, qtParcelas, nome_colaborador, nome_cli FROM proposta WHERE status_proposta = 1";
+            $sql = "SELECT id ,operacao, tabela,  data_proposta, valor, qtParcelas, nome_colaborador, nome_cli FROM proposta WHERE status_proposta = 1";
             $sql = $this->db->query($sql);
             $sql->execute();
 
@@ -177,24 +179,153 @@ class Proposta extends Model {
         }
     }
 
-public function listpropAprovadas(){
-    $array = array();
+    public function listpropAnalise(){
+        $array = array();
 
-    try {
-        $sql = "SELECT operacao, tabela,  data_proposta, valor, qtParcelas, nome_colaborador, nome_cli FROM proposta WHERE status_proposta = 2";
-        $sql = $this->db->query($sql);
-        $sql->execute();
+        try {
+            $sql = "SELECT id ,operacao, tabela,  data_proposta, valor, qtParcelas, nome_colaborador, nome_cli FROM proposta WHERE status_proposta = 2";
+            $sql = $this->db->query($sql);
+            $sql->execute();
 
-        if ($sql->rowCount() > 0){
-            $array = $sql->fetchAll(\PDO::FETCH_ASSOC);
+            if ($sql->rowCount() > 0){
+                $array = $sql->fetchAll(\PDO::FETCH_ASSOC);
+            }
+
+            return $array;
+
+        }catch (\PDOException $e){
+            $e->getMessage();
         }
-
-        return $array;
-
-    }catch (\PDOException $e){
-        $e->getMessage();
     }
-}
+
+    public function listpropAprovadas(){
+        $array = array();
+
+        try {
+            $sql = "SELECT id ,operacao, tabela,  data_proposta, valor, qtParcelas, nome_colaborador, nome_cli FROM proposta WHERE status_proposta = 3";
+            $sql = $this->db->query($sql);
+            $sql->execute();
+
+            if ($sql->rowCount() > 0){
+                $array = $sql->fetchAll(\PDO::FETCH_ASSOC);
+            }
+
+            return $array;
+
+        }catch (\PDOException $e){
+            $e->getMessage();
+        }
+    }
+
+    public function listpropReprovadas(){
+        $array = array();
+
+        try {
+            $sql = "SELECT id ,operacao, tabela,  data_proposta, valor, qtParcelas, nome_colaborador, nome_cli FROM proposta WHERE status_proposta = 4";
+            $sql = $this->db->query($sql);
+            $sql->execute();
+
+            if ($sql->rowCount() > 0){
+                $array = $sql->fetchAll(\PDO::FETCH_ASSOC);
+            }
+
+            return $array;
+
+        }catch (\PDOException $e){
+            $e->getMessage();
+        }
+    }
+
+    public function listpropPendentes(){
+        $array = array();
+
+        try {
+            $sql = "SELECT id ,operacao, tabela,  data_proposta, valor, qtParcelas, nome_colaborador, nome_cli FROM proposta WHERE status_proposta = 5";
+            $sql = $this->db->query($sql);
+            $sql->execute();
+
+            if ($sql->rowCount() > 0){
+                $array = $sql->fetchAll(\PDO::FETCH_ASSOC);
+            }
+
+            return $array;
+
+        }catch (\PDOException $e){
+            $e->getMessage();
+        }
+    }
+
+    public function listpropPagas(){
+        $array = array();
+
+        try {
+            $sql = "SELECT id ,operacao, tabela,  data_proposta, valor, qtParcelas, nome_colaborador, nome_cli FROM proposta WHERE status_proposta = 6";
+            $sql = $this->db->query($sql);
+            $sql->execute();
+
+            if ($sql->rowCount() > 0){
+                $array = $sql->fetchAll(\PDO::FETCH_ASSOC);
+            }
+
+            return $array;
+
+        }catch (\PDOException $e){
+            $e->getMessage();
+        }
+    }
+
+    public function listpropCanceladas(){
+        $array = array();
+
+        try {
+            $sql = "SELECT id ,operacao, tabela,  data_proposta, valor, qtParcelas, nome_colaborador, nome_cli FROM proposta WHERE status_proposta = 7";
+            $sql = $this->db->query($sql);
+            $sql->execute();
+
+            if ($sql->rowCount() > 0){
+                $array = $sql->fetchAll(\PDO::FETCH_ASSOC);
+            }
+
+            return $array;
+
+        }catch (\PDOException $e){
+            $e->getMessage();
+        }
+    }
+
+    public function listpropDesativadas(){
+        $array = array();
+
+        try {
+            $sql = "SELECT id ,operacao, tabela,  data_proposta, valor, qtParcelas, nome_colaborador, nome_cli FROM proposta WHERE status_proposta = 8";
+            $sql = $this->db->query($sql);
+            $sql->execute();
+
+            if ($sql->rowCount() > 0){
+                $array = $sql->fetchAll(\PDO::FETCH_ASSOC);
+            }
+
+            return $array;
+
+        }catch (\PDOException $e){
+            $e->getMessage();
+        }
+    }
+
+    public function updateStatus($id,$status_proposta){
+        try{
+            $sql = "UPDATE proposta SET status_proposta = :status_proposta WHERE id = :id";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(':status_proposta',$status_proposta);
+            $sql->bindValue(':id',$id);
+
+            $sql->execute();
+
+            return "sim";
+        }catch (\PDOException $e){
+            $e->getMessage();
+        }
+    }
 
 
 }

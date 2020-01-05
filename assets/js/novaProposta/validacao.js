@@ -449,7 +449,7 @@ $(document).ready(function(){
             $("span[id=obs1]").attr("hidden", false);
         }else{
             $("span[id=textoBusca]").attr("hidden", true);
-            
+            $("#valorParcela").attr("hidden", false);
 
             $("#progress-bar").css("width" ,"100%");
             $("#nav-anexos-tab").css("background", "#3CB371");

@@ -183,6 +183,7 @@ $("body").on("change","#operacao",function(){
             
                             //OPTIONS DO SELECT QUANTIDADE DE PARCELAS
                             $("#QtParcelas").append('<option value='+ i +' class="qtdp">'+ i +'x - R$ '+ splitValor[0] +'</option>');
+                            
                         }
                     }
             
@@ -215,9 +216,12 @@ $("body").on("change","#operacao",function(){
 
                     valParcela[0] = valParcela  [0].split(/(?=(?:...)*$)/).join('.');
 
+                    var val = parseFloat(splitValor[1]).toFixed(2).split('.');
+
                     if(multiplicador > 0){
                         $("#total").text('Valor total: R$ '+ valParcela);
                         $("#valorFinal").val(valParcela);
+                        $("#valorParcela").val(val);
                     }else{
                         $("#total").text('Valor total: ');
                         $("#valorFinal").val("");

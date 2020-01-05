@@ -8,5 +8,8 @@
 			"Models\\":"Models/",
 			"Core\\":"Core/"
 		}
+	},
+	"require": {
+		"mpdf/mpdf": "^8.0"
 	}
 }
