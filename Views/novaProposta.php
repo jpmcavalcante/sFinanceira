@@ -204,7 +204,7 @@
                         <input type="text" class="col-md-6 " name="nome" id="nome">
 
                         <label for="nome">CPF</label>
-                        <input type="text" name="cpf" id="cpf" disabled>
+                        <input type="text" name="cpfCli" id="cpf" >
 
                         <span id="idCli" hidden></span>
                     </div>

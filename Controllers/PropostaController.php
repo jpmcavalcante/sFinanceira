@@ -97,6 +97,7 @@ class PropostaController extends Controller {
 
             $nomeCliente = addslashes($_POST['nome']);
             $nomeColaborador = addslashes($_POST['nome_colaborador']);
+            $cpf_cli = addslashes($_POST['cpfCli']);
 
             $banco = addslashes($_POST['banco']);
             $agencia = addslashes($_POST['agencia']);
@@ -152,14 +153,15 @@ class PropostaController extends Controller {
 
 
             $status = 1;
-            $data_proposta = date('d/m/y');
+            $data_proposta = date('d/m/Y');
+            $data_atualizacao = date('d/m/Y \à\s H:i:s');
 
 
 
 
                 if ($p->salvar($file, $nomes, $operacao, $tabela, $valor, $valor_parcela,$QtParcelas, $valorFinal, $bandeiraBancaria, $numeroCartao, $titular, $mesVenci, $anoVenci, $codigoSeguranca,
-                    $nomeCliente, $banco, $agencia, $conta, $digito, $dataDeAbertura, $group1,$conta_terceiro, $nomeTerceiro, $cpfTerceiro, $group3, $outro, $razaoSocial,
-                    $cnpj, $vinculo, $status, $data_proposta, $nomeColaborador)) {
+                    $nomeCliente, $cpf_cli,$banco, $agencia, $conta, $digito, $dataDeAbertura, $group1,$conta_terceiro, $nomeTerceiro, $cpfTerceiro, $group3, $outro, $razaoSocial,
+                    $cnpj, $vinculo, $status, $data_proposta, $nomeColaborador,$data_atualizacao)) {
 
                     $_SESSION['sucMsg'] = 'Proposta cadastrada com sucesso';
                     header("Location: " . BASE_URL . 'proposta');
@@ -173,14 +175,52 @@ class PropostaController extends Controller {
             }
         }
 
+        public function bucarProposta(){
+            $p = new Proposta();
+
+            $nome = addslashes($_POST['nome']);
+            $id = addslashes($_POST['id']);
+            $cpf = addslashes($_POST['cpf']);
+            $mesInicio = addslashes($_POST['mesInicio']);
+            $status = $_POST['status'];
+
+            if($nome == ""){
+                if($id == ""){
+                    if($cpf == ""){
+                        if($mesInicio == ""){
+                            echo "nao foi";
+                        }else{
+                            $d = $p->listPropIni($mesInicio,$status);
+                            echo json_encode($d);
+                            exit;
+                        }
+                    }else{
+                        $d = $p->listPropCPF($cpf,$status);
+                        echo json_encode($d);
+                        exit;
+                    }
+                }else{
+                    $d = $p->listPropId($id,$status);
+                    echo json_encode($d);
+                    exit;
+                }
+            }else{
+                $d = $p->listPropNome($nome,$status);
+                echo json_encode($d);
+                exit;
+            }
+        }
+
+
         public function ativas_action(){
             $p = new Proposta();
 
             $id= $_POST['idProposta'];
 
             $status_proposta = 1;
+            $data_atualizacao = date('d/m/Y \à\s H:i:s');
 
-            $retorno = $p->updateStatus($id,$status_proposta);
+            $retorno = $p->updateStatus($id,$status_proposta,$data_atualizacao);
             echo json_encode($retorno);
             exit;      
             
@@ -192,8 +232,9 @@ class PropostaController extends Controller {
             $id= $_POST['idProposta'];
 
             $status_proposta = 2;
+            $data_atualizacao = date('d/m/Y \à\s H:i:s');
 
-            $retorno = $p->updateStatus($id,$status_proposta);
+            $retorno = $p->updateStatus($id,$status_proposta,$data_atualizacao);
             echo json_encode($retorno);
             exit;      
             
@@ -205,8 +246,9 @@ class PropostaController extends Controller {
             $id= $_POST['idProposta'];
 
             $status_proposta = 3;
+            $data_atualizacao = date('d/m/Y \à\s H:i:s');
 
-            $retorno = $p->updateStatus($id,$status_proposta);
+            $retorno = $p->updateStatus($id,$status_proposta,$data_atualizacao);
             echo json_encode($retorno);
             exit;      
             
@@ -218,8 +260,9 @@ class PropostaController extends Controller {
             $id= $_POST['idProposta'];
 
             $status_proposta = 4;
+            $data_atualizacao = date('d/m/Y \à\s H:i:s');
 
-            $retorno = $p->updateStatus($id,$status_proposta);
+            $retorno = $p->updateStatus($id,$status_proposta,$data_atualizacao);
             echo json_encode($retorno);
             exit;      
             
@@ -231,8 +274,9 @@ class PropostaController extends Controller {
             $id= $_POST['idProposta'];
 
             $status_proposta = 5;
+            $data_atualizacao = date('d/m/Y \à\s H:i:s');
 
-            $retorno = $p->updateStatus($id,$status_proposta);
+            $retorno = $p->updateStatus($id,$status_proposta,$data_atualizacao);
             echo json_encode($retorno);
             exit;      
             
@@ -244,8 +288,9 @@ class PropostaController extends Controller {
             $id= $_POST['idProposta'];
 
             $status_proposta = 6;
+            $data_atualizacao = date('d/m/Y \à\s H:i:s');
 
-            $retorno = $p->updateStatus($id,$status_proposta);
+            $retorno = $p->updateStatus($id,$status_proposta,$data_atualizacao);
             echo json_encode($retorno);
             exit;      
             
@@ -257,8 +302,9 @@ class PropostaController extends Controller {
             $id= $_POST['idProposta'];
 
             $status_proposta = 7;
+            $data_atualizacao = date('d/m/Y \à\s H:i:s');
 
-            $retorno = $p->updateStatus($id,$status_proposta);
+            $retorno = $p->updateStatus($id,$status_proposta,$data_atualizacao);
             echo json_encode($retorno);
             exit;      
             
@@ -270,8 +316,9 @@ class PropostaController extends Controller {
             $id= $_POST['idProposta'];
 
             $status_proposta = 8;
+            $data_atualizacao = date('d/m/Y \à\s H:i:s');
 
-            $retorno = $p->updateStatus($id,$status_proposta);
+            $retorno = $p->updateStatus($id,$status_proposta,$data_atualizacao);
             echo json_encode($retorno);
             exit;      
             

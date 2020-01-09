@@ -292,7 +292,7 @@ class Cliente extends Model {
             $sql = $this->db->prepare($sql);
             $sql->bindValue(':nome', '%'.$textoBusca.'%');
             $sql->execute();
-
+ 
             $retorno = array();
             $retorno['dados'] = '';
             $conteudo = array();
