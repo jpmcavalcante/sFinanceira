@@ -55,7 +55,7 @@
 
                     <input id="status" type="text" value="1"  hidden>
 
-                    <button style="margin: 0 .5%;" type="button" class="voltar btn btn-primary"><i class="fas fa-plus"></i></button>
+                    <button style="margin: 0 .5%;" type="button" class="voltar btn btn-primary"><i class="fas fa-arrow-left"></i></button>
                     <button type="button" class="novas btn btn-primary"><i class="fas fa-search"></i></button>
                 </div>
                 <!--FIM FORMULARIO-->
@@ -111,7 +111,7 @@
 
                     <input type="text" class="form-control" id="nomeid1" placeholder="Nome ou ID de Proposta">
                     <p>e/ou</p>
-                    <input type="text" class="form-control" id="cpf1" placeholder="CPF do Cliente">
+                    <input type="text" class="form-control" data-mask="999.999.999-99" id="cpf1" placeholder="CPF do Cliente">
                     <p>e/ou</p>
 
                     <p>e/ou</p>
@@ -119,7 +119,7 @@
 
                     <input id="status1" type="text" value="2"  hidden>
 
-                    <button style="margin: 0 .5%;" type="button" class="voltar1 btn btn-primary"><i class="fas fa-plus"></i></button>
+                    <button style="margin: 0 .5%;" type="button" class="voltar1 btn btn-primary"><i class="fas fa-arrow-left"></i></button>
                     <button type="button" class="analise1 busca btn btn-primary"><i class="fas fa-search"></i></button>
                 </div>
                 <!--FIM FORMULARIO-->
@@ -154,7 +154,12 @@
                                 <td>
 
                                     <div class="btn-group">
+<<<<<<< HEAD
                                         <button id="<?php echo $item['id'];?>" class="desativadas btn btn-xs btn-danger">Excluir</button>
+=======
+                                        <!-- <a href="" class="btn btn-xs btn-primary">Editar</a> -->
+                                        <button id="<?php echo $item['id'];?>" class="desativadas btn btn-xs btn-danger">Desativar</button>
+>>>>>>> 3785f29392151e2c7085fa33d366f5db695ed0d4
                                         <button id="<?php echo $item['id'];?>" class="aprovada btn btn-xs btn-danger" target="_blank">Aprovada</button>
                                         <button id="<?php echo $item['id'];?>" class="reprovada btn-xs btn-danger" target="_blank">Reprovada</button>
                                         <button id="<?php echo $item['id'];?>" class="pendente btn-xs btn-danger" target="_blank">Pendente</button>
@@ -177,7 +182,7 @@
 
                     <input type="text" name='nome/id' class="form-control" id="nomeid2" placeholder="Nome ou ID de Proposta">
                     <p>e/ou</p>
-                    <input type="text" name='cpf' class="form-control" id="cpf2" placeholder="CPF do Cliente">
+                    <input type="text" name='cpf' class="form-control" data-mask="999.999.999-99" id="cpf2" placeholder="CPF do Cliente">
                     <p>e/ou</p>
 
                     <p>e/ou</p>
@@ -185,7 +190,7 @@
 
                     <input id="status2" type="text" value="3"  hidden>
 
-                    <button style="margin: 0 .5%;" type="button" class="voltar2 btn btn-primary"><i class="fas fa-plus"></i></button>
+                    <button style="margin: 0 .5%;" type="button" class="voltar2 btn btn-primary"><i class="fas fa-arrow-left"></i></button>
                     <button type="button" class="aprovados2 btn btn-primary"><i class="fas fa-search"></i></button>
                 </div>
                 <!--FIM FORMULARIO-->
@@ -243,7 +248,7 @@
 
                     <input type="text" name='nome/id' class="form-control" id="nomeid3" placeholder="Nome ou ID de Proposta">
                     <p>e/ou</p>
-                    <input type="text" name='cpf' class="form-control" id="cpf3" placeholder="CPF do Cliente">
+                    <input type="text" name='cpf' class="form-control" data-mask="999.999.999-99" id="cpf3" placeholder="CPF do Cliente">
                     <p>e/ou</p>
 
                     <p>e/ou</p>
@@ -251,7 +256,7 @@
 
                     <input id="status3" type="text" value="4"  hidden>
 
-                    <button style="margin: 0 .5%;" type="submit" class="voltar3 btn btn-primary"><i class="fas fa-plus"></i></button>
+                    <button style="margin: 0 .5%;" type="submit" class="voltar3 btn btn-primary"><i class="fas fa-arrow-left"></i></button>
                     <button type="button" class="reprovados3 btn btn-primary"><i class="fas fa-search"></i></button>
                 </div>
                 <!--FIM FORMULARIO-->
@@ -305,7 +310,7 @@
 
                     <input type="text" name='nome/id' class="form-control" id="nomeid4" placeholder="Nome ou ID de Proposta">
                     <p>e/ou</p>
-                    <input type="text" name='cpf' class="form-control" id="cpf4" placeholder="CPF do Cliente">
+                    <input type="text" name='cpf' class="form-control" data-mask="999.999.999-99" id="cpf4" placeholder="CPF do Cliente">
                     <p>e/ou</p>
 
                     <p>e/ou</p>
@@ -313,7 +318,7 @@
 
                     <input id="status4" type="text" value="5"  hidden>
 
-                    <button style="margin: 0 .5%;" type="submit" class="voltar4 btn btn-primary"><i class="fas fa-plus"></i></button>
+                    <button style="margin: 0 .5%;" type="submit" class="voltar4 btn btn-primary"><i class="fas fa-arrow-left"></i></button>
                     <button type="button" class="pendentes4 btn btn-primary"><i class="fas fa-search"></i></button>
                 </div>
                 <!--FIM FORMULARIO-->
@@ -367,7 +372,7 @@
 
                     <input type="text" name='nome/id' class="form-control" id="nomeid5" placeholder="Nome ou ID de Proposta">
                     <p>e/ou</p>
-                    <input type="text" name='cpf' class="form-control" id="cpf5" placeholder="CPF do Cliente">
+                    <input type="text" name='cpf' class="form-control" data-mask="999.999.999-99" id="cpf5" placeholder="CPF do Cliente">
                     <p>e/ou</p>
 
                     <p>e/ou</p>
@@ -375,7 +380,7 @@
 
                     <input id="status5" type="text" value="6"  hidden>
 
-                    <button style="margin: 0 .5%;" type="submit" class="voltar5 btn btn-primary"><i class="fas fa-plus"></i></button>
+                    <button style="margin: 0 .5%;" type="submit" class="voltar5 btn btn-primary"><i class="fas fa-arrow-left"></i></button>
                     <button type="button" class="canceladas5 btn btn-primary"><i class="fas fa-search"></i></button>
                 </div>
                 <!--FIM FORMULARIO-->
@@ -433,7 +438,7 @@
 
                     <input type="text" name='nome/id' class="form-control" id="nomeid6" placeholder="Nome ou ID de Proposta">
                     <p>e/ou</p>
-                    <input type="text" name='cpf' class="form-control" id="cpf6" placeholder="CPF do Cliente">
+                    <input type="text" name='cpf' class="form-control" data-mask="999.999.999-99" id="cpf6" placeholder="CPF do Cliente">
                     <p>e/ou</p>
 
                     <p>e/ou</p>
@@ -441,7 +446,7 @@
 
                     <input id="status6" type="text" value="7"  hidden>
 
-                    <button style="margin: 0 .5%;" type="submit" class="voltar6 btn btn-primary"><i class="fas fa-plus"></i></button>
+                    <button style="margin: 0 .5%;" type="submit" class="voltar6 btn btn-primary"><i class="fas fa-arrow-left"></i></button>
                     <button type="button" class="pagas6 btn btn-primary"><i class="fas fa-search"></i></button>
                 </div>
                 <!--FIM FORMULARIO-->
@@ -494,7 +499,7 @@
 
                     <input type="text" name='nome/id' class="form-control" id="nomeid7" placeholder="Nome ou ID de Proposta">
                     <p>e/ou</p>
-                    <input type="text" name='cpf' class="form-control" id="cpf7" placeholder="CPF do Cliente">
+                    <input type="text" name='cpf' class="form-control" data-mask="999.999.999-99" id="cpf7" placeholder="CPF do Cliente">
                     <p>e/ou</p>
 
                     <p>e/ou</p>
@@ -502,7 +507,7 @@
 
                     <input id="status7" type="text" value="8"  hidden>
 
-                    <button style="margin: 0 .5%;" type="submit" class="voltar7 btn btn-primary"><i class="fas fa-plus"></i></button>
+                    <button style="margin: 0 .5%;" type="submit" class="voltar7 btn btn-primary"><i class="fas fa-arrow-left"></i></button>
                     <button type="button" class="desativadas7 btn btn-primary"><i class="fas fa-search"></i></button>
                 </div>
                 <!--FIM FORMULARIO-->
