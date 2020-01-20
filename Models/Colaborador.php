@@ -61,7 +61,7 @@ class Colaborador extends Model {
           $sql = "SELECT id FROM colaborador WHERE email = :email AND senha = :senha ";
           $sql = $this->db->prepare($sql);
           $sql->bindValue(':email', $email);
-          $sql->bindValue(':senha', $senha);
+          $sql->bindValue(':senha', md5($senha));
           $sql->execute();
 
 
@@ -89,16 +89,19 @@ class Colaborador extends Model {
 
     public function salvar($nome, $email, $atendente, $unidade, $senha, $id_permissao){
 
+
         try {
             $sql = "INSERT INTO colaborador (nome, email, senha, atendente, unidade, id_permission)  VALUES (:nome, :email, :senha, :atendente, :unidade, :id_permission)";
 
             $sql = $this->db->prepare($sql);
             $sql->bindValue(':nome', $nome);
             $sql->bindValue(':email', $email);
-            $sql->bindValue(':senha', $senha);
+            $sql->bindValue(':senha', md5($senha));
             $sql->bindValue(':atendente', $atendente);
             $sql->bindValue(':unidade', $unidade);
             $sql->bindValue(':id_permission', $id_permissao);
+
+
 
             if ($sql->execute()){
                 return true;

@@ -273,7 +273,7 @@
                                         <div id="open" hidden>
                                             <div class="form-group col-md-4">
                                                 <select name="pessoa" id="pessoa" class="form-control">
-                                                    <option value="" selectend disebled>Selecione o tipo de pessoa</opition>
+                                                    <option value="" selected disabled>Selecione o tipo de pessoa</option>
                                                     <option value="Pessoa Fisíca">Pessoa Fisíca</option>
                                                     <option value="Pessoa Juridica" >Pessoa Juridica</option>
                                                 </select>
@@ -456,7 +456,7 @@ $(document).ready(function(){
                 success: function(retorno){
                     if(retorno.dados == ''){
                         console.log(retorno)
-                        $('#resultado_busca').html('<p>O cliente informado ainda não esta cadastrado!!</p>');
+                        $('#resultado_busca').html('<p>O cliente informado ainda não esta cadastrado!!</p><br><a href="<?php echo BASE_URL;?>cliente">Cadastrar cliente</a>');
                     }else{
                         $('#resultado_busca').html(retorno.dados);
                     }

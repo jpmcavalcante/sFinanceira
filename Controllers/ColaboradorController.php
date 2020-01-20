@@ -71,6 +71,7 @@ class ColaboradorController extends Controller {
 
         $c = new Colaborador();
 
+
         if (!empty($_POST['nome']) && !empty($_POST['email'])){
 
             $nome = addslashes($_POST['nome']);
@@ -78,7 +79,7 @@ class ColaboradorController extends Controller {
             $atendente = addslashes($_POST['atendente']);
             $unidade = addslashes($_POST['unidade']);
             $senha = addslashes($_POST['senha']);
-            $id_permissao = addslashes($_POST['nivel']);
+            $id_permissao = addslashes($_POST['id_permissao']);
 
 
             if ($c->salvar($nome, $email, $atendente, $unidade, $senha, $id_permissao)){

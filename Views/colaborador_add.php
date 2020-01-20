@@ -25,12 +25,15 @@
     <div class="box-body">
 
         <form class="form-horizontal" method="post" action="<?php echo BASE_URL; ?>Colaborador/add_action">
-            <input type="text"  name="nome"   placeholder="nome">
-            <input type="text" name="email"   placeholder="email">
-            <input type="text"  name="atendente"   placeholder="Atendente">
-            <input type="text"  name="unidade"   placeholder="unidade">
-            <input type="password" name="senha"  placeholder="Senha">
+            <input type="text"  name="nome"   placeholder="nome" required>
+            <input type="text" name="email"   placeholder="email" required>
+            <input type="text"  name="atendente"   placeholder="Atendente" required>
+            <input type="text"  name="unidade"   placeholder="unidade" required>
+            <input type="password" name="senha"  placeholder="Senha" required>
             <select name="id_permissao" required>
+
+
+
                 <option>Selecione</option>
                 <?php foreach ($listGroups as $item): ?>
                     <option value="<?php echo $item['id'];?>"><?php echo $item['name'];?></option>

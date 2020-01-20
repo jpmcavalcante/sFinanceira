@@ -35,7 +35,7 @@
                 <a class="nav-link " role="tab" data-toggle="tab" href="#Canceladas">Canceladas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " role="tab" data-toggle="tab" href="#Desativadas">Desativadas</a>
+                <a class="nav-link " role="tab" data-toggle="tab" href="#Desativadas">Excluídas</a>
             </li>
         </ul>
         <!--FIM SEGUNDO MENU-->
@@ -86,18 +86,19 @@
                                 <td><?php echo $item['valor'];?></td>
                                 <td><?php echo $item['nome_colaborador'];?></td>
                                 <td><?php echo $item['data_atualizacao'];?></td>
-                                
 
+                                <?php if ( $viewData['colaborador']->temPermissao('cad_financeiro')): ?>
                                 <td>
+
                                     <div class="btn-group">
-                                        <a href="" class="btn btn-xs btn-primary">Editar</a>
-                                        <button id="<?php echo $item['id'];?>" class="desativadas btn btn-xs btn-danger">Desativar</button>
+                                        <button id="<?php echo $item['id'];?>" class="desativadas btn btn-xs btn-danger">Excluir</button>
                                         <a href="<?php echo BASE_URL;?>Arquivo/relatorio_action?proposta=<?php echo $item['id']?>" class="btn btn-xs btn-primary" target="_blank">Relatorio</a>
                                         <button id="<?php echo $item['id'];?>" class="analise btn btn-xs btn-danger" target="_blank">Analise</button>
                                         <button id="<?php echo $item['id'];?>" class="canceladas btn btn-xs btn-danger" target="_blank">Cancelar</button>
                                     </div>
-                                </td>
 
+                                </td>
+                                <?php endif;?>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -148,20 +149,21 @@
                                 <td><?php echo $item['valor'];?></td>
                                 <td><?php echo $item['nome_colaborador'];?></td>
                                 <td><?php echo $item['data_atualizacao'];?></td>
-                                
 
+                                <?php if ( $viewData['colaborador']->temPermissao('cad_financeiro')): ?>
                                 <td>
+
                                     <div class="btn-group">
-                                        <a href="" class="btn btn-xs btn-primary">Editar</a>
-                                        <button id="<?php echo $item['id'];?>" class="desativadas btn btn-xs btn-danger">Desativar</button>
+                                        <button id="<?php echo $item['id'];?>" class="desativadas btn btn-xs btn-danger">Excluir</button>
                                         <button id="<?php echo $item['id'];?>" class="aprovada btn btn-xs btn-danger" target="_blank">Aprovada</button>
                                         <button id="<?php echo $item['id'];?>" class="reprovada btn-xs btn-danger" target="_blank">Reprovada</button>
                                         <button id="<?php echo $item['id'];?>" class="pendente btn-xs btn-danger" target="_blank">Pendente</button>
                                         <button id="<?php echo $item['id'];?>" class="canceladas btn btn-xs btn-danger" target="_blank">Cancelar</button>
                                         <a href="<?php echo BASE_URL;?>Arquivo/relatorio_action?proposta=<?php echo $item['id']?>" class="btn btn-xs btn-primary" target="_blank">Relatorio</a>
                                     </div>
-                                </td>
 
+                                </td>
+                                <?php endif;?>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -213,19 +215,21 @@
                                 <td><?php echo $item['valor'];?></td>
                                 <td><?php echo $item['nome_colaborador'];?></td>
                                 <td><?php echo $item['data_atualizacao'];?></td>
-                                
 
+                                <?php if ( $viewData['colaborador']->temPermissao('cad_financeiro')): ?>
                                 <td>
+
                                     <div class="btn-group">
-                                        <button id="<?php echo $item['id'];?>" class="desativadas btn btn-xs btn-danger">Desativar</button>
+                                        <button id="<?php echo $item['id'];?>" class="desativadas btn btn-xs btn-danger">Excluir</button>
                                         <button id="<?php echo $item['id'];?>" class="reprovada btn-xs btn-danger" target="_blank">Reprovada</button>
                                         <button id="<?php echo $item['id'];?>" class="analise btn btn-xs btn-danger" target="_blank">Analise</button>
                                         <button id="<?php echo $item['id'];?>" class="pagas btn-xs btn-danger" target="_blank">Paga</button>
                                         <button id="<?php echo $item['id'];?>" class="canceladas btn btn-xs btn-danger" target="_blank">Cancelar</button>
                                         <a href="<?php echo BASE_URL;?>Arquivo/relatorio_action?proposta=<?php echo $item['id']?>" class="btn btn-xs btn-primary" target="_blank">Relatorio</a>
                                     </div>
-                                </td>
 
+                                </td>
+                                <?php endif;?>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -277,17 +281,18 @@
                                 <td><?php echo $item['valor'];?></td>
                                 <td><?php echo $item['nome_colaborador'];?></td>
                                 <td><?php echo $item['data_atualizacao'];?></td>
-                                
 
+                                <?php if ( $viewData['colaborador']->temPermissao('cad_financeiro')): ?>
                                 <td>
+
                                     <div class="btn-group">
-                                        <button id="<?php echo $item['id'];?>" class="desativadas btn btn-xs btn-danger">Desativar</button>
+                                        <button id="<?php echo $item['id'];?>" class="desativadas btn btn-xs btn-danger">Excluir</button>
                                         <button id="<?php echo $item['id'];?>" class="analise btn btn-xs btn-danger" >Analise</button>
                                         <button id="<?php echo $item['id'];?>" class="canceladas btn btn-xs btn-danger" >Cancelar</button>
                                         <a href="<?php echo BASE_URL;?>Arquivo/relatorio_action?proposta=<?php echo $item['id']?>" class="btn btn-xs btn-primary" target="_blank">Relatorio</a>
                                     </div>
                                 </td>
-
+                                <?php endif;?>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -338,17 +343,18 @@
                                 <td><?php echo $item['valor'];?></td>
                                 <td><?php echo $item['nome_colaborador'];?></td>
                                 <td><?php echo $item['data_atualizacao'];?></td>
-                                
 
+                                <?php if ( $viewData['colaborador']->temPermissao('cad_financeiro')): ?>
                                 <td>
+
                                     <div class="btn-group">
-                                        <button id="<?php echo $item['id'];?>" class="desativadas btn btn-xs btn-danger">Desativar</button>
+                                        <button id="<?php echo $item['id'];?>" class="desativadas btn btn-xs btn-danger">Excluir</button>
                                         <button id="<?php echo $item['id'];?>" class="analise btn btn-xs btn-danger" target="_blank">Analise</button>
                                         <button id="<?php echo $item['id'];?>" class="canceladas btn btn-xs btn-danger" target="_blank">Cancelar</button>
                                         <a href="<?php echo BASE_URL;?>Arquivo/relatorio_action?proposta=<?php echo $item['id']?>" class="btn btn-xs btn-primary" target="_blank">Relatorio</a>
                                     </div>
                                 </td>
-
+                                <?php endif;?>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -401,16 +407,19 @@
                                 <td><?php echo $item['valor'];?></td>
                                 <td><?php echo $item['nome_colaborador'];?></td>
                                 <td><?php echo $item['data_atualizacao'];?></td>
-                                
 
+                                <?php if ( $viewData['colaborador']->temPermissao('cad_financeiro')): ?>
                                 <td>
+
                                     <div class="btn-group">
-                                        <button id="<?php echo $item['id'];?>" class="desativadas btn btn-xs btn-danger">Desativar</button>
+                                        <button id="<?php echo $item['id'];?>" class="desativadas btn btn-xs btn-danger">Excluir</button>
                                         <button id="<?php echo $item['id'];?>" class="ativas btn btn-xs btn-primary">Ativar</button>
                                         <button id="<?php echo $item['id'];?>" class="analise btn btn-xs btn-danger" target="_blank">Analise</button>
                                         <a href="<?php echo BASE_URL;?>Arquivo/relatorio_action?proposta=<?php echo $item['id']?>" class="btn btn-xs btn-primary" target="_blank">Relatorio</a>
                                     </div>
+
                                 </td>
+                                <?php endif;?>
 
                             </tr>
                         <?php endforeach; ?>
@@ -462,15 +471,17 @@
                                 <td><?php echo $item['valor'];?></td>
                                 <td><?php echo $item['nome_colaborador'];?></td>
                                 <td><?php echo $item['data_atualizacao'];?></td>
-                                
 
+                                <?php if ( $viewData['colaborador']->temPermissao('cad_financeiro')): ?>
                                 <td>
+
                                     <div class="btn-group">
-                                        <button id="<?php echo $item['id'];?>" class="desativadas btn btn-xs btn-danger">Desativar</button>
+                                        <button id="<?php echo $item['id'];?>" class="desativadas btn btn-xs btn-danger">Excluir</button>
                                         <a href="<?php echo BASE_URL;?>Arquivo/relatorio_action?proposta=<?php echo $item['id']?>" class="btn btn-xs btn-primary" target="_blank">Relatorio</a>
                                     </div>
-                                </td>
 
+                                </td>
+                                <?php endif;?>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -521,16 +532,18 @@
                                 <td><?php echo $item['valor'];?></td>
                                 <td><?php echo $item['nome_colaborador'];?></td>
                                 <td><?php echo $item['data_atualizacao'];?></td>
-                                
 
+                                <?php if ( $viewData['colaborador']->temPermissao('cad_financeiro')): ?>
                                 <td>
+
                                     <div class="btn-group">
                                         <button id="<?php echo $item['id'];?>" class="ativas btn btn-xs btn-primary">Ativar</button>
                                         <button id="<?php echo $item['id'];?>" class="analise btn btn-xs btn-danger" target="_blank">Analise</button>
                                         <a href="<?php echo BASE_URL;?>Arquivo/relatorio_action?proposta=<?php echo $item['id']?>" class="btn btn-xs btn-primary" target="_blank">Relatorio</a>
                                     </div>
-                                </td>
 
+                                </td>
+                                <?php endif;?>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

@@ -20,6 +20,8 @@ class HomeController extends Controller {
             exit;
         }
 
+
+
         $this->arrayInfo = array(
             'colaborador' => $this->col
         );

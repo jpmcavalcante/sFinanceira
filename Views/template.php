@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
     <title>Sistema Financeiro</title>
     <!-- Font Awesome Icons -->
@@ -54,8 +55,8 @@
     <aside class="main-sidebar sidebar-style elevation-4 bg-info">
         <!-- Brand Logo -->
         <div class="brand-logo">
-            <img src="<?php echo BASE_URL; ?>assets/img/logo_ms.png" alt="Logo Sistema MS" class="brand-image"
-                 style="max-width: 80%;">
+           <a href="<?php echo BASE_URL; ?>"> <img src="<?php echo BASE_URL; ?>assets/img/logo_ms.png" alt="Logo Sistema MS" class="brand-image"
+                 style="max-width: 80%;"></a>
         </div>
 
 
@@ -100,15 +101,6 @@
                             <i class="nav-icon fas fa-user-friends"></i>
                             <p style="margin: 0; text-align: center; line-height: 10pt;">
                                 Cadastro<br>de Cliente
-                            </p>
-                        </a>
-                    </li>
-
-                    <li class="nav-item mb-1">
-                        <a href="" class="item-style p-3">
-                            <i class="nav-icon fas fa-clipboard-list"></i>
-                            <p style="margin: 0;">
-                                Relatórios
                             </p>
                         </a>
                     </li>
