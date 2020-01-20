@@ -56,7 +56,7 @@
         <!-- Brand Logo -->
         <div class="brand-logo">
            <a href="<?php echo BASE_URL; ?>"> <img src="<?php echo BASE_URL; ?>assets/img/logo_ms.png" alt="Logo Sistema MS" class="brand-image"
-                 style="max-width: 80%;"></a>
+                 style="max-width: 80%; display: block; margin: auto;"></a>
         </div>
 
 

@@ -28,8 +28,8 @@
                 <div class="row">
 
                     <div class="container">
-                            <!--DADOS PRIMÁRIOS-->
-                            <div class="form-row p-4 col-md-11" style="background: #ccc; border-radius: 2%; ">
+                            <!--DADOS PESSOAIS-->
+                            <div class="form-row p-4 col-md-11" style="background: #ccc; border-radius: 2%;">
                                 <div class="form-group col-md-3">
                                     <label>Imagem</label><br>
                                     <label  for="file" class="center" style="cursor: pointer"><img id="img" src="../assets/img/avatar.jpeg" class="img-thumbnail" alt="Imagem responsiva" style="max-width: 150px"></label>
@@ -52,6 +52,9 @@
                                     <label class="pb-0" for="dataNascimento">Data de nascimento</label>
                                     <input id="dataNascimento" name="dataNascimento" type="text" class="form-control" data-mask="00/00/0000" style="width: 150px">
                                     <br>
+                                    <label class="pb-0" for="naturalidade">Naturalidade</label>
+                                    <input id="naturalidade" name="naturalidade" type="text" class="form-control">
+                                    <br>
                                     <label>Estado civil</label>
                                     <select id="estadoCivil" name="estadoCivil" class="form-control" style="width: 150px">
                                         <option value="" disabled selected>Estado civil</option>
@@ -62,17 +65,17 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6" style="float: right;">
-                                    <label for="nomePai">Nome do pai</label>
+                                    <label for="nomePai">Nome do Pai</label>
                                     <input id="nomePai" name="nomePai" type="text" class="form-control">
                                 </div>
 
                                 <div class="form-group col-md-6">
-                                    <label for="nomeMae">Nome da mãe</label>
+                                    <label for="nomeMae">Nome da Mãe</label>
                                     <input id="nomeMae" name="nomeMae" type="text" class="form-control" >
                                 </div>
                             </div>  
                             
-                            <!--DADOS SECUNDÁRIOS-->
+                            <!--DOCUMENTOS-->
                             <div class="form-row p-4 mt-3 col-md-11 flex-direction-column" style="background: #ccc; border-radius: 2%;">
 
                                 <div class="form-group col-md-3">
@@ -92,10 +95,14 @@
                                     <input id="dataExpedicao" name="dataExpedicao" type="text" class="form-control" data-mask="00/00/0000">
                                 </div>
                             </div>
+                            <!--FIM DOCUMENTOS-->
                             
                             <!--ENDEREÇO-->
                             <div class="form-row p-4 mt-3 col-md-11 flex-direction-column" style="background: #ccc; border-radius: 2%;">
-                                <div class="form-group col-md-8">
+                                <div class="form-group col-md-6">
+                                    <label for="cep" >CEP</label>
+                                    <input type="text"  id="cep" name="cep" class="form-control" style="width: 150px;">
+                                    <br>
                                     <label for="rua">Endereço</label>
                                     <input id="endereco" name="endereco" type="text" class="form-control" >
                                     <br> 
@@ -105,19 +112,16 @@
                                     <label for="complemento">Complemento</label>
                                     <input id="complemento" name="complemento" type="text" class="form-control" >
                                     <br>
-                                    <label for="tipoResidencia">Tipo de residencia</label>
-                                    <input id="tipoResidencia" name="tipoResidencia" type="text" class="form-control" >
-                                    <br>
                                     <label for="tempoResidencia">Tempo de Residencia (anos)</label>
                                     <input id="tempoResidencia" name="tempoResidencia" type="number" class="form-control" style="width: 100px;">
                                 </div>
 
-                                <div class="form-group col-md-3">
-                                    <label for="numero">Nº</label>
-                                    <input id="numero" name="numero" type="number" class="form-control" style="width: 100px;">
-                                    <br>
+                                <div class="form-group col-md-5">
                                     <label for="bairro">Bairro</label>
                                     <input id="bairro" name="bairro" type="text" class="form-control" >
+                                    <br>
+                                    <label for="numero">Nº</label>
+                                    <input id="numero" name="numero" type="number" class="form-control" style="width: 100px;">
                                     <br>
                                     <label for="estado">Estado</label>
                                         <select id="estadoEmissor" name="estadoEmissor" class="form-control" >
@@ -152,12 +156,14 @@
                                             <option value="EX">Estrangeiro</option>
                                         </select>
                                     <br>
-                                    <label for="cep" >CEP</label>
-                                    <input type="text"  id="cep" name="cep" class="form-control" style="width: 150px;">
+                                    <label for="tipoResidencia">Tipo de residencia</label>
+                                    <input id="tipoResidencia" name="tipoResidencia" type="text" class="form-control" >
+                                    <br>
                                 </div>
                             </div>
-
-                            <!--ENDEREÇO-->
+                            <!--FIM ENDEREÇO-->
+                            
+                            <!--CONTATO-->
                             <div class="form-row p-4 mt-3 col-md-11 flex-direction-column" style="background: #ccc; border-radius: 2%;">
                                     <div class="col-md-5">
                                         <label class="pb-0" for="email">Email</label>
@@ -172,6 +178,7 @@
                                         <input id="celular" name="celular" type="text" class="form-control" data-mask="(00) 00000-0000">
                                     </div>
                             </div>
+                            <!--CONTATO-->
                     </div>
                 </div>
             </div>
