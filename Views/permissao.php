@@ -1,26 +1,20 @@
-<section>
-<h1>Permissões</h1>
-</section>
 
+<section class="content-fluid container">
 
-<section class="content-fluid">
+    <h1 class="info-box-text">Grupos de Permissões</h1>
+
     <div class="box">
-        <div class="box-header">
-            <h3 class="info-box-text">Grupos de Permissões</h3>
-            <div class="box-tools">
-                <a href="<?php echo BASE_URL.'permissao/add' ;?>" class="btn btn-success">Adicionar</a>
-            </div>
-        </div>
+        
            <div class="box-body">
-               <table class="table">
-                   <tr>
-                       <th>nome da Permissão</th>
-                       <th>Qtd. de Ativos</th>
+               <table class="table table table-bordered table-light">
+                   <tr class="bg-info text-center">
+                       <th>Título da Permissão</th>
+                       <th>Usuários Ativos</th>
                        <th>Ações</th>
                    </tr>
 
                    <?php foreach ($list as $item): ?>
-                     <tr>
+                     <tr class="text-center">
                          <td><?php echo $item['name'];?></td>
                          <td><?php echo $item['totalColab'];?></td>
                          <td>
@@ -33,6 +27,9 @@
                      </tr>
                    <?php endforeach; ?>
                </table>
+               <div class="box-tools">
+                    <a href="<?php echo BASE_URL.'permissao/add' ;?>" class="btn btn-info">Adicionar</a>
+               </div>
            </div>
     </div>
 </section>
