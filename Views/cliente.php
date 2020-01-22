@@ -1,9 +1,8 @@
-<section>
-    <h1>Clientes</h1>
-</section>
-
 
 <section class="content-fluid">
+
+    
+
     <div class="box pb-3">
 
         <?php if (!empty($erros['suc'])): ?>
@@ -23,12 +22,15 @@
         <?php endif; ?>
 
         
-        <div class="box-body" style="width: 80vw; text-align: center;">
+        <div class="box-body container" style="width: 85vw; text-align: center;">
+            
+            <h1 style="text-align: left;">Clientes</h1>
+
             <table class="table table-bordered table-light">
                 <tr class="bg-info">
-                    <th width="400">Nome </th>
-                    <th width="200">CPF </th>
-                    <th width="200">Ações</th>
+                    <th width="40%">Nome </th>
+                    <th width="30%">CPF </th>
+                    <th width="30%">Ações</th>
                 </tr>
 
                 <?php foreach ($list as $item): ?>
@@ -45,10 +47,11 @@
                     </tr>
                 <?php endforeach; ?>
             </table>
-        </div>
-            <div class="box-tools">
+
+            <div class="box-tools" style="text-align: left;">
                 <a href="<?php echo BASE_URL.'cliente/add' ;?>" class="btn btn-primary">Adicionar</a>
             </div>
+        </div>   
     </div>
 </section>
 
