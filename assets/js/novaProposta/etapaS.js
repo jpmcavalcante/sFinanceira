@@ -154,11 +154,8 @@ $("body").on("change","#operacao",function(){
                 }
                 
                 $('#valor').blur(function(){
-                    console.log('passou1')
                     var valor = $('#valor').val();
                     var taxa = $('#tabela option:selected').attr('id');
-            
-                    console.log(taxa)
             
                     if(valor.indexOf(".") >= 1){
                         var arrq = valor.split('.');
@@ -190,7 +187,8 @@ $("body").on("change","#operacao",function(){
                 });
                 
                 //FUNÇÃO PARA CALCULAR E MOSTRAR O VALOR TOTAL
-                $('body').on('blur','#QtParcelas',function(){
+                $('body').on('click','#QtParcelas',function(){
+                    console.log("passou")
                     var multiplicador = $('#QtParcelas option:selected').val();
                     var taxa = $("#tabela option:selected").attr('id');
                     var valor = $('#valor').val();

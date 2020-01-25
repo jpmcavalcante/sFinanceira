@@ -39,7 +39,7 @@
 
             <?php if (!empty($error)): ;?>
                 <div class="callout callout-danger">
-                    <p><?php echo $error;?></p>
+                    <p style="color: red"><?php echo $error;?></p>
                 </div>
             <?php endif;?>
 

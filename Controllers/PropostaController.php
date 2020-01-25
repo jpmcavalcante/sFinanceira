@@ -121,10 +121,11 @@ class PropostaController extends Controller {
 
             $conta_terceiro = "não";
 
+            if($nomeTerceiro != ""){
+                $conta_terceiro = "sim";
+            }
             if ($nomeTerceiro == "") {
                 $nomeTerceiro = "não informado";
-                
-                $conta_terceiro = "sim";
             }
             if ($cpfTerceiro == "") {
                 $cpfTerceiro = "não informado";

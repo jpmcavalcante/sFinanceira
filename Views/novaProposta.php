@@ -210,10 +210,10 @@
                         <input type="text" name="idCli" id="id" disabled>
 
                         <label for="nome" >Nome</label>
-                        <input type="text" class="col-md-6 " name="nome" id="nome">
+                        <input type="text" class="col-md-6 " name="nome" id="nome" disabled>
 
                         <label for="nome">CPF</label>
-                        <input type="text" name="cpfCli" id="cpf" >
+                        <input type="text" name="cpfCli" id="cpf" disabled>
 
                         <span id="idCli" hidden></span>
                     </div>
@@ -259,12 +259,12 @@
                                 
                                 <div class="form-group col-md-4">
                                     <label>
-                                        <input name="group1" type="radio" value="contaCorrente"/>
+                                        <input name="group1" type="radio" value="Conta Corrente"/>
                                         <span>Conta Corrente</span>
                                     </label>
 
                                     <label>
-                                        <input name="group1" type="radio" value="contaPoupanca"/>
+                                        <input name="group1" type="radio" value="Conta Poupanca"/>
                                         <span>Conta Poupança</span>
                                     </label>
                                     <span id="group1" hidden></span>
@@ -280,7 +280,7 @@
                                 <div class="form-group col-md-12">
                                     <div id="dados2" class="row">
                                         <div id="open" hidden>
-                                            <div class="form-group col-md-4">
+                                            <div class="form-group col-md-12">
                                                 <select name="pessoa" id="pessoa" class="form-control">
                                                     <option value="" selected disabled>Selecione o tipo de pessoa</option>
                                                     <option value="Pessoa Fisíca">Pessoa Fisíca</option>

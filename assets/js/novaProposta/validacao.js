@@ -116,7 +116,8 @@ $(document).ready(function(){
         var pessoa = $("#pessoa").val();
         var nomeTerceiro = $("#nomeTerceiro").val();
         var cpfTerceiro = $("#cpfTerceiro").val();
-        var group3 = $('input[name=group3]').prop("checked");
+        var group3 = $('input[name=group3]:checked').val();
+        console.log(group3);
         var razaoSocial = $("#razaoSocial").val();
         var cnpj = $("#cnpj").val();
         var vinculo = $("#vinculo").val();
@@ -154,7 +155,7 @@ $(document).ready(function(){
                         }else{
                             $("span[id=dataDeAbertura]").attr("hidden", true);
                             switch(group11){
-                                case "contaCorrente":
+                                case "Conta Corrente":
                                     $("span[id=group1]").attr("hidden", true);
                                 
                                     if ($("#liberacao").prop( "checked" )) {
@@ -176,12 +177,15 @@ $(document).ready(function(){
                                                         }else{
                                                             if (pessoa == "Pessoa Fisíca") {
                                                                 $("span[id=cpfTerceiro]").attr("hidden", true);
-                                                                if (group3 == false) {
+                                                                if (group3 == undefined) {
                                                                     $("span[id=group3]").text("Este campo é obrigatorio");
                                                                     $("span[id=group3]").attr("hidden", false);
                                                                 }else{
                                                                     $("span[id=group3]").attr("hidden", true);
                                                                     
+                                                                    $("#nome").attr("disabled", false);
+                                                                    $("#cpf").attr("disabled", false);
+
                                                                     $(".pessoaFisica").attr("disabled", false);
                                                                     $(".pessoaFisica").attr("disabled", false);
                                                                     $(".pessoaFisica").attr("disabled", false);
@@ -269,7 +273,7 @@ $(document).ready(function(){
                                         $("#progress-bar").text("4/4");
                                     }
                                     break;
-                                case "contaPoupanca":
+                                case "Conta Poupanca":
                                     $("span[id=group1]").attr("hidden", true);
                                 
                                     if ($("#liberacao").prop( "checked" )) {
@@ -291,12 +295,15 @@ $(document).ready(function(){
                                                         }else{
                                                             if (pessoa == "Pessoa Fisíca") {
                                                                 $("span[id=cpfTerceiro]").attr("hidden", true);
-                                                                if (group3 == false) {
+                                                                if (group3 == undefined) {
                                                                     $("span[id=group3]").text("Este campo é obrigatorio");
                                                                     $("span[id=group3]").attr("hidden", false);
                                                                 }else{
                                                                     $("span[id=group3]").attr("hidden", true);
                                                                     
+                                                                    $("#nome").attr("disabled", false);
+                                                                    $("#cpf").attr("disabled", false);
+
                                                                     $(".pessoaFisica").attr("disabled", false);
                                                                     $(".pessoaFisica").attr("disabled", false);
                                                                     $(".pessoaFisica").attr("disabled", false);
