@@ -6,7 +6,7 @@ if(ENVIRONMENT == 'development') {
 	define("BASE_URL", "http://localhost/sistema/");
 	define("PATH_FOTO", "../sistema/");
 	define("PATH_ARQUIVOS", "../sistema/");
-	$config['dbname'] = 'financeira';
+	$config['dbname'] = 'fin';
 	$config['host'] = 'localhost:3306';
 	$config['dbuser'] = 'root';
 	$config['dbpass'] = 'root';
